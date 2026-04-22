@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Palak Dal</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f2ee;
+    }
+
+    .container {
+      display: flex;
+      padding: 40px;
+      gap: 20px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 260px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .step {
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .step:hover {
+      background: #f1ece8;
+    }
+
+    .step.active {
+      background: #fdecea;
+      border-left: 5px solid #ff5a3c;
+    }
+
+    .step h4 {
+      margin: 0;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: #777;
+      margin: 5px 0 0;
+    }
+
+    /* CONTENT */
+    .content {
+      flex: 1;
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h2 {
+      margin: 0;
+      color: #7a2e1f;
+    }
+
+    .time-box {
+      background: #ffe5df;
+      padding: 8px 15px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    /* STEP ROW */
+    .step-row {
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .step-row strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .time {
+      float: right;
+      background: #f1e6e2;
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+    }
+
+    /* INGREDIENT GRID */
+    .ingredient-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+    }
+
+    .ingredient-row span:last-child {
+      color: #7a2e1f;
+      font-weight: 500;
+    }
+
+    .img-box img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .tip {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff4e5;
+      border-radius: 10px;
+    }
+
+    .step-content {
+      display: none;
+    }
+
+    .step-content.active {
+      display: block;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="step active" onclick="showStep(1)">
+      <h4>01 Cook the Dal</h4>
+      <p>Build base with dal & spinach</p>
+    </div>
+
+    <div class="step" onclick="showStep(2)">
+      <h4>02 Prepare the Tadka</h4>
+      <p>Bring out the aroma</p>
+    </div>
+
+    <div class="step" onclick="showStep(3)">
+      <h4>03 Combine & Simmer</h4>
+      <p>Mix everything</p>
+    </div>
+
+    <div class="step" onclick="showStep(4)">
+      <h4>04 Garnish & Serve</h4>
+      <p>Finish & enjoy</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- STEP 1 -->
+    <div class="step-content active">
+
+      <div class="header">
+        <h2>🍲 Cook the Dal</h2>
+        <div class="time-box">18–22 mins</div>
+      </div>
+
+      <!-- RINSE -->
+      <div class="step-row">
+        <strong>Rinse the dal</strong>
+        Rinse ½ cup toor dal 2–3 times until water runs clear.
+        <span class="time">1 min</span>
+      </div>
+
+      <!-- INGREDIENTS -->
+      <div class="step-row">
+        <strong>Add ingredients & pressure cook</strong>
+
+        <div class="ingredient-row">
+          <span>Tomatoes (chopped)</span>
+          <span>2</span>
+        </div>
+
+        <div class="ingredient-row">
+          <span>Spinach (chopped)</span>
+          <span>250 gms</span>
+        </div>
+
+        <div class="ingredient-row">
+          <span>Tamarind</span>
+          <span>Lemon-sized</span>
+        </div>
+
+        <div class="ingredient-row">
+          <span>Turmeric</span>
+          <span>½ tsp</span>
+        </div>
+
+        <div class="ingredient-row">
+          <span>Salt</span>
+          <span>½ tsp</span>
+        </div>
+
+        <div class="ingredient-row">
+          <span>Water</span>
+          <span>2 glasses</span>
+        </div>
+
+        <p style="margin-top:10px;">
+          Transfer everything to a pressure cooker. Close the lid and cook on medium-high flame for 4 whistles, then reduce to low flame and cook for 5 minutes.
+        </p>
+      </div>
+
+      <!-- RELEASE -->
+      <div class="step-row">
+        <strong>Natural release</strong>
+        Turn off the flame and let pressure release naturally.
+      </div>
+
+      <!-- FINAL -->
+      <div class="step-row">
+        <strong>Mash & check</strong>
+        Open and lightly mash. Dal should be soft and well cooked.
+      </div>
+
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1604908177522-432eb6b76d57">
+      </div>
+
+      <div class="tip">
+        💡 Add hot water if dal becomes too thick.
+      </div>
+
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-content">
+
+      <div class="header">
+        <h2>🔥 Prepare the Tadka</h2>
+        <div class="time-box">6–8 mins</div>
+      </div>
+
+      <div class="step-row">
+        <strong>Heat oil</strong>
+        Heat pan on high flame
+        <span class="time">20–30 sec</span>
+      </div>
+
+      <div class="step-row">
+        <strong>Add garlic</strong>
+        Sauté till golden
+        <span class="time">30–40 sec</span>
+      </div>
+
+      <div class="step-row">
+        <strong>Add onions</strong>
+        Cook till soft
+        <span class="time">2–3 min</span>
+      </div>
+
+      <div class="step-row">
+        <strong>Add cumin & mustard</strong>
+        Let crackle
+        <span class="time">20–30 sec</span>
+      </div>
+
+      <div class="step-row">
+        <strong>Add curry leaves & chilies</strong>
+        Fry till aromatic
+        <span class="time">1–2 min</span>
+      </div>
+
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1625944525903-bd0ecf93a3b5">
+      </div>
+
+      <div class="tip">
+        💡 Keep flame controlled to avoid burning garlic.
+      </div>
+
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-content">
+      <h2>🍲 Combine & Simmer</h2>
+      <p>Pour tadka into dal, mix well, and simmer for 5 minutes.</p>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-content">
+      <h2>🌿 Garnish & Serve</h2>
+      <p>Garnish with coriander and serve hot with rice or roti.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+
+  document.querySelectorAll('.step')[n-1].classList.add('active');
+  document.querySelectorAll('.step-content')[n-1].classList.add('active');
+}
+</script>
+
+</body>
+</html>
