@@ -1,271 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CookWithMunavi</title>
 
-<title>CookWithMunavi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f2ee;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
 
-<style>
+    .logo {
+      font-weight: bold;
+      color: #7a2e1f;
+      font-size: 20px;
+    }
 
-body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    background: #f9fafb;
-    color: #333;
-}
+    .nav-links span {
+      margin-left: 20px;
+      cursor: pointer;
+      color: #555;
+    }
 
-/* HERO */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 8%;
-    background: linear-gradient(135deg, #fff7ed, #fef3c7);
-    gap: 40px;
-}
+    .nav-links span:hover {
+      color: #7a2e1f;
+    }
 
-.hero-text {
-    max-width: 45%;
-}
-
-.hero-text h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-}
-
-.hero-text p {
-    font-size: 1.2rem;
-    color: #555;
-}
-
-.cta-btn {
-    margin-top: 20px;
-    padding: 14px 28px;
-    background: #22c55e;
-    color: white;
-    border: none;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* HERO IMAGE */
-.hero-image img {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-}
-
-/* SECTION TITLE */
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin: 40px 0 10px;
-    font-family: 'Poppins';
-}
-
-/* CATEGORIES */
-.categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    padding: 40px;
-}
-
-.card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 15px;
-}
-
-.card h3 {
-    color: #f97316;
-    margin: 0;
-}
-
-.badge {
-    background: #22c55e;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 0.9rem;
-}
-
-/* BEGINNER STRIP */
-.strip {
-    display: flex;
-    overflow-x: auto;
-    padding: 20px;
-    gap: 20px;
-}
-
-.strip-item {
-    min-width: 220px;
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-}
-
-/* FOOTER (FIXED THEME) */
-footer {
-    background: linear-gradient(135deg, #fff7ed, #fde68a);
-    color: #333;
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 2px solid #facc15;
-}
-
-footer h3 {
-    font-family: 'Poppins', sans-serif;
-    color: #ea580c;
-}
-
-footer p {
-    color: #555;
-}
-
-/* MOBILE */
-@media(max-width: 900px) {
+    /* HERO */
     .hero {
-        flex-direction: column;
-        text-align: center;
+      height: 85vh;
+      margin-top: 60px;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      text-align: center;
+      color: white;
     }
 
-    .hero-text {
-        max-width: 100%;
+    .hero h1 {
+      font-size: 48px;
     }
 
+    .hero p {
+      color: #eee;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      width: 60%;
+      max-width: 500px;
+      padding: 15px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+    }
+
+    /* SECTION */
+    .section {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .section h2 {
+      color: #7a2e1f;
+    }
+
+    /* CATEGORY */
     .categories {
-        grid-template-columns: 1fr;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px;
+      flex-wrap: wrap;
     }
-}
 
-</style>
+    .category {
+      padding: 15px 25px;
+      border-radius: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: scale(1.05);
+    }
+
+    .cat1 { background: #ffe5c2; }
+    .cat2 { background: #ffd6c2; }
+    .cat3 { background: #ffc2c2; }
+    .cat4 { background: #c2dfff; }
+
+    /* RECIPES */
+    .recipes {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 220px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    .card h3 {
+      margin: 10px;
+      color: #7a2e1f;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #7a2e1f;
+    }
+
+  </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">CookWithMunavi</div>
+  <div class="nav-links">
+    <span>Recipes</span>
+    <span>Techniques</span>
+    <span>Pantry</span>
+  </div>
+</div>
+
 <!-- HERO -->
-<section class="hero">
-    <div class="hero-text">
-        <h1>Easy Recipes for Absolute Beginners</h1>
-        <p>No experience? Follow simple steps and cook with confidence</p>
-        <button class="cta-btn">Start Cooking</button>
-    </div>
-
-    <div class="hero-image">
-        <img src="dal.jpg" alt="Dal Step Guide">
-    </div>
-</section>
-
-<!-- CATEGORIES -->
-<h2 class="section-title">Start with These Categories</h2>
-
-<section class="categories">
-
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1589308078056-fc7b96f1d2e6">
-    <div class="card-content">
-        <h3>Breakfast</h3>
-        <p>Dosa • Idli • Upma</p>
-        <span class="badge">5 Easy Steps</span>
-    </div>
+<div class="hero">
+  <h1>Fresh & Delicious Recipes</h1>
+  <p>Simple cooking for everyone — from beginner to pro</p>
+  <input class="search-box" placeholder="Search recipes..." />
 </div>
 
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
-    <div class="card-content">
-        <h3>Lunch</h3>
-        <p>Rice • Dal • Rasam</p>
-        <span class="badge">5 Easy Steps</span>
-    </div>
+<!-- CATEGORY -->
+<div class="section">
+  <h2>Explore by Category</h2>
+
+  <div class="categories">
+    <div class="category cat1">Breakfast</div>
+    <div class="category cat2">Lunch</div>
+    <div class="category cat3">Dinner</div>
+    <div class="category cat4">Snacks</div>
+  </div>
 </div>
 
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1625944236782-8c1b6dbe8fbb">
-    <div class="card-content">
-        <h3>Snacks</h3>
-        <p>Pakoda • Bajji</p>
-        <span class="badge">5 Easy Steps</span>
+<!-- RECIPES -->
+<div class="section">
+  <h2>Most Loved Recipes</h2>
+
+  <div class="recipes">
+
+    <!-- PALAK DAL -->
+    <div class="card" onclick="openRecipe()">
+      <img src="images/palak-dal.jpeg">
+      <h3>Palak Dal</h3>
     </div>
-</div>
 
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1604909052743-94e838986d24">
-    <div class="card-content">
-        <h3>Dinner</h3>
-        <p>Chapati • Curry</p>
-        <span class="badge">5 Easy Steps</span>
+    <!-- OTHER CARDS (placeholders) -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1589308078056-fc7b96f1d2">
+      <h3>Masala Dosa</h3>
     </div>
-</div>
 
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
-    <div class="card-content">
-        <h3>Drinks</h3>
-        <p>Fresh Juices</p>
-        <span class="badge">Easy</span>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398">
+      <h3>Veg Biryani</h3>
     </div>
-</div>
 
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1604908177522-429fa1b4d0d7">
-    <div class="card-content">
-        <h3>Special</h3>
-        <p>Veg Biryani</p>
-        <span class="badge">Popular</span>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604908177453-7462950a6a3b">
+      <h3>Snacks</h3>
     </div>
+
+  </div>
 </div>
-
-</section>
-
-<!-- BEGINNER STRIP -->
-<section class="strip">
-    <div class="strip-item">👩‍🍳 Step-by-Step Guides</div>
-    <div class="strip-item">🔥 Chef Tips</div>
-    <div class="strip-item">🏠 Beginner Friendly</div>
-    <div class="strip-item">🔊 Voice Support</div>
-</section>
 
 <!-- FOOTER -->
-<footer>
-    <h3>CookWithMunavi</h3>
-    <p>Simple South Indian cooking for beginners</p>
+<div class="footer">
+  © 2026 CookWithMunavi | Everyday Cooking Made Simple
+</div>
 
-    <div style="margin-top: 10px;">
-        <a href="#" style="margin: 0 10px; color:#ea580c;">Breakfast</a>
-        <a href="#" style="margin: 0 10px; color:#ea580c;">Lunch</a>
-        <a href="#" style="margin: 0 10px; color:#ea580c;">Snacks</a>
-    </div>
-
-    <p style="margin-top:15px; font-size: 0.9rem;">
-        © 2026 CookWithMunavi
-    </p>
-</footer>
+<script>
+function openRecipe() {
+  window.location.href = "recipes/palak-dal.html";
+}
+</script>
 
 </body>
 </html>
