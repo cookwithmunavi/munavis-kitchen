@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Palak Dal</title>
+  <title>Spinach Dal</title>
 
   <style>
     body {
@@ -10,29 +10,37 @@
       background: #f5f2ee;
     }
 
+    .hero-recipe {
+      height: 300px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url("../images/palak_dal_top.png");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
     .container {
       display: flex;
-      padding: 40px;
+      padding: 30px;
       gap: 20px;
     }
 
-    /* SIDEBAR */
     .sidebar {
-      width: 260px;
-      background: #fff;
+      width: 250px;
+      background: white;
       border-radius: 12px;
       padding: 20px;
     }
 
     .step {
-      padding: 15px;
-      border-radius: 10px;
+      padding: 14px;
       margin-bottom: 10px;
+      border-radius: 10px;
       cursor: pointer;
-    }
-
-    .step:hover {
-      background: #f1ece8;
     }
 
     .step.active {
@@ -40,20 +48,9 @@
       border-left: 5px solid #ff5a3c;
     }
 
-    .step h4 {
-      margin: 0;
-    }
-
-    .step p {
-      font-size: 13px;
-      color: #777;
-      margin: 5px 0 0;
-    }
-
-    /* CONTENT */
     .content {
       flex: 1;
-      background: #fff;
+      background: white;
       border-radius: 12px;
       padding: 25px;
     }
@@ -64,241 +61,252 @@
       align-items: center;
     }
 
-    .header h2 {
-      margin: 0;
-      color: #7a2e1f;
-    }
-
     .time-box {
       background: #ffe5df;
-      padding: 8px 15px;
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+
+    .step-image img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
       border-radius: 12px;
-      font-size: 14px;
+      margin: 15px 0;
     }
 
-    /* STEP ROW */
-    .step-row {
-      padding: 15px 0;
-      border-bottom: 1px solid #eee;
+    .mini-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 12px;
+      border-left: 4px solid #ff5a3c;
+      cursor: pointer;
+      position: relative;
     }
 
-    .step-row strong {
+    .mini-card::after {
+      content: "✔";
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      color: #20c997;
+      display: none;
+    }
+
+    .mini-card.completed {
+      background: #f1fdf7;
+      border-left-color: #20c997;
+    }
+
+    .mini-card.completed::after {
       display: block;
-      margin-bottom: 8px;
     }
 
     .time {
       float: right;
       background: #f1e6e2;
-      padding: 5px 10px;
-      border-radius: 10px;
+      padding: 3px 8px;
+      border-radius: 8px;
       font-size: 12px;
     }
 
-    /* INGREDIENT GRID */
-    .ingredient-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
+    .timer-box {
+      text-align: center;
+      margin: 15px 0;
     }
 
-    .ingredient-row span:last-child {
+    #timer {
+      font-size: 30px;
+      font-weight: bold;
       color: #7a2e1f;
-      font-weight: 500;
     }
 
-    .img-box img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
+    #timer-label {
+      font-size: 14px;
+      color: #777;
     }
 
-    .tip {
+    .tip-box {
       margin-top: 20px;
       padding: 15px;
-      background: #fff4e5;
+      border-left: 5px solid;
       border-radius: 10px;
     }
 
-    .step-content {
-      display: none;
-    }
+    .tip { background: #fff4e5; border-color: #ffa94d; }
+    .note { background: #e7f5ff; border-color: #339af0; }
+    .pro-tip { background: #e6fcf5; border-color: #20c997; }
 
-    .step-content.active {
-      display: block;
-    }
-
+    .step-content { display: none; }
+    .step-content.active { display: block; }
   </style>
 </head>
 
 <body>
 
+<div class="hero-recipe">
+  <div>
+    <h1>Spinach Dal</h1>
+    <p>A perfect balance of nutrition and comforting flavor.</p>
+  </div>
+</div>
+
 <div class="container">
 
-  <!-- SIDEBAR -->
   <div class="sidebar">
-    <div class="step active" onclick="showStep(1)">
-      <h4>01 Cook the Dal</h4>
-      <p>Build base with dal & spinach</p>
-    </div>
-
-    <div class="step" onclick="showStep(2)">
-      <h4>02 Prepare the Tadka</h4>
-      <p>Bring out the aroma</p>
-    </div>
-
-    <div class="step" onclick="showStep(3)">
-      <h4>03 Combine & Simmer</h4>
-      <p>Mix everything</p>
-    </div>
-
-    <div class="step" onclick="showStep(4)">
-      <h4>04 Garnish & Serve</h4>
-      <p>Finish & enjoy</p>
-    </div>
+    <div class="step active" onclick="showStep(1)">01 Cook the Dal</div>
+    <div class="step" onclick="showStep(2)">02 Prepare the Tadka</div>
+    <div class="step" onclick="showStep(3)">03 Combine & Simmer</div>
+    <div class="step" onclick="showStep(4)">04 Garnish & Serve</div>
   </div>
 
-  <!-- CONTENT -->
   <div class="content">
 
     <!-- STEP 1 -->
     <div class="step-content active">
-
       <div class="header">
-        <h2>🍲 Cook the Dal</h2>
-        <div class="time-box">18–22 mins</div>
+        <h2>Cook the Dal</h2>
+        <div class="time-box">20 mins</div>
       </div>
 
-      <!-- RINSE -->
-      <div class="step-row">
+      <div class="step-image">
+        <img src="../images/Cook_in_cooker.png">
+      </div>
+      
+      <div class="timer-box">
+        <span id="timer">00:00</span>
+        <p id="timer-label">Click a step to start</p>
+      </div>
+      
+      <div class="mini-card" data-time="60">
         <strong>Rinse the dal</strong>
-        Rinse ½ cup toor dal 2–3 times until water runs clear.
-        <span class="time">1 min</span>
+        <span class="time">1 min</span><br>
+        Rinse ½ cup toor dal until the water runs clear.
       </div>
 
-      <!-- INGREDIENTS -->
-      <div class="step-row">
-        <strong>Add ingredients & pressure cook</strong>
-
-        <div class="ingredient-row">
-          <span>Tomatoes (chopped)</span>
-          <span>2</span>
-        </div>
-
-        <div class="ingredient-row">
-          <span>Spinach (chopped)</span>
-          <span>250 gms</span>
-        </div>
-
-        <div class="ingredient-row">
-          <span>Tamarind</span>
-          <span>Lemon-sized</span>
-        </div>
-
-        <div class="ingredient-row">
-          <span>Turmeric</span>
-          <span>½ tsp</span>
-        </div>
-
-        <div class="ingredient-row">
-          <span>Salt</span>
-          <span>½ tsp</span>
-        </div>
-
-        <div class="ingredient-row">
-          <span>Water</span>
-          <span>2 glasses</span>
-        </div>
-
-        <p style="margin-top:10px;">
-          Transfer everything to a pressure cooker. Close the lid and cook on medium-high flame for 4 whistles, then reduce to low flame and cook for 5 minutes.
-        </p>
+      <div class="mini-card" data-time="120">
+        <strong>Add Ingredients</strong>
+        <span class="time">2 min</span><br>
+        Transfer dal to cooker and add tomatoes, spinach, tamarind, turmeric, salt, and water.
       </div>
 
-      <!-- RELEASE -->
-      <div class="step-row">
-        <strong>Natural release</strong>
-        Turn off the flame and let pressure release naturally.
+      <div class="mini-card" data-time="900">
+        <strong>Pressure Cook</strong>
+        <span class="time">12–15 min</span><br>
+        Cook for 4 whistles on high flame, then continue for 10 minutes.
       </div>
 
-      <!-- FINAL -->
-      <div class="step-row">
-        <strong>Mash & check</strong>
-        Open and lightly mash. Dal should be soft and well cooked.
+      <div class="mini-card" data-time="300">
+        <strong>Release Pressure</strong>
+        <span class="time">5 min</span><br>
+        Turn off the stove and allow pressure to release completely.
       </div>
 
-      <div class="img-box">
-        <img src="https://images.unsplash.com/photo-1604908177522-432eb6b76d57">
+      <div class="mini-card" data-time="120">
+        <strong>Check & Adjust</strong>
+        <span class="time">2 min</span><br>
+        Open cooker and check softness. If needed, cook again with more water.
       </div>
 
-      <div class="tip">
-        💡 Add hot water if dal becomes too thick.
+      <div class="tip-box tip">
+        💡 Add hot water to adjust consistency if the dal becomes too thick.
       </div>
-
     </div>
 
     <!-- STEP 2 -->
     <div class="step-content">
-
       <div class="header">
-        <h2>🔥 Prepare the Tadka</h2>
+        <h2>Prepare the Tadka</h2>
         <div class="time-box">6–8 mins</div>
       </div>
 
-      <div class="step-row">
-        <strong>Heat oil</strong>
-        Heat pan on high flame
-        <span class="time">20–30 sec</span>
+      <div class="step-image">
+        <img src="../images/Tadka.png">
       </div>
 
-      <div class="step-row">
+      <div class="timer-box">
+        <span id="timer">00:00</span>
+        <p id="timer-label">Click a step to start</p>
+      </div>
+
+      <div class="mini-card" data-time="30">
+        <strong>Heat the oil</strong>
+        <span class="time">30 sec</span><br>
+        Pour oil into a pan and heat it on medium flame.
+      </div>
+
+      <div class="mini-card" data-time="40">
         <strong>Add garlic</strong>
-        Sauté till golden
-        <span class="time">30–40 sec</span>
+        <span class="time">40 sec</span><br>
+        Add chopped garlic and sauté until aromatic.
       </div>
 
-      <div class="step-row">
+      <div class="mini-card" data-time="180">
         <strong>Add onions</strong>
-        Cook till soft
-        <span class="time">2–3 min</span>
+        <span class="time">2–3 min</span><br>
+        Cook until soft and slightly golden.
       </div>
 
-      <div class="step-row">
+      <div class="mini-card" data-time="30">
         <strong>Add cumin & mustard</strong>
-        Let crackle
-        <span class="time">20–30 sec</span>
+        <span class="time">30 sec</span><br>
+        Let them crackle.
       </div>
 
-      <div class="step-row">
+      <div class="mini-card" data-time="120">
         <strong>Add curry leaves & chilies</strong>
-        Fry till aromatic
-        <span class="time">1–2 min</span>
+        <span class="time">1–2 min</span><br>
+        Sauté until fragrant.
       </div>
 
-      <div class="img-box">
-        <img src="https://images.unsplash.com/photo-1625944525903-bd0ecf93a3b5">
+      <div class="tip-box note">
+        ⚠️ Do not burn garlic.
       </div>
-
-      <div class="tip">
-        💡 Keep flame controlled to avoid burning garlic.
-      </div>
-
     </div>
 
     <!-- STEP 3 -->
     <div class="step-content">
-      <h2>🍲 Combine & Simmer</h2>
-      <p>Pour tadka into dal, mix well, and simmer for 5 minutes.</p>
+      <div class="header"><h2>Combine & Simmer</h2></div>
+      <div class="step-image"><img src="../images/add_tadka_to_dal.png"></div>
+      <div class="timer-box">
+        <span id="timer">00:00</span>
+        <p id="timer-label">Click a step to start</p>
+      </div>
+      <div class="mini-card" data-time="60">
+        <strong>Add tadka to dal</strong>
+        <span class="time">1 min</span><br>
+        Pour the prepared tadka into the cooked dal and mix well.
+      </div>
+
+      <div class="mini-card" data-time="300">
+        <strong>Simmer</strong>
+        <span class="time">5 min</span><br>
+        Let the dal simmer on low flame to blend flavors.
+      </div>
+
+      <div class="tip-box pro-tip">
+        ⭐ Add ghee for rich taste.
+      </div>
     </div>
 
     <!-- STEP 4 -->
     <div class="step-content">
-      <h2>🌿 Garnish & Serve</h2>
-      <p>Garnish with coriander and serve hot with rice or roti.</p>
+      <div class="header"><h2>Garnish & Serve</h2></div>
+      <div class="step-image"><img src="../images/garnish_palak_dal.jpeg"></div>
+
+      <div class="mini-card">
+        <strong>Add coriander</strong><br>
+        Garnish with fresh coriander leaves.
+      </div>
+
+      <div class="mini-card">
+        <strong>Serve hot</strong><br>
+        Serve with rice or roti.
+      </div>
     </div>
 
   </div>
-
 </div>
 
 <script>
@@ -309,6 +317,49 @@ function showStep(n) {
   document.querySelectorAll('.step')[n-1].classList.add('active');
   document.querySelectorAll('.step-content')[n-1].classList.add('active');
 }
+
+/* SMART TIMER */
+let timerInterval = null;
+let remainingTime = 0;
+
+function startSmartTimer(seconds, label) {
+  clearInterval(timerInterval);
+  remainingTime = seconds;
+
+  document.getElementById("timer-label").innerText = label;
+
+  timerInterval = setInterval(() => {
+    if (remainingTime <= 0) {
+      clearInterval(timerInterval);
+      document.getElementById("timer-label").innerText = "Step completed!";
+      alert("Step completed!");
+      return;
+    }
+
+    let mins = Math.floor(remainingTime / 60);
+    let secs = remainingTime % 60;
+
+    document.getElementById("timer").innerText =
+      String(mins).padStart(2, '0') + ":" +
+      String(secs).padStart(2, '0');
+
+    remainingTime--;
+  }, 1000);
+}
+
+document.querySelectorAll('.mini-card').forEach(card => {
+  card.addEventListener('click', function () {
+
+    if (!this.closest('.step-content').classList.contains('active')) return;
+
+    this.classList.toggle('completed');
+
+    let time = this.getAttribute("data-time");
+    if (time) {
+      startSmartTimer(parseInt(time), this.querySelector("strong").innerText);
+    }
+  });
+});
 </script>
 
 </body>
