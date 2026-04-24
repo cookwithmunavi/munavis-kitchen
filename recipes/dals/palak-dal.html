@@ -1,543 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spinach Dal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palak Dal</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f2ee;
-      color: #2b2b2b;
-      line-height: 1.5;
-    }
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .hero-recipe {
-      min-height: 320px;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)),
-        url("../../images/palak_dal_top.png") center top / contain no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      color: white;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f2ee;
+  color: #2b2b2b;
+  line-height: 1.5;
+}
 
-    .hero-content {
-      max-width: 800px;
-      padding: 20px;
-    }
+/* HERO */
+.hero-recipe {
+  min-height: 320px;
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.45)),
+    url("../../images/palak_dal_top.png") center top / contain no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
 
-    .hero-recipe h1 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 800;
-      color: #f8fff4;
-      margin-bottom: 10px;
-      text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.55);
-      letter-spacing: 1px;
-      position: relative;
-      display: inline-block;
-    }
+.split-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+}
 
-    .hero-recipe h1::after {
-      content: "";
-      display: block;
-      width: 90px;
-      height: 4px;
-      background: linear-gradient(90deg, #7bb661, #e1c714);
-      margin: 12px auto 0;
-      border-radius: 999px;
-    }
+.green { color: #5aa85a; }
+.yellow { color: #e0c24a; }
 
-    .hero-recipe p {
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
-      font-style: italic;
-      color: #f5e7c6;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-      text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
-    }
+.split-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg,#5aa85a,#e0c24a);
+  margin: 10px auto;
+}
 
-    .container {
-      display: flex;
-      padding: 30px;
-      gap: 20px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+.hero-recipe p {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-style: italic;
+  color: #f5e7c6;
+}
 
-    .sidebar {
-      width: 250px;
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      height: fit-content;
-    }
+/* LAYOUT */
+.container {
+  display: flex;
+  padding: 30px;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
-    .step {
-      width: 100%;
-      text-align: left;
-      padding: 14px;
-      margin-bottom: 10px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.2s ease;
-      font-weight: 600;
-      color: #444;
-      background: #fff;
-    }
+.sidebar {
+  width: 250px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+}
 
-    .step:hover,
-    .step:focus {
-      background: #f8f2ef;
-      outline: 2px solid #ffb199;
-    }
+.step {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
 
-    .step.active {
-      background: #fdecea;
-      border-left: 5px solid #ff5a3c;
-      color: #b63b24;
-    }
+.step.active {
+  background: #fdecea;
+  border-left: 5px solid #ff5a3c;
+}
 
-    .content {
-      flex: 1;
-      background: white;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      min-width: 0;
-    }
+.content {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+}
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
+/* PROGRESS */
+.progress-box { margin-bottom: 15px; }
+.progress-text { font-size: 13px; color: #777; }
+.progress-bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 10px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#5aa85a,#e0c24a);
+  transition: 0.4s;
+}
 
-    .header h2 {
-      margin: 0;
-    }
+/* IMAGE */
+.step-image img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 12px;
+}
 
-    .time-box {
-      background: #ffe5df;
-      padding: 6px 12px;
-      border-radius: 10px;
-      font-weight: 600;
-      color: #a3422d;
-      white-space: nowrap;
-    }
+/* MINI CARDS */
+.mini-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-left: 4px solid #ff5a3c;
+  cursor: pointer;
+  position: relative;
+}
 
-    .step-image {
-      background: #fff;
-      border-radius: 12px;
-      padding: 10px;
-    }
+.mini-card.completed {
+  background: #f1fdf7;
+  border-left-color: #20c997;
+}
 
-    .step-image img {
-      width: 100%;
-      max-height: 260px;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 12px;
-      display: block;
-    }
+.mini-card::after {
+  content: "✔";
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #20c997;
+  display: none;
+}
 
-    .mini-card {
-      background: white;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 12px;
-      border-left: 4px solid #ff5a3c;
-      cursor: pointer;
-      position: relative;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-      transition: 0.2s ease;
-    }
+.mini-card.completed::after {
+  display: block;
+}
 
-    .mini-card:hover {
-      transform: translateY(-1px);
-    }
+.time {
+  float: right;
+  background: #f1e6e2;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
 
-    .mini-card::after {
-      content: "✔";
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      color: #20c997;
-      display: none;
-      font-weight: bold;
-    }
+/* TIMER */
+.timer-box {
+  text-align: center;
+  margin: 15px 0;
+  padding: 12px;
+  background: #fff8f5;
+  border-radius: 12px;
+}
 
-    .mini-card.completed {
-      background: #f1fdf7;
-      border-left-color: #20c997;
-    }
+.timer {
+  font-size: 28px;
+  font-weight: bold;
+}
 
-    .mini-card.completed::after {
-      display: block;
-    }
+.timer-label {
+  font-size: 14px;
+  color: #777;
+}
 
-    .time {
-      float: right;
-      background: #f1e6e2;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-size: 12px;
-      color: #6b4a43;
-    }
+/* NAV */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
-    .timer-box {
-      text-align: center;
-      margin: 15px 0;
-      padding: 12px;
-      background: #fff8f5;
-      border-radius: 12px;
-    }
+.step-nav button {
+  padding: 10px 15px;
+  border: none;
+  background: #ff5a3c;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    .timer {
-      font-size: 30px;
-      font-weight: bold;
-      color: #7a2e1f;
-      display: block;
-    }
+/* HIDE */
+.step-content { display: none; }
+.step-content.active { display: block; }
 
-    .timer-label {
-      font-size: 14px;
-      color: #777;
-      margin-top: 6px;
-    }
-
-    .tip-box {
-      margin-top: 20px;
-      padding: 15px;
-      border-left: 5px solid;
-      border-radius: 10px;
-      font-size: 0.98rem;
-    }
-
-    .tip { background: #fff4e5; border-color: #ffa94d; }
-    .note { background: #e7f5ff; border-color: #339af0; }
-    .pro-tip { background: #e6fcf5; border-color: #20c997; }
-
-    .step-content {
-      display: none;
-    }
-
-    .step-content.active {
-      display: block;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .sidebar {
-        width: 100%;
-        display: flex;
-        gap: 10px;
-        overflow-x: auto;
-        padding: 15px;
-      }
-
-      .step {
-        white-space: nowrap;
-        margin-bottom: 0;
-        flex: 0 0 auto;
-      }
-
-      .content {
-        padding: 20px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-recipe {
-        min-height: 240px;
-        padding: 16px;
-      }
-
-      .hero-content {
-        padding: 10px;
-      }
-
-      .hero-recipe h1 {
-        font-size: 2rem;
-      }
-
-      .hero-recipe p {
-        font-size: 0.95rem;
-      }
-
-      .container {
-        padding: 12px;
-      }
-
-      .content {
-        padding: 16px;
-      }
-
-      .step-image img {
-        max-height: 200px;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .timer {
-        font-size: 24px;
-      }
-    }
-  </style>
+/* MOBILE */
+@media (max-width: 900px) {
+  .container { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="hero-recipe">
-    <div class="hero-content">
-      <h1>Spinach Dal</h1>
-      <p>A perfect balance of nutrition and comforting flavor.</p>
-    </div>
+<!-- HERO -->
+<div class="hero-recipe">
+  <div>
+    <h1 class="split-title">
+      <span class="green">Palak</span>
+      <span class="yellow"> Dal</span>
+    </h1>
+    <p>A perfect balance of nutrition and comforting flavor.</p>
   </div>
+</div>
 
-  <div class="container">
-    <div class="sidebar">
-      <button class="step active" type="button" onclick="showStep(1)">01 Cook the Dal</button>
-      <button class="step" type="button" onclick="showStep(2)">02 Prepare the Tadka</button>
-      <button class="step" type="button" onclick="showStep(3)">03 Combine & Simmer</button>
-      <button class="step" type="button" onclick="showStep(4)">04 Garnish & Serve</button>
-    </div>
+<div class="container">
 
-    <div class="content">
-      <!-- STEP 1 -->
-      <div class="step-content active">
-        <div class="header">
-          <h2>Cook the Dal</h2>
-          <div class="time-box">20 mins</div>
-        </div>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <button class="step active" onclick="showStep(1)">01 Cook the Dal</button>
+  <button class="step" onclick="showStep(2)">02 Prepare the Tadka</button>
+  <button class="step" onclick="showStep(3)">03 Combine & Simmer</button>
+  <button class="step" onclick="showStep(4)">04 Garnish & Serve</button>
+</div>
 
-        <div class="step-image">
-          <img src="../../images/cook_in_cooker.png" alt="Cooking dal in cooker">
-        </div>
+<div class="content">
 
-        <div class="timer-box">
-          <span class="timer">00:00</span>
-          <p class="timer-label">Click a step to start</p>
-        </div>
+<!-- STEP 1 -->
+<div class="step-content active">
+<div class="progress-box">
+  <span class="progress-text"></span>
+  <div class="progress-bar"><div class="progress-fill"></div></div>
+</div>
 
-        <div class="mini-card" data-time="60">
-          <strong>Rinse the dal</strong>
-          <span class="time">1 min</span><br>
-          Rinse ½ cup toor dal until the water runs clear.
-        </div>
+<div class="step-image">
+<img src="../../images/cook_in_cooker.png">
+</div>
 
-        <div class="mini-card" data-time="120">
-          <strong>Add Ingredients</strong>
-          <span class="time">2 min</span><br>
-          Transfer dal to cooker and add tomatoes, spinach, tamarind, turmeric, salt, and water.
-        </div>
+<div class="timer-box">
+<span class="timer">00:00</span>
+<p class="timer-label">Click a step to start</p>
+</div>
 
-        <div class="mini-card" data-time="900">
-          <strong>Pressure Cook</strong>
-          <span class="time">12–15 min</span><br>
-          Cook for 4 whistles on high flame, then continue for 10 minutes.
-        </div>
+<div class="mini-card" data-time="60">
+<strong>Rinse the dal</strong>
+<span class="time">1 min</span><br>
+Rinse ½ cup toor dal until the water runs clear.
+</div>
 
-        <div class="mini-card" data-time="300">
-          <strong>Release Pressure</strong>
-          <span class="time">5 min</span><br>
-          Turn off the stove and allow pressure to release completely.
-        </div>
+<div class="mini-card" data-time="120">
+<strong>Add Ingredients</strong>
+<span class="time">2 min</span><br>
+Transfer dal to cooker and add tomatoes, palak, tamarind, turmeric, salt, and water.
+</div>
 
-        <div class="mini-card" data-time="120">
-          <strong>Check & Adjust</strong>
-          <span class="time">2 min</span><br>
-          Open cooker and check softness. If needed, cook again with more water.
-        </div>
+<div class="mini-card" data-time="900">
+<strong>Pressure Cook</strong>
+<span class="time">12–15 min</span><br>
+Cook for 4 whistles on high flame, then continue for 10 minutes.
+</div>
 
-        <div class="tip-box tip">
-          💡 Add hot water to adjust consistency if the dal becomes too thick.
-        </div>
-      </div>
+<div class="mini-card" data-time="300">
+<strong>Release Pressure</strong>
+<span class="time">5 min</span><br>
+Turn off the stove and allow pressure to release completely.
+</div>
 
-      <!-- STEP 2 -->
-      <div class="step-content">
-        <div class="header">
-          <h2>Prepare the Tadka</h2>
-          <div class="time-box">6–8 mins</div>
-        </div>
+<div class="mini-card" data-time="120">
+<strong>Check & Adjust</strong>
+<span class="time">2 min</span><br>
+Open cooker and check softness. If needed, cook again with more water.
+</div>
 
-        <div class="step-image">
-          <img src="../../images/tadka.png" alt="Preparing tadka">
-        </div>
+<div class="step-nav">
+<button onclick="prevStep()">⬅ Prev</button>
+<button onclick="nextStep()">Next ➡</button>
+</div>
+</div>
 
-        <div class="timer-box">
-          <span class="timer">00:00</span>
-          <p class="timer-label">Click a step to start</p>
-        </div>
+<!-- STEP 2 -->
+<div class="step-content">
+<div class="progress-box">
+<span class="progress-text"></span>
+<div class="progress-bar"><div class="progress-fill"></div></div>
+</div>
 
-        <div class="mini-card" data-time="30">
-          <strong>Heat the oil</strong>
-          <span class="time">30 sec</span><br>
-          Pour oil into a pan and heat it on medium flame.
-        </div>
+<div class="step-image">
+<img src="../../images/tadka.png">
+</div>
 
-        <div class="mini-card" data-time="40">
-          <strong>Add garlic</strong>
-          <span class="time">40 sec</span><br>
-          Add chopped garlic and sauté until aromatic.
-        </div>
+<div class="timer-box">
+<span class="timer">00:00</span>
+<p class="timer-label">Click a step to start</p>
+</div>
 
-        <div class="mini-card" data-time="180">
-          <strong>Add onions</strong>
-          <span class="time">2–3 min</span><br>
-          Cook until soft and slightly golden.
-        </div>
+<div class="mini-card" data-time="30">
+<strong>Heat the oil</strong>
+<span class="time">30 sec</span><br>
+Pour oil into a pan and heat it on medium flame.
+</div>
 
-        <div class="mini-card" data-time="30">
-          <strong>Add cumin & mustard</strong>
-          <span class="time">30 sec</span><br>
-          Let them crackle.
-        </div>
+<div class="mini-card" data-time="40">
+<strong>Add garlic</strong>
+<span class="time">40 sec</span><br>
+Add chopped garlic and sauté until aromatic.
+</div>
 
-        <div class="mini-card" data-time="120">
-          <strong>Add curry leaves & chilies</strong>
-          <span class="time">1–2 min</span><br>
-          Sauté until fragrant.
-        </div>
+<div class="mini-card" data-time="180">
+<strong>Add onions</strong>
+<span class="time">2–3 min</span><br>
+Cook until soft and slightly golden.
+</div>
 
-        <div class="tip-box note">
-          ⚠️ Do not burn garlic.
-        </div>
-      </div>
+<div class="mini-card" data-time="30">
+<strong>Add cumin & mustard</strong>
+<span class="time">30 sec</span><br>
+Let them crackle.
+</div>
 
-      <!-- STEP 3 -->
-      <div class="step-content">
-        <div class="header">
-          <h2>Combine & Simmer</h2>
-        </div>
+<div class="mini-card" data-time="120">
+<strong>Add curry leaves & chilies</strong>
+<span class="time">1–2 min</span><br>
+Sauté until fragrant.
+</div>
 
-        <div class="step-image">
-          <img src="../../images/add_tadka_to_dal.png" alt="Adding tadka to dal">
-        </div>
+<div class="step-nav">
+<button onclick="prevStep()">⬅ Prev</button>
+<button onclick="nextStep()">Next ➡</button>
+</div>
+</div>
 
-        <div class="timer-box">
-          <span class="timer">00:00</span>
-          <p class="timer-label">Click a step to start</p>
-        </div>
+<!-- STEP 3 -->
+<div class="step-content">
+<div class="progress-box">
+<span class="progress-text"></span>
+<div class="progress-bar"><div class="progress-fill"></div></div>
+</div>
 
-        <div class="mini-card" data-time="60">
-          <strong>Add tadka to dal</strong>
-          <span class="time">1 min</span><br>
-          Pour the prepared tadka into the cooked dal and mix well.
-        </div>
+<div class="step-image">
+<img src="../../images/add_tadka_to_dal.png">
+</div>
 
-        <div class="mini-card" data-time="300">
-          <strong>Simmer</strong>
-          <span class="time">5 min</span><br>
-          Let the dal simmer on low flame to blend flavors.
-        </div>
+<div class="timer-box">
+<span class="timer">00:00</span>
+<p class="timer-label">Click a step to start</p>
+</div>
 
-        <div class="tip-box pro-tip">
-          ⭐ Add ghee for rich taste.
-        </div>
-      </div>
+<div class="mini-card" data-time="60">
+<strong>Add tadka to dal</strong>
+<span class="time">1 min</span><br>
+Pour the prepared tadka into the cooked dal and mix well.
+</div>
 
-      <!-- STEP 4 -->
-      <div class="step-content">
-        <div class="header">
-          <h2>Garnish & Serve</h2>
-        </div>
+<div class="mini-card" data-time="300">
+<strong>Simmer</strong>
+<span class="time">5 min</span><br>
+Let the dal simmer on low flame to blend flavors.
+</div>
 
-        <div class="step-image">
-          <img src="../../images/garnish_palak_dal.png" alt="Garnished spinach dal">
-        </div>
+<div class="step-nav">
+<button onclick="prevStep()">⬅ Prev</button>
+<button onclick="nextStep()">Next ➡</button>
+</div>
+</div>
 
-        <div class="mini-card">
-          <strong>Add coriander</strong><br>
-          Garnish with fresh coriander leaves.
-        </div>
+<!-- STEP 4 -->
+<div class="step-content">
+<div class="progress-box">
+<span class="progress-text"></span>
+<div class="progress-bar"><div class="progress-fill"></div></div>
+</div>
 
-        <div class="mini-card">
-          <strong>Serve hot</strong><br>
-          Serve with rice or roti.
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="step-image">
+<img src="../../images/garnish_palak_dal.png">
+</div>
 
-  <script>
-    function showStep(n) {
-      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.step')[n - 1].classList.add('active');
-      document.querySelectorAll('.step-content')[n - 1].classList.add('active');
-    }
+<div class="mini-card">
+<strong>Add coriander</strong><br>
+Garnish with fresh coriander leaves.
+</div>
 
-    let timerInterval = null;
-    let remainingTime = 0;
+<div class="mini-card">
+<strong>Serve hot</strong><br>
+Serve with rice or roti.
+</div>
 
-    function startSmartTimer(seconds, label) {
-      clearInterval(timerInterval);
-      remainingTime = seconds;
+<div class="step-nav">
+<button onclick="prevStep()">⬅ Prev</button>
+<button onclick="nextStep()">Next ➡</button>
+</div>
+</div>
 
-      const activeStep = document.querySelector('.step-content.active');
-      const timerEl = activeStep.querySelector('.timer');
-      const labelEl = activeStep.querySelector('.timer-label');
+</div>
+</div>
 
-      labelEl.innerText = label;
+<script>
+let currentStep = 1;
+const totalSteps = 4;
+let timerInterval;
 
-      timerInterval = setInterval(() => {
-        if (remainingTime <= 0) {
-          clearInterval(timerInterval);
-          labelEl.innerText = "Step completed!";
-          timerEl.innerText = "00:00";
-          alert("Step completed!");
-          return;
-        }
+function showStep(n){
+  currentStep = n;
 
-        let mins = Math.floor(remainingTime / 60);
-        let secs = remainingTime % 60;
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.step-content').forEach(s=>s.classList.remove('active'));
 
-        timerEl.innerText =
-          String(mins).padStart(2, '0') + ":" +
-          String(secs).padStart(2, '0');
+  document.querySelectorAll('.step')[n-1].classList.add('active');
+  document.querySelectorAll('.step-content')[n-1].classList.add('active');
 
-        remainingTime--;
-      }, 1000);
-    }
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-    document.querySelectorAll('.mini-card').forEach(card => {
-      card.addEventListener('click', function () {
-        if (!this.closest('.step-content').classList.contains('active')) return;
-        this.classList.toggle('completed');
+function nextStep(){ if(currentStep<totalSteps) showStep(currentStep+1); }
+function prevStep(){ if(currentStep>1) showStep(currentStep-1); }
 
-        let time = this.getAttribute("data-time");
-        if (time) {
-          startSmartTimer(parseInt(time), this.querySelector("strong").innerText);
-        }
-      });
-    });
-  </script>
+function updateProgress(){
+  const percent=(currentStep/totalSteps)*100;
+  const active=document.querySelector('.step-content.active');
+
+  active.querySelector('.progress-fill').style.width=percent+"%";
+  active.querySelector('.progress-text').innerText=`Step ${currentStep} of ${totalSteps}`;
+}
+
+document.querySelectorAll('.mini-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    if (!card.closest('.step-content').classList.contains('active')) return;
+
+    card.classList.toggle('completed');
+
+    clearInterval(timerInterval);
+    let time=card.getAttribute("data-time");
+    if(!time) return;
+
+    let remaining=time;
+    const active=document.querySelector('.step-content.active');
+    const timer=active.querySelector('.timer');
+    const label=active.querySelector('.timer-label');
+
+    label.innerText = card.querySelector("strong").innerText;
+
+    timerInterval=setInterval(()=>{
+      let m=Math.floor(remaining/60);
+      let s=remaining%60;
+      timer.innerText=`${m}:${s.toString().padStart(2,'0')}`;
+      if(remaining--<=0){
+        clearInterval(timerInterval);
+        label.innerText="Step completed!";
+      }
+    },1000);
+  });
+});
+
+updateProgress();
+</script>
 
 </body>
 </html>
