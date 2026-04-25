@@ -8,7 +8,8 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #FFF8E1;
+      background: #1a120d;
+      color: #eee;
     }
 
     /* NAVBAR */
@@ -16,13 +17,13 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: #6D4C41;
+      background: #1a120d;
       padding: 12px 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255, 200, 120, 0.2);
     }
 
     .logo {
@@ -32,53 +33,49 @@
     }
 
     .logo span {
-      color: #FFB74D;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 14px;
+      color: #f5a623;
     }
 
     .nav-links a {
+      margin-left: 15px;
       text-decoration: none;
-      color: #FFCC80;
+      color: #d4a373;
+      font-size: 14px;
     }
 
-    /* HERO IMAGE ONLY */
+    .nav-links a:hover {
+      color: #f5a623;
+    }
+
+    /* HERO */
     .hero {
-      margin-top: 70px;
-    }
-
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* INTRO TEXT BELOW IMAGE */
-    .intro {
+      margin-top: 60px;
+      height: 70vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.6)),
+        url("images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       padding: 20px;
     }
 
-    .intro h1 {
-      font-size: 24px;
-      color: #5D4037;
+    .hero-content h1 {
+      font-size: 32px;
+      color: white;
       margin-bottom: 10px;
     }
 
-    .intro p {
-      color: #6D4C41;
-      font-size: 14px;
-      margin-bottom: 15px;
+    .hero-content p {
+      color: #d4a373;
+      font-size: 16px;
+      margin-bottom: 20px;
     }
 
     .explore-btn {
-      background: #FFB74D;
-      color: #3E2723;
+      background: linear-gradient(90deg,#f5a623,#ffcc80);
+      color: #1a120d;
       padding: 10px 20px;
       border-radius: 25px;
       text-decoration: none;
@@ -93,7 +90,7 @@
     }
 
     .section h2 {
-      color: #5D4037;
+      color: #f5a623;
     }
 
     /* RECIPES */
@@ -108,11 +105,17 @@
     .card {
       width: 95%;
       max-width: 320px;
-      background: white;
+      background: #2b1a14;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
     }
 
     .card img {
@@ -123,7 +126,7 @@
 
     .card h3 {
       margin: 10px;
-      color: #5D4037;
+      color: #fff;
     }
 
     /* FOOTER */
@@ -131,7 +134,7 @@
       text-align: center;
       padding: 20px;
       margin-top: 30px;
-      color: #5D4037;
+      color: #aaa;
     }
 
     /* DESKTOP */
@@ -146,12 +149,12 @@
         width: 220px;
       }
 
-      .intro h1 {
-        font-size: 36px;
+      .hero-content h1 {
+        font-size: 48px;
       }
 
-      .intro p {
-        font-size: 16px;
+      .hero-content p {
+        font-size: 18px;
       }
     }
 
@@ -166,23 +169,20 @@
     🍲 CookWith<span>Munavi</span>
   </div>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="#">Recipes</a>
+    <a href="#">Home</a>
+    <a href="#recipes">Recipes</a>
     <a href="#">Categories</a>
     <a href="#">About</a>
   </div>
 </div>
 
-<!-- HERO IMAGE ONLY -->
+<!-- HERO -->
 <div class="hero">
-  <img src="images/file_000000001274724382bf6cb4f9484d1c.png" alt="Food Banner">
-</div>
-
-<!-- INTRO BELOW IMAGE -->
-<div class="intro">
-  <h1>Simple Recipes, Made with Love</h1>
-  <p>Easy, tasty and homemade recipes for every home cook</p>
-  <a href="#recipes" class="explore-btn">Explore Recipes →</a>
+  <div class="hero-content">
+    <h1># Simple Recipes, Made with Love</h1>
+    <p>Easy, tasty and homemade recipes for every home cook</p>
+    <a href="#recipes" class="explore-btn">Explore Recipes →</a>
+  </div>
 </div>
 
 <!-- RECIPES -->
@@ -216,7 +216,7 @@
 
 <!-- FOOTER -->
 <div class="footer">
-  © 2026 CookWithMunavi
+  © 2026 CookWithMunavi | Crafted with ❤️
 </div>
 
 <script>
