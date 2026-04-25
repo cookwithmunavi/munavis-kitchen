@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>CookWithMunavi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f5f2ee;
+      background: #FFF8E1;
     }
 
     /* NAVBAR */
@@ -15,93 +16,106 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: white;
-      padding: 15px 40px;
+      background: rgba(109, 76, 65, 0.95);
+      backdrop-filter: blur(6px);
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       z-index: 1000;
     }
 
     .logo {
       font-size: 22px;
-      font-weight: 700;
-      color: #7a2e1f;
-      letter-spacing: 1px;
+      font-weight: bold;
+      color: white;
     }
-    
+
     .logo span {
-      color: #ff5a3c;
+      color: #FFB74D;
     }
 
-    .nav-links span {
+    .nav-links a {
       margin-left: 20px;
-      cursor: pointer;
-      color: #555;
+      text-decoration: none;
+      color: #FFCC80;
+      font-weight: 500;
     }
 
-    .nav-links span:hover {
-      color: #7a2e1f;
+    .nav-links a:hover {
+      color: white;
     }
 
     /* HERO */
     .hero {
-      height: 85vh;
+      height: 95vh;
       margin-top: 60px;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("images/file_000000001274724382bf6cb4f9484d1c.png"); /* your image */
       background-size: cover;
       background-position: center;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
       text-align: center;
       color: white;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      padding: 20px;
+    }
+
+    .hero-content {
+      max-width: 600px;
     }
 
     .hero h1 {
-      font-size: 48px;
+      font-size: 44px;
+      margin-bottom: 10px;
     }
 
     .hero p {
+      font-size: 16px;
       color: #eee;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
-    .search-box {
-      width: 60%;
-      max-width: 500px;
-      padding: 15px;
-      border-radius: 30px;
-      border: none;
-      outline: none;
+    .explore-btn {
+      background: #FFB74D;
+      color: #3E2723;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .explore-btn:hover {
+      background: #F57C00;
+      color: white;
     }
 
     /* SECTION */
     .section {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 40px;
+      padding: 0 10px;
     }
 
     .section h2 {
-      color: #7a2e1f;
+      color: #5D4037;
     }
 
     /* CATEGORY */
     .categories {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       margin: 20px;
       flex-wrap: wrap;
     }
 
     .category {
-      padding: 15px 25px;
+      padding: 12px 20px;
       border-radius: 20px;
       font-weight: 500;
       cursor: pointer;
@@ -112,16 +126,16 @@
       transform: scale(1.05);
     }
 
-    .cat1 { background: #ffe5c2; }
-    .cat2 { background: #ffd6c2; }
-    .cat3 { background: #ffc2c2; }
-    .cat4 { background: #c2dfff; }
+    .cat1 { background: #FFE0B2; }
+    .cat2 { background: #FFCCBC; }
+    .cat3 { background: #FFCDD2; }
+    .cat4 { background: #BBDEFB; }
 
     /* RECIPES */
     .recipes {
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 20px;
       padding: 20px;
       flex-wrap: wrap;
     }
@@ -129,27 +143,26 @@
     .card {
       width: 220px;
       background: white;
-      border-radius: 20px;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
     }
 
     .card img {
       width: 100%;
-      height: 160px;
+      height: 150px;
       object-fit: cover;
-      border-bottom: 1px solid #eee;
     }
 
     .card h3 {
       margin: 10px;
-      color: #7a2e1f;
+      color: #5D4037;
     }
 
     /* FOOTER */
@@ -157,9 +170,23 @@
       text-align: center;
       padding: 20px;
       margin-top: 40px;
-      color: #7a2e1f;
+      color: #5D4037;
     }
 
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
   </style>
 </head>
 
@@ -168,20 +195,23 @@
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">
-    CookWith<span>Munavi</span>
+    🍲 CookWith<span>Munavi</span>
   </div>
   <div class="nav-links">
-    <span>Recipes</span>
-    <span>Techniques</span>
-    <span>Pantry</span>
+    <a href="index.html">Home</a>
+    <a href="#">Recipes</a>
+    <a href="#">Categories</a>
+    <a href="#">About</a>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Fresh & Delicious Recipes</h1>
-  <p>Simple cooking for everyone — from beginner to pro</p>
-  <input class="search-box" placeholder="Search recipes..." />
+  <div class="hero-content">
+    <h1>Simple Recipes, Made with Love</h1>
+    <p>Easy, tasty and homemade recipes for every home cook</p>
+    <a href="#recipes" class="explore-btn">Explore Recipes →</a>
+  </div>
 </div>
 
 <!-- CATEGORY -->
@@ -197,7 +227,7 @@
 </div>
 
 <!-- RECIPES -->
-<div class="section">
+<div class="section" id="recipes">
   <h2>Most Loved Recipes</h2>
 
   <div class="recipes">
@@ -208,7 +238,6 @@
       <h3>Palak Dal</h3>
     </div>
 
-    <!-- OTHER CARDS (placeholders) -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1589308078056-fc7b96f1d2">
       <h3>Masala Dosa</h3>
@@ -216,12 +245,12 @@
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398">
-      <h3>Veg Biryani</h3>
+      <h3>Chicken Biryani</h3>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1604908177453-7462950a6a3b">
-      <h3>Snacks</h3>
+      <h3>Medu Vada</h3>
     </div>
 
   </div>
