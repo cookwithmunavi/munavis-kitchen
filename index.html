@@ -1,208 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CookWithMunavi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CookWithMunavi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15,15,15,0.95);
+      padding: 12px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
 
-<style>
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    .logo .white { color: white; }
+    .logo .gold { color: #f4a825; }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f5f2ee;
-}
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      font-size: 14px;
+    }
 
-/* ================= NAVBAR ================= */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 14px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(25, 15, 10, 0.85);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-}
+    .nav-links a {
+      text-decoration: none;
+      color: #ddd;
+    }
 
-/* BRAND */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 22px;
-  font-weight: 600;
-  color: white;
-}
+    .nav-links a:hover {
+      color: #f4a825;
+    }
 
-.logo span {
-  color: #f5a623;
-  font-weight: 700;
-}
+    /* HERO */
+    .hero {
+      margin-top: 60px;
+      position: relative;
+    }
 
-/* NAV LINKS */
-.nav-links {
-  display: flex;
-  gap: 25px;
-}
+    .hero img {
+      width: 100%;
+      height: 85vh;
+      object-fit: cover;
+    }
 
-.nav-links a {
-  text-decoration: none;
-  color: #ddd;
-  font-weight: 500;
-  transition: 0.3s;
-}
+    /* HERO TEXT */
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 15px;
+      width: 90%;
+    }
 
-.nav-links a:hover {
-  color: #f5a623;
-}
+    .hero-text h1 {
+      font-size: clamp(26px, 6vw, 48px);
+      margin-bottom: 10px;
+    }
 
-/* ================= HERO ================= */
-.hero {
-  margin-top: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+    .hero-text p {
+      font-size: clamp(14px, 3vw, 18px);
+      margin-bottom: 20px;
+      color: #eee;
+    }
 
-/* FULL IMAGE (NO CROP) */
-.hero img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    .explore-btn {
+      background: #f4a825;
+      color: black;
+      padding: 12px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
 
-/* TEXT OVER IMAGE */
-.hero-content {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  padding: 0 20px;
-}
+    /* SECTION */
+    .section {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px 10px;
+    }
 
-.hero-content h1 {
-  font-size: 42px;
-  font-weight: 700;
-}
+    .section h2 {
+      color: #f4a825;
+      margin-bottom: 20px;
+    }
 
-.hero-content p {
-  margin: 15px 0;
-  font-size: 16px;
-  color: #eee;
-}
+    /* RECIPES */
+    .recipes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      padding: 10px;
+    }
 
-/* BUTTON */
-.hero-btn {
-  display: inline-block;
-  padding: 14px 28px;
-  background: #f5a623;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 10px;
-  transition: 0.3s;
-}
+    .card {
+      width: 95%;
+      max-width: 320px;
+      background: #1c1c1c;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid #333;
+    }
 
-.hero-btn:hover {
-  background: #e6951c;
-}
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
 
-/* ================= SECTION ================= */
-.section {
-  text-align: center;
-  margin-top: 40px;
-}
+    .card h3 {
+      margin: 10px;
+      color: #f4a825;
+    }
 
-.section h2 {
-  color: #7a2e1f;
-}
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      color: #aaa;
+    }
 
-/* ================= RECIPES ================= */
-.recipes {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  flex-wrap: wrap;
-}
+    /* DESKTOP */
+    @media (min-width: 768px) {
+      .recipes {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-.card {
-  width: 220px;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
+      .card {
+        width: 220px;
+      }
+    }
 
-.card:hover {
-  transform: translateY(-6px);
-}
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-.card h3 {
-  margin: 10px;
-  color: #7a2e1f;
-}
-
-/* ================= FOOTER ================= */
-.footer {
-  text-align: center;
-  padding: 20px;
-  color: #7a2e1f;
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-
-  .logo {
-    font-size: 18px;
-  }
-
-  .nav-links {
-    gap: 12px;
-    font-size: 14px;
-  }
-
-  .hero-content h1 {
-    font-size: 26px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-  }
-
-  .hero-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .card {
-    width: 90%;
-  }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -210,12 +163,13 @@ body {
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">
-    CookWith<span>Munavi</span>
+    <span class="white">CookWith</span>
+    <span class="gold">Munavi</span>
   </div>
 
   <div class="nav-links">
     <a href="#">Home</a>
-    <a href="#">Recipes</a>
+    <a href="#recipes">Recipes</a>
     <a href="#">Categories</a>
     <a href="#">About</a>
   </div>
@@ -223,26 +177,22 @@ body {
 
 <!-- HERO -->
 <div class="hero">
+  <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png">
 
-  <!-- YOUR IMAGE -->
-  <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Food Banner">
-
-  <!-- TEXT -->
-  <div class="hero-content">
+  <div class="hero-text">
     <h1>Simple Recipes, Made with Love</h1>
     <p>Easy, tasty and homemade recipes for every home cook</p>
-    <a href="#" class="hero-btn">Explore Recipes →</a>
+    <a href="#recipes" class="explore-btn">Explore Recipes →</a>
   </div>
-
 </div>
 
 <!-- RECIPES -->
-<div class="section">
+<div class="section" id="recipes">
   <h2>Most Loved Recipes</h2>
 
   <div class="recipes">
 
-    <div class="card">
+    <div class="card" onclick="openRecipe()">
       <img src="images/palak-dal.jpeg">
       <h3>Palak Dal</h3>
     </div>
@@ -267,8 +217,14 @@ body {
 
 <!-- FOOTER -->
 <div class="footer">
-  © 2026 CookWithMunavi | Everyday Cooking Made Simple
+  © 2026 CookWithMunavi
 </div>
 
+<script>
+function openRecipe() {
+  window.location.href = "recipes/dals/palak-dal.html";
+}
+</script>
+
 </body>
-  </html>
+</html>
