@@ -14,7 +14,6 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #f5f2ee;
   color: #2b2b2b;
-  line-height: 1.5;
 }
 
 /* HERO */
@@ -23,190 +22,132 @@ body {
   background:
     linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.45)),
     url("../../images/palak_dal_top.png") center top / contain no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  color: white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
 }
 
 .split-title {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
+  font-size: clamp(2rem,5vw,4rem);
+  font-family:'Playfair Display',serif;
+  font-weight:800;
+  text-shadow:2px 3px 10px rgba(0,0,0,0.7);
 }
 
-.green { color: #5aa85a; }
-.yellow { color: #e0c24a; }
-
-.split-title::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 4px;
-  background: linear-gradient(90deg,#5aa85a,#e0c24a);
-  margin: 10px auto;
-}
+.green { color:#4e944f; }
+.yellow { color:#e1c542; }
 
 .hero-recipe p {
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
   font-style: italic;
-  color: #f5e7c6;
+  color:#f5e7c6;
 }
 
 /* LAYOUT */
 .container {
-  display: flex;
-  padding: 30px;
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+  display:flex;
+  padding:30px;
+  gap:20px;
 }
 
 .sidebar {
-  width: 250px;
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
+  width:250px;
+  background:white;
+  padding:20px;
+  border-radius:12px;
 }
 
 .step {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  font-weight: 600;
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  border:none;
+  cursor:pointer;
 }
 
 .step.active {
-  background: #fdecea;
-  border-left: 5px solid #ff5a3c;
+  background:#fdecea;
+  border-left:5px solid #ff5a3c;
 }
 
 .content {
-  flex: 1;
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
+  flex:1;
+  background:white;
+  padding:25px;
+  border-radius:12px;
 }
 
 /* PROGRESS */
-.progress-box { margin-bottom: 15px; }
-.progress-text { font-size: 13px; color: #777; }
 .progress-bar {
-  height: 6px;
-  background: #eee;
-  border-radius: 10px;
+  height:6px;
+  background:#eee;
+  border-radius:10px;
 }
 .progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg,#5aa85a,#e0c24a);
-  transition: 0.4s;
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#4e944f,#e1c542);
 }
 
-/* IMAGE */
-.step-image img {
-  width: 100%;
-  max-height: 260px;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-/* MINI CARDS */
+/* MINI CARD */
 .mini-card {
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 12px;
-  border-left: 4px solid #ff5a3c;
-  cursor: pointer;
-  position: relative;
+  padding:15px;
+  margin-bottom:12px;
+  border-left:4px solid #ff5a3c;
+  background:white;
+  cursor:pointer;
 }
 
 .mini-card.completed {
-  background: #f1fdf7;
-  border-left-color: #20c997;
-}
-
-.mini-card::after {
-  content: "✔";
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  color: #20c997;
-  display: none;
-}
-
-.mini-card.completed::after {
-  display: block;
-}
-
-.time {
-  float: right;
-  background: #f1e6e2;
-  padding: 3px 8px;
-  border-radius: 8px;
-  font-size: 12px;
+  background:#f1fdf7;
 }
 
 /* TIMER */
 .timer-box {
-  text-align: center;
-  margin: 15px 0;
-  padding: 12px;
-  background: #fff8f5;
-  border-radius: 12px;
+  text-align:center;
+  padding:12px;
+  background:#fff8f5;
+  border-radius:10px;
+  margin:10px 0;
 }
 
-.timer {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.timer-label {
-  font-size: 14px;
-  color: #777;
-}
-
-/* NAV */
 .step-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  display:flex;
+  justify-content:space-between;
+  margin-top:15px;
 }
 
 .step-nav button {
-  padding: 10px 15px;
-  border: none;
-  background: #ff5a3c;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+  padding:10px;
+  border:none;
+  background:#ff5a3c;
+  color:white;
+  cursor:pointer;
 }
 
-/* HIDE */
-.step-content { display: none; }
-.step-content.active { display: block; }
+.step-content { display:none; }
+.step-content.active { display:block; }
 
-/* MOBILE */
-@media (max-width: 900px) {
-  .container { flex-direction: column; }
-  .sidebar {
-    width: 100%;
-    display: flex;
-    overflow-x: auto;
-  }
+.tip {
+  background:#fff4e5;
+  padding:10px;
+  border-left:4px solid orange;
+  margin-top:10px;
+}
+
+.finish-box {
+  text-align:center;
+  background:#e6fcf5;
+  padding:20px;
+  border-radius:10px;
+  margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero-recipe">
   <div>
     <h1 class="split-title">
@@ -219,113 +160,92 @@ body {
 
 <div class="container">
 
-<!-- SIDEBAR -->
 <div class="sidebar">
-  <button class="step active" onclick="showStep(1)">01 Cook the Dal</button>
-  <button class="step" onclick="showStep(2)">02 Prepare the Tadka</button>
-  <button class="step" onclick="showStep(3)">03 Combine & Simmer</button>
-  <button class="step" onclick="showStep(4)">04 Garnish & Serve</button>
+  <button class="step active" onclick="showStep(1)">01 Cook Dal</button>
+  <button class="step" onclick="showStep(2)">02 Tadka</button>
+  <button class="step" onclick="showStep(3)">03 Mix</button>
+  <button class="step" onclick="showStep(4)">04 Serve</button>
 </div>
 
 <div class="content">
 
 <!-- STEP 1 -->
 <div class="step-content active">
-<div class="progress-box">
-  <span class="progress-text"></span>
-  <div class="progress-bar"><div class="progress-fill"></div></div>
-</div>
-
-<div class="step-image">
-<img src="../../images/cook_in_cooker.png">
-</div>
+<div class="progress-bar"><div class="progress-fill"></div></div>
 
 <div class="timer-box">
 <span class="timer">00:00</span>
-<p class="timer-label">Click a step to start</p>
+<p class="timer-label">Click step</p>
 </div>
 
 <div class="mini-card" data-time="60">
-<strong>Rinse the dal</strong>
-<span class="time">1 min</span><br>
-Rinse ½ cup toor dal until the water runs clear.
+<strong>Rinse Dal</strong><br>
+Take ½ cup toor dal. Wash 3 times until water becomes clear.
 </div>
 
 <div class="mini-card" data-time="120">
-<strong>Add Ingredients</strong>
-<span class="time">2 min</span><br>
-Transfer dal to cooker and add tomatoes, palak, tamarind, turmeric, salt, and water.
+<strong>Add Ingredients</strong><br>
+Add tomatoes, spinach, turmeric, salt, tamarind and 2 glasses water.
 </div>
 
 <div class="mini-card" data-time="900">
-<strong>Pressure Cook</strong>
-<span class="time">12–15 min</span><br>
-Cook for 4 whistles on high flame, then continue for 10 minutes.
+<strong>Pressure Cook</strong><br>
+Close cooker lid properly. Keep whistle. Cook on high flame for 3 whistles. Then simmer 5 min.
 </div>
 
 <div class="mini-card" data-time="300">
-<strong>Release Pressure</strong>
-<span class="time">5 min</span><br>
-Turn off the stove and allow pressure to release completely.
+<strong>Release Pressure</strong><br>
+Turn off flame and let cooker cool naturally before opening.
 </div>
 
-<div class="mini-card" data-time="120">
-<strong>Check & Adjust</strong>
-<span class="time">2 min</span><br>
-Open cooker and check softness. If needed, cook again with more water.
+<div class="mini-card">
+<strong>Mash Dal</strong><br>
+Open lid and mash lightly using spoon.
 </div>
+
+<div class="tip">💡 Tip: Add hot water if dal is too thick.</div>
 
 <div class="step-nav">
-<button onclick="prevStep()">⬅ Prev</button>
+<button disabled>⬅ Prev</button>
 <button onclick="nextStep()">Next ➡</button>
 </div>
 </div>
 
 <!-- STEP 2 -->
 <div class="step-content">
-<div class="progress-box">
-<span class="progress-text"></span>
 <div class="progress-bar"><div class="progress-fill"></div></div>
-</div>
-
-<div class="step-image">
-<img src="../../images/tadka.png">
-</div>
 
 <div class="timer-box">
 <span class="timer">00:00</span>
-<p class="timer-label">Click a step to start</p>
+<p class="timer-label">Click step</p>
 </div>
 
 <div class="mini-card" data-time="30">
-<strong>Heat the oil</strong>
-<span class="time">30 sec</span><br>
-Pour oil into a pan and heat it on medium flame.
+<strong>Heat Oil</strong><br>
+Place pan, add oil, heat on medium flame.
 </div>
 
 <div class="mini-card" data-time="40">
-<strong>Add garlic</strong>
-<span class="time">40 sec</span><br>
-Add chopped garlic and sauté until aromatic.
+<strong>Add Garlic</strong><br>
+Add chopped garlic and fry till light golden.
 </div>
 
 <div class="mini-card" data-time="180">
-<strong>Add onions</strong>
-<span class="time">2–3 min</span><br>
-Cook until soft and slightly golden.
+<strong>Add Onion</strong><br>
+Cook till soft and slightly brown.
 </div>
 
 <div class="mini-card" data-time="30">
-<strong>Add cumin & mustard</strong>
-<span class="time">30 sec</span><br>
+<strong>Add Cumin & Mustard</strong><br>
 Let them crackle.
 </div>
 
 <div class="mini-card" data-time="120">
-<strong>Add curry leaves & chilies</strong>
-<span class="time">1–2 min</span><br>
-Sauté until fragrant.
+<strong>Add Curry Leaves</strong><br>
+Add green chilies and curry leaves, sauté well.
 </div>
+
+<div class="tip">⚠️ Do not burn garlic.</div>
 
 <div class="step-nav">
 <button onclick="prevStep()">⬅ Prev</button>
@@ -335,31 +255,24 @@ Sauté until fragrant.
 
 <!-- STEP 3 -->
 <div class="step-content">
-<div class="progress-box">
-<span class="progress-text"></span>
 <div class="progress-bar"><div class="progress-fill"></div></div>
-</div>
-
-<div class="step-image">
-<img src="../../images/add_tadka_to_dal.png">
-</div>
 
 <div class="timer-box">
 <span class="timer">00:00</span>
-<p class="timer-label">Click a step to start</p>
+<p class="timer-label">Click step</p>
 </div>
 
 <div class="mini-card" data-time="60">
-<strong>Add tadka to dal</strong>
-<span class="time">1 min</span><br>
-Pour the prepared tadka into the cooked dal and mix well.
+<strong>Add Tadka</strong><br>
+Pour hot tadka into dal carefully.
 </div>
 
 <div class="mini-card" data-time="300">
-<strong>Simmer</strong>
-<span class="time">5 min</span><br>
-Let the dal simmer on low flame to blend flavors.
+<strong>Simmer</strong><br>
+Cook for 5 minutes on low flame.
 </div>
+
+<div class="tip">⭐ Add ghee for better taste.</div>
 
 <div class="step-nav">
 <button onclick="prevStep()">⬅ Prev</button>
@@ -369,28 +282,25 @@ Let the dal simmer on low flame to blend flavors.
 
 <!-- STEP 4 -->
 <div class="step-content">
-<div class="progress-box">
-<span class="progress-text"></span>
 <div class="progress-bar"><div class="progress-fill"></div></div>
-</div>
 
-<div class="step-image">
-<img src="../../images/garnish_palak_dal.png">
+<div class="mini-card">
+<strong>Garnish</strong><br>
+Add coriander leaves.
 </div>
 
 <div class="mini-card">
-<strong>Add coriander</strong><br>
-Garnish with fresh coriander leaves.
+<strong>Serve</strong><br>
+Serve hot with rice or roti.
 </div>
 
-<div class="mini-card">
-<strong>Serve hot</strong><br>
-Serve with rice or roti.
+<div class="finish-box">
+🎉 Recipe Completed! Enjoy your Palak Dal!
 </div>
 
 <div class="step-nav">
 <button onclick="prevStep()">⬅ Prev</button>
-<button onclick="nextStep()">Next ➡</button>
+<button disabled>Finished</button>
 </div>
 </div>
 
@@ -398,61 +308,53 @@ Serve with rice or roti.
 </div>
 
 <script>
-let currentStep = 1;
-const totalSteps = 4;
+let currentStep=1;
+const totalSteps=4;
 let timerInterval;
 
 function showStep(n){
-  currentStep = n;
-
-  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.step-content').forEach(s=>s.classList.remove('active'));
-
-  document.querySelectorAll('.step')[n-1].classList.add('active');
-  document.querySelectorAll('.step-content')[n-1].classList.add('active');
-
-  updateProgress();
-  window.scrollTo({top:0,behavior:'smooth'});
+currentStep=n;
+document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('.step-content').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('.step')[n-1].classList.add('active');
+document.querySelectorAll('.step-content')[n-1].classList.add('active');
+updateProgress();
 }
 
-function nextStep(){ if(currentStep<totalSteps) showStep(currentStep+1); }
-function prevStep(){ if(currentStep>1) showStep(currentStep-1); }
+function nextStep(){ if(currentStep<4) showStep(currentStep+1);}
+function prevStep(){ if(currentStep>1) showStep(currentStep-1);}
 
 function updateProgress(){
-  const percent=(currentStep/totalSteps)*100;
-  const active=document.querySelector('.step-content.active');
-
-  active.querySelector('.progress-fill').style.width=percent+"%";
-  active.querySelector('.progress-text').innerText=`Step ${currentStep} of ${totalSteps}`;
+const percent=(currentStep/4)*100;
+document.querySelectorAll('.progress-fill').forEach(p=>p.style.width=percent+"%");
 }
 
 document.querySelectorAll('.mini-card').forEach(card=>{
-  card.addEventListener('click',()=>{
-    if (!card.closest('.step-content').classList.contains('active')) return;
+card.addEventListener('click',()=>{
+if(!card.closest('.step-content').classList.contains('active')) return;
+card.classList.toggle('completed');
 
-    card.classList.toggle('completed');
+clearInterval(timerInterval);
+let time=card.getAttribute("data-time");
+if(!time) return;
 
-    clearInterval(timerInterval);
-    let time=card.getAttribute("data-time");
-    if(!time) return;
+let remaining=time;
+const active=document.querySelector('.step-content.active');
+const timer=active.querySelector('.timer');
+const label=active.querySelector('.timer-label');
 
-    let remaining=time;
-    const active=document.querySelector('.step-content.active');
-    const timer=active.querySelector('.timer');
-    const label=active.querySelector('.timer-label');
+label.innerText=card.querySelector("strong").innerText;
 
-    label.innerText = card.querySelector("strong").innerText;
-
-    timerInterval=setInterval(()=>{
-      let m=Math.floor(remaining/60);
-      let s=remaining%60;
-      timer.innerText=`${m}:${s.toString().padStart(2,'0')}`;
-      if(remaining--<=0){
-        clearInterval(timerInterval);
-        label.innerText="Step completed!";
-      }
-    },1000);
-  });
+timerInterval=setInterval(()=>{
+let m=Math.floor(remaining/60);
+let s=remaining%60;
+timer.innerText=`${m}:${s.toString().padStart(2,'0')}`;
+if(remaining--<=0){
+clearInterval(timerInterval);
+label.innerText="Done!";
+}
+},1000);
+});
 });
 
 updateProgress();
