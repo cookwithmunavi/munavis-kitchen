@@ -1,170 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CookWithMunavi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CookWithMunavi</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f0f0f;
-      color: white;
-    }
+<!-- FAST LOAD HERO IMAGE -->
+<link rel="preload" as="image" href="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png">
 
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(15,15,15,0.95);
-      padding: 12px 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    .logo {
-      font-size: 18px;
-      font-weight: bold;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0e0e0e;
+  color: #eee;
+}
 
-    .logo .white { color: white; }
-    .logo .gold { color: #f4a825; }
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #111;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      font-size: 14px;
-    }
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
 
-    .nav-links a {
-      text-decoration: none;
-      color: #ddd;
-    }
+.logo .white { color: #fff; }
+.logo .gold { color: #f5a623; }
 
-    .nav-links a:hover {
-      color: #f4a825;
-    }
+.tagline {
+  font-size: 11px;
+  color: #bbb;
+}
 
-    /* HERO */
-    .hero {
-      margin-top: 60px;
-      position: relative;
-    }
+.nav-links a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #ddd;
+  font-size: 14px;
+}
 
-    .hero img {
-      width: 100%;
-      height: 85vh;
-      object-fit: cover;
-    }
+.nav-links a:hover {
+  color: #f5a623;
+}
 
-    /* HERO TEXT */
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      padding: 15px;
-      width: 90%;
-    }
+/* HERO */
+.hero {
+  margin-top: 60px;
+  position: relative;
+}
 
-    .hero-text h1 {
-      font-size: clamp(26px, 6vw, 48px);
-      margin-bottom: 10px;
-    }
+/* FIX IMAGE CROPPING */
+.hero img {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+  background: black;
+}
 
-    .hero-text p {
-      font-size: clamp(14px, 3vw, 18px);
-      margin-bottom: 20px;
-      color: #eee;
-    }
+/* OVERLAY TEXT */
+.hero-text {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
 
-    .explore-btn {
-      background: #f4a825;
-      color: black;
-      padding: 12px 22px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-    }
+.hero-text h1 {
+  font-size: clamp(26px, 5vw, 48px);
+  color: white;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+}
 
-    /* SECTION */
-    .section {
-      text-align: center;
-      margin-top: 30px;
-      padding: 20px 10px;
-    }
+.hero-text p {
+  margin-top: 10px;
+  color: #ddd;
+  font-size: 14px;
+}
 
-    .section h2 {
-      color: #f4a825;
-      margin-bottom: 20px;
-    }
+/* BUTTON */
+.explore-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #f5a623;
+  color: black;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    /* RECIPES */
-    .recipes {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      padding: 10px;
-    }
+/* SECTION */
+.section {
+  text-align: center;
+  padding: 30px 15px;
+}
 
-    .card {
-      width: 95%;
-      max-width: 320px;
-      background: #1c1c1c;
-      border-radius: 15px;
-      overflow: hidden;
-      cursor: pointer;
-      border: 1px solid #333;
-    }
+.section h2 {
+  color: #f5a623;
+}
 
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
+/* RECIPES */
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-    .card h3 {
-      margin: 10px;
-      color: #f4a825;
-    }
+/* CARD */
+.card {
+  width: 90%;
+  max-width: 320px;
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    /* FOOTER */
-    .footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-      color: #aaa;
-    }
+.card:hover {
+  transform: translateY(-5px);
+}
 
-    /* DESKTOP */
-    @media (min-width: 768px) {
-      .recipes {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
 
-      .card {
-        width: 220px;
-      }
-    }
+.card h3 {
+  margin: 12px;
+  color: #f5a623;
+}
 
-  </style>
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  .card { width: 220px; }
+  .hero-text p { font-size: 16px; }
+}
+</style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div class="logo">
-    <span class="white">CookWith</span>
-    <span class="gold">Munavi</span>
+  <div>
+    <div class="logo">
+      <span class="white">CookWith</span>
+      <span class="gold">Munavi</span>
+    </div>
+    <div class="tagline">Homemade food made with love</div>
   </div>
 
   <div class="nav-links">
@@ -177,7 +184,7 @@
 
 <!-- HERO -->
 <div class="hero">
-  <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png">
+  <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Food Banner">
 
   <div class="hero-text">
     <h1>Simple Recipes, Made with Love</h1>
