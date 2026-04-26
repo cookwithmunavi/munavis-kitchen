@@ -10,10 +10,11 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
+/* 🌿 COZY PREMIUM BACKGROUND */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #0e0e0e;
-  color: #eee;
+  background: #1a1410; /* warm dark brown */
+  color: #f5f5f5;
 }
 
 /* NAVBAR */
@@ -21,12 +22,13 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #111;
+  background: #1c1511;
   padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  border-bottom: 1px solid rgba(245,166,35,0.2);
 }
 
 .logo {
@@ -40,8 +42,9 @@ body {
 .nav-links a {
   margin-left: 15px;
   text-decoration: none;
-  color: #ddd;
+  color: #c7b8a3;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -70,25 +73,46 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* BUTTON */
+/* PREMIUM BUTTON */
 .explore-btn {
-  background: #f5a623;
-  color: black;
+  background: linear-gradient(135deg, #f5a623, #ffcc80);
+  color: #2a1a0f;
   padding: 14px 30px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
+  transition: 0.3s;
+}
+
+.explore-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(245,166,35,0.4);
 }
 
 /* SECTION */
 .section {
   text-align: center;
-  padding: 30px 15px;
+  padding: 40px 15px;
+  background: #221a15;
+  border-top: 1px solid rgba(245,166,35,0.1);
 }
 
 .section h2 {
   color: #f5a623;
+  font-size: 26px;
+  position: relative;
+}
+
+/* GOLD LINE UNDER TITLE */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #f5a623;
+  margin: 10px auto;
+  border-radius: 2px;
 }
 
 /* RECIPES */
@@ -99,18 +123,21 @@ body {
   gap: 20px;
 }
 
+/* PREMIUM CARD */
 .card {
   width: 90%;
   max-width: 320px;
-  background: #1a1a1a;
+  background: #2a201a;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(245,166,35,0.15);
 }
 
 .card img {
@@ -119,16 +146,19 @@ body {
   object-fit: cover;
 }
 
+/* CARD TITLE */
 .card h3 {
   margin: 12px;
-  color: #f5a623;
+  color: #ffcc80;
 }
 
 /* FOOTER */
 .footer {
   text-align: center;
   padding: 20px;
-  color: #aaa;
+  color: #c7b8a3;
+  background: #1c1511;
+  border-top: 1px solid rgba(245,166,35,0.1);
 }
 
 /* DESKTOP */
