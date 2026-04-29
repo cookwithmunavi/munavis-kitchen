@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Expert Culinary Guide</title>
+    <title>CookWithMunavi | Master the Art of Cooking</title>
 
     <link href="https://googleapis.com" rel="stylesheet">
 
@@ -68,26 +68,26 @@
             align-items: center; 
             justify-content: center; 
             overflow: hidden;
-            background: #11221a; /* Fallback color if image fails */
+            background: #11221a; 
         }
         
         .hero img { 
             position: absolute; 
             width: 100%; 
-            height: 120%; /* Extra height for parallax */
+            height: 100%; 
             object-fit: cover; 
-            top: 0;
-            filter: brightness(0.7);
+            filter: brightness(0.6);
         }
 
         .glass-panel {
             position: relative; z-index: 3;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             padding: 60px; border-radius: 40px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             max-width: 80%;
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
         .explore-btn {
@@ -100,6 +100,8 @@
             display: inline-block;
             margin-top: 30px;
             transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .explore-btn:hover { transform: scale(1.05) translateY(-5px); background: var(--text-main); }
 
@@ -122,15 +124,11 @@
             transition: all 0.5s ease;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             cursor: pointer;
-            opacity: 0;
-            transform: translateY(30px);
         }
-
-        .card.reveal { opacity: 1; transform: translateY(0); }
 
         .card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(30, 57, 47, 0.15); }
 
-        .card-img-container { overflow: hidden; height: 260px; background: #eee; }
+        .card-img-container { overflow: hidden; height: 260px; background: #e0e0e0; }
         .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; }
         .card:hover img { transform: scale(1.1); }
 
@@ -151,11 +149,11 @@
     </nav>
 
     <header class="hero">
-        <!-- Verified High-Quality Culinary Images -->
-        <img src="https://unsplash.com" id="heroImg">
+        <!-- FIXED HERO IMAGE LINK -->
+        <img src="https://unsplash.com" id="heroImg" alt="Culinary Background">
         <div class="glass-panel">
             <h1 class="hero-title">
-                <span style="font-size: 3rem; display: block; font-weight: 800;">Cooking Made Easy.</span>
+                <span style="font-size: 3rem; display: block; font-weight: 800; color: var(--text-main);">Cooking Made Easy.</span>
                 <span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.6rem; color: #4F7942;">Flavor in Every Step.</span>
             </h1>
             <a href="#recipes" class="explore-btn">Start Cooking Today →</a>
@@ -168,21 +166,22 @@
             
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
                 <div class="card-img-container">
-                    <img src="images/palak-dal.jpeg" onerror="this.src='https://unsplash.com'">
+                    <!-- Updated Palak Dal Image Path -->
+                    <img src="images/palak-dal.jpeg" alt="Palak Dal" onerror="this.src='https://placehold.jp'">
                 </div>
                 <h3>Palak Dal</h3>
             </div>
 
             <div class="card">
                 <div class="card-img-container">
-                    <img src="https://unsplash.com">
+                    <img src="https://placehold.jp" alt="Masala Dosa">
                 </div>
                 <h3>Masala Dosa</h3>
             </div>
 
             <div class="card">
                 <div class="card-img-container">
-                    <img src="https://unsplash.com">
+                    <img src="https://placehold.jp" alt="Chicken Biryani">
                 </div>
                 <h3>Chicken Biryani</h3>
             </div>
@@ -193,23 +192,6 @@
     <footer class="footer">
         <p>© 2026 CookWithMunavi | Fresh • Healthy • Easy</p>
     </footer>
-
-    <script>
-        // ✨ Expert Scroll Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('reveal');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.card').forEach(card => observer.observe(card));
-
-        // 🖼️ Smooth Parallax
-        window.addEventListener('scroll', () => {
-            const img = document.getElementById('heroImg');
-            let offset = window.pageYOffset;
-            img.style.top = (offset * 0.4) + "px";
-        });
-    </script>
 
 </body>
 </html>
