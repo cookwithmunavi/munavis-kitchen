@@ -10,15 +10,21 @@
     <style>
         :root {
             --nav-dark: #1E392F;
-            --bg-cream: #FDFCF8;
-            --section-sage: #F1F8F1;
+            --bg-mint-light: #F1F9F6; /* NEW: Crisper Light Mint Shade */
+            --section-mint: #E8F5F1;  /* Slightly deeper mint for separation */
             --basil-pop: #8BC34A;
             --white: #ffffff;
             --text-main: #2E5A2F;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-cream); color: var(--text-main); scroll-behavior: smooth; overflow-x: hidden; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg-mint-light); 
+            color: var(--text-main); 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+        }
 
         /* 🧼 EXPERT NAVBAR */
         .navbar {
@@ -48,7 +54,6 @@
         }
 
         .nav-links a:hover { color: var(--basil-pop); }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -63,29 +68,21 @@
         .hero { 
             margin-top: 65px; 
             position: relative; 
-            height: 80vh; 
+            height: 75vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            overflow: hidden;
-            background: #11221a; 
+            background: var(--nav-dark); 
         }
         
-        .hero img { 
-            position: absolute; 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            filter: brightness(0.6);
-        }
-
+        /* 💎 CRYSTAL GLASS PANEL */
         .glass-panel {
             position: relative; z-index: 3;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             padding: 60px; border-radius: 40px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
             max-width: 80%;
             border: 1px solid rgba(255,255,255,0.5);
         }
@@ -101,12 +98,15 @@
             margin-top: 30px;
             transition: 0.4s;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
         .explore-btn:hover { transform: scale(1.05) translateY(-5px); background: var(--text-main); }
 
         /* 🖼️ RECIPE CARDS */
-        .section { padding: 100px 20px; text-align: center; background: var(--section-sage); }
+        .section { 
+            padding: 100px 20px; 
+            text-align: center; 
+            background: var(--section-mint); /* Mint separation */
+        }
         .section h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 60px; }
 
         .recipes-grid { 
@@ -122,14 +122,25 @@
             border-radius: 30px;
             overflow: hidden;
             transition: all 0.5s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(46, 90, 47, 0.08);
             cursor: pointer;
+            border: 1px solid rgba(46, 90, 47, 0.05);
         }
 
         .card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(30, 57, 47, 0.15); }
 
-        .card-img-container { overflow: hidden; height: 260px; background: #e0e0e0; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; }
+        .card-img-container { overflow: hidden; height: 260px; background: #f0f0f0; position: relative; }
+        
+        /* Placeholder styling for broken images */
+        .card-img-container::before {
+            content: "Refreshing Flavor...";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ccc; font-weight: 600;
+        }
+
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; position: relative; z-index: 2; }
         .card:hover img { transform: scale(1.1); }
 
         .card h3 { padding: 30px; font-weight: 800; font-size: 24px; transition: 0.3s; }
@@ -149,12 +160,13 @@
     </nav>
 
     <header class="hero">
-        <!-- FIXED HERO IMAGE LINK -->
-        <img src="https://unsplash.com" id="heroImg" alt="Culinary Background">
+        <!-- Hero Background Tinted Mint -->
+        <div style="position:absolute; width:100%; height:100%; background: var(--bg-mint-light); opacity: 0.1; z-index:1;"></div>
+        
         <div class="glass-panel">
             <h1 class="hero-title">
-                <span style="font-size: 3rem; display: block; font-weight: 800; color: var(--text-main);">Cooking Made Easy.</span>
-                <span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.6rem; color: #4F7942;">Flavor in Every Step.</span>
+                <span style="font-size: clamp(2rem, 5vw, 3.5rem); display: block; font-weight: 800; color: var(--text-main);">Cooking Made Easy.</span>
+                <span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.6rem; color: var(--basil-pop);">Flavor in Every Step.</span>
             </h1>
             <a href="#recipes" class="explore-btn">Start Cooking Today →</a>
         </div>
@@ -166,22 +178,21 @@
             
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
                 <div class="card-img-container">
-                    <!-- Updated Palak Dal Image Path -->
-                    <img src="images/palak-dal.jpeg" alt="Palak Dal" onerror="this.src='https://placehold.jp'">
+                    <img src="images/palak-dal.jpeg" alt="Palak Dal" onerror="this.style.display='none'">
                 </div>
                 <h3>Palak Dal</h3>
             </div>
 
             <div class="card">
                 <div class="card-img-container">
-                    <img src="https://placehold.jp" alt="Masala Dosa">
+                    <img src="https://unsplash.com" alt="Masala Dosa" onerror="this.style.display='none'">
                 </div>
                 <h3>Masala Dosa</h3>
             </div>
 
             <div class="card">
                 <div class="card-img-container">
-                    <img src="https://placehold.jp" alt="Chicken Biryani">
+                    <img src="https://unsplash.com" alt="Chicken Biryani" onerror="this.style.display='none'">
                 </div>
                 <h3>Chicken Biryani</h3>
             </div>
