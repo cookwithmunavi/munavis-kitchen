@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CookWithMunavi | Master the Art of Cooking</title>
 
+    <!-- Expert Fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
@@ -21,7 +22,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-cream); color: var(--text-main); scroll-behavior: smooth; }
 
-        /* 🧼 EXPERT NAVBAR: Sticky with subtle glow */
+        /* 🧼 EXPERT NAVBAR */
         .navbar {
             position: fixed;
             top: 0; width: 100%;
@@ -32,11 +33,12 @@
             align-items: center;
             z-index: 1000;
             border-bottom: 3px solid var(--basil-pop);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
 
         .logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
         .logo .white { color: var(--white); }
-        .logo .green { color: var(--basil-pop); text-shadow: 0 0 10px rgba(139, 195, 74, 0.3); }
+        .logo .green { color: var(--basil-pop); text-shadow: 0 0 15px rgba(139, 195, 74, 0.4); }
 
         .nav-links a {
             margin-left: 30px;
@@ -45,9 +47,15 @@
             font-weight: 700;
             position: relative;
             padding-bottom: 5px;
+            transition: color 0.3s ease;
         }
 
-        /* Expert Hover: Underline grows from center */
+        /* 🌈 TEXT COLOR CHANGE ON HOVER */
+        .nav-links a:hover {
+            color: var(--basil-pop);
+        }
+
+        /* 📏 ANIMATED UNDERLINE */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -58,21 +66,21 @@
         }
         .nav-links a:hover::after { width: 100%; left: 0; }
 
-        /* 🥗 HERO & GLASS PANEL */
-        .hero { margin-top: 65px; position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 10s ease; }
-        .hero:hover img { transform: scale(1.1); } /* Subtle pan effect */
+        /* 🥗 HERO SECTION */
+        .hero { margin-top: 65px; position: relative; height: 85vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease-out; }
 
         .glass-panel {
             position: relative; z-index: 3;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(15px);
             padding: 60px; border-radius: 40px;
             text-align: center;
             box-shadow: var(--expert-shadow);
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
-        /* 🔘 EXPERT BUTTON: Pulsing Glow */
+        /* 🔘 EXPERT BUTTON */
         .explore-btn {
             background: var(--basil-pop);
             color: var(--white);
@@ -83,12 +91,14 @@
             display: inline-block;
             margin-top: 30px;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .explore-btn:hover { transform: scale(1.05) translateY(-5px); background: var(--text-main); box-shadow: 0 15px 30px rgba(139, 195, 74, 0.4); }
+        .explore-btn:hover { transform: scale(1.1) translateY(-5px); background: var(--text-main); box-shadow: 0 15px 30px rgba(139, 195, 74, 0.4); }
 
-        /* 🖼️ RECIPE CARDS: Expert Hover & Click Effect */
+        /* 🖼️ RECIPE CARDS: Expert Hover & Click */
         .section { padding: 100px 20px; text-align: center; background: var(--section-sage); }
-        .section h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 60px; color: var(--text-main); }
+        .section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 60px; color: var(--text-main); }
 
         .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
 
@@ -96,31 +106,26 @@
             background: var(--white);
             border-radius: 30px;
             overflow: hidden;
-            position: relative;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(0,0,0,0.03);
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        /* 🚀 The "Expert Lift" Hover */
-        .card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 30px 60px rgba(30, 57, 47, 0.15);
-        }
+        .card.reveal { opacity: 1; transform: translateY(0); }
 
-        /* 📸 Image Zoom within Card */
-        .card-img-container { overflow: hidden; height: 260px; position: relative; }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(30, 57, 47, 0.15); }
+
+        .card-img-container { overflow: hidden; height: 260px; }
         .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; }
-        .card:hover img { transform: scale(1.15); filter: brightness(0.9); }
+        .card:hover img { transform: scale(1.1); }
 
         .card h3 { padding: 30px; font-weight: 800; font-size: 24px; transition: 0.3s; }
         .card:hover h3 { color: var(--basil-pop); }
 
-        /* 🖱️ Click Animation */
-        .card:active { transform: scale(0.95); }
-
-        .footer { padding: 60px; text-align: center; background: var(--nav-dark); color: var(--white); }
+        .footer { padding: 80px; text-align: center; background: var(--nav-dark); color: var(--white); }
     </style>
 </head>
 <body>
@@ -134,10 +139,10 @@
     </nav>
 
     <header class="hero">
-        <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Healthy Kitchen">
+        <img src="https://unsplash.com" id="heroImg">
         <div class="glass-panel">
             <h1 class="hero-title">
-                <span style="font-size: 3.5rem; display: block; font-weight: 800;">Cooking Made Easy.</span>
+                <span style="font-size: clamp(2.5rem, 6vw, 4rem); display: block; font-weight: 800;">Cooking Made Easy.</span>
                 <span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: #4F7942;">Flavor in Every Step.</span>
             </h1>
             <a href="#recipes" class="explore-btn">Start Cooking Today →</a>
@@ -149,22 +154,20 @@
         <div class="recipes-grid">
             
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
-                <div class="card-img-container">
-                    <img src="images/palak-dal.jpeg" alt="Palak Dal">
-                </div>
+                <div class="card-img-container"><img src="images/palak-dal.jpeg"></div>
                 <h3>Palak Dal</h3>
             </div>
 
             <div class="card">
                 <div class="card-img-container">
-                    <img src="https://unsplash.com" alt="Masala Dosa">
+                    <img src="https://unsplash.com">
                 </div>
                 <h3>Masala Dosa</h3>
             </div>
 
             <div class="card">
                 <div class="card-img-container">
-                    <img src="https://unsplash.com" alt="Chicken Biryani">
+                    <img src="https://unsplash.com">
                 </div>
                 <h3>Chicken Biryani</h3>
             </div>
@@ -175,6 +178,23 @@
     <footer class="footer">
         <p>© 2026 CookWithMunavi | Fresh • Healthy • Easy</p>
     </footer>
+
+    <script>
+        // ✨ Expert Scroll Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('reveal');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+        // 🖼️ Subtle Parallax Effect on Hero
+        window.addEventListener('scroll', () => {
+            const img = document.getElementById('heroImg');
+            img.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+        });
+    </script>
 
 </body>
 </html>
