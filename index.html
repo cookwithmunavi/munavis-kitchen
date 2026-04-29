@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | The Royal Collection</title>
+    <title>CookWithMunavi | Friendly Culinary Art</title>
 
-    <!-- Expert Serif & Sans Typography -->
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
-        /* 🏛️ ROYAL NAVY & GOLD PALETTE */
         :root {
-            --navy-blue: #000066;     /* Deep, Trustworthy Navy */
-            --royal-gold: #D4AF37;    /* Elegant Metallic Gold */
-            --gold-light: #F4E4BC;    /* Soft gold tint for backgrounds */
+            --navy-brand: #000066;
+            --royal-gold: #D4AF37;
             --white: #ffffff;
             --text-dark: #001133;
+            --round-lg: 40px; /* Large rounded corners */
+            --round-md: 20px; /* Medium rounded corners */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--white); color: var(--text-dark); scroll-behavior: smooth; }
 
-        /* 🧼 LUXURY NAVBAR */
+        /* 🧼 NAVBAR */
         .navbar {
             position: fixed;
             top: 0; width: 100%;
-            background: var(--navy-blue);
+            background: var(--navy-brand);
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
@@ -35,12 +34,9 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .logo { font-size: 26px; font-weight: 800; letter-spacing: -1px; }
+        .logo { font-size: 26px; font-weight: 800; }
         .logo .white { color: var(--white); }
-        .logo .gold { 
-            color: var(--royal-gold); 
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); 
-        }
+        .logo .gold { color: var(--royal-gold); }
 
         .nav-links a {
             margin-left: 30px;
@@ -48,100 +44,100 @@
             color: var(--white);
             font-weight: 700;
             transition: 0.3s;
-            position: relative;
         }
-
         .nav-links a:hover { color: var(--royal-gold); }
-
-        /* Animated underline on hover */
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 2px;
-            bottom: -5px; left: 0;
-            background: var(--royal-gold);
-            transition: 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
 
         /* 🥗 HERO SECTION */
         .hero {
-            margin-top: 70px; height: 80vh;
-            background: var(--navy-blue);
+            margin-top: 70px; height: 75vh;
+            background: var(--navy-brand);
             display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
         }
-
         .hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); }
 
+        /* 💎 ROUNDED GLASS PANEL */
         .glass-panel {
             position: relative; z-index: 3;
             background: rgba(255, 255, 255, 0.98);
-            padding: 60px 80px; border-radius: 4px; /* Sharp corners for luxury feel */
+            padding: 55px 75px; 
+            border-radius: var(--round-lg); /* ROUNDED CORNERS */
             text-align: center;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
             border: 1px solid var(--royal-gold);
+            max-width: 85%;
         }
 
-        .main-text { font-size: 3.5rem; font-weight: 800; color: var(--navy-blue); line-height: 1; margin-bottom: 10px; }
-        .sub-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--royal-gold); display: block; }
+        .main-text { font-size: 3.5rem; font-weight: 800; color: var(--navy-brand); line-height: 1.1; }
+        .sub-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--royal-gold); display: block; margin-top: 10px; }
 
-        /* 🔘 GOLD ACTION BUTTON */
+        /* 🔘 ROUNDED BUTTON */
         .explore-btn {
             background: var(--royal-gold);
-            color: var(--navy-blue);
+            color: var(--navy-brand);
             padding: 18px 45px;
-            text-decoration: none; font-weight: 800; display: inline-block;
-            margin-top: 35px; transition: 0.4s;
-            text-transform: uppercase; letter-spacing: 2px;
-            border: 1px solid var(--royal-gold);
+            border-radius: 50px; /* FULLY ROUNDED (Pill Shape) */
+            text-decoration: none; 
+            font-weight: 800; 
+            display: inline-block;
+            margin-top: 35px; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .explore-btn:hover { 
+            transform: scale(1.05) translateY(-5px);
+            background: var(--white);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
 
-        .explore-btn:hover {
-            background: var(--navy-blue);
-            color: var(--royal-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        /* 🖼️ RECIPE GRID: White Cards on subtle gold-tinted section */
+        /* 🖼️ RECIPE GRID with ROUNDED CARDS */
         .section { padding: 100px 20px; text-align: center; background: #fafafa; }
-        .section h2 { font-family: 'Playfair Display', serif; font-size: 44px; margin-bottom: 60px; color: var(--navy-blue); }
+        .section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 60px; color: var(--navy-brand); }
 
         .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
 
         .card {
-            background: var(--white); border-radius: 0; /* Sharp corners for high-end look */
+            background: var(--white); 
+            border-radius: var(--round-lg); /* ROUNDED CARD */
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            cursor: pointer; border: 1px solid #eee;
+            cursor: pointer; 
+            border: 1px solid #eee;
         }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0, 0, 102, 0.15); border-color: var(--royal-gold); }
 
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
-            border-color: var(--royal-gold);
+        /* 📸 ROUNDED IMAGE CONTAINER */
+        .card img { 
+            width: 100%; 
+            height: 260px; 
+            object-fit: cover; 
+            transition: 0.6s;
+            border-bottom: 2px solid #f0f0f0;
         }
+        .card:hover img { transform: scale(1.1); }
 
-        .card img { width: 100%; height: 260px; object-fit: cover; transition: 0.6s ease; }
-        .card:hover img { transform: scale(1.1); filter: saturate(1.1); }
-        .card h3 { padding: 30px; font-weight: 800; font-size: 24px; color: var(--navy-blue); border-top: 3px solid transparent; transition: 0.3s; }
-        .card:hover h3 { color: var(--royal-gold); border-top: 3px solid var(--royal-gold); }
+        .card h3 { padding: 25px; font-weight: 800; font-size: 24px; color: var(--navy-brand); transition: 0.3s; }
+        .card:hover h3 { color: var(--royal-gold); }
 
-        .footer { padding: 80px; text-align: center; background: var(--navy-blue); color: var(--white); border-top: 5px solid var(--royal-gold); }
+        /* ⚓ MATCHING ROUNDED FOOTER ELEMENTS */
+        .footer { 
+            padding: 80px 20px; 
+            text-align: center; 
+            background: var(--navy-brand); 
+            color: var(--white); 
+            border-top: 5px solid var(--royal-gold);
+        }
+        .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 15px; display: block; }
+        .footer-line { width: 50px; height: 3px; background: var(--royal-gold); margin: 20px auto; border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">
-            <span class="white">CookWith</span><span class="gold">Munavi</span>
-        </div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#recipes">Recipes</a>
-        </div>
+        <div class="logo"><span class="white">CookWith</span><span class="gold">Munavi</span></div>
+        <div class="nav-links"><a href="#">Home</a><a href="#recipes">Recipes</a></div>
     </nav>
 
     <header class="hero">
@@ -158,23 +154,22 @@
     <section class="section" id="recipes">
         <h2>Most Loved Recipes</h2>
         <div class="recipes-grid">
+            <!-- Palak Dal Card -->
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
                 <img src="images/palak-dal.jpeg" alt="Palak Dal" onerror="this.src='https://placehold.jp'">
                 <h3>Palak Dal</h3>
             </div>
-            <div class="card">
-                <img src="https://unsplash.com">
-                <h3>Masala Dosa</h3>
-            </div>
-            <div class="card">
-                <img src="https://unsplash.com">
-                <h3>Chicken Biryani</h3>
-            </div>
+            <!-- Other Cards -->
+            <div class="card"><img src="https://unsplash.com"><h3>Masala Dosa</h3></div>
+            <div class="card"><img src="https://unsplash.com"><h3>Chicken Biryani</h3></div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>© 2026 CookWithMunavi | The Royal Kitchen Standard</p>
+        <div class="footer-logo"><span style="color:#fff;">CookWith</span><span style="color:#D4AF37;">Munavi</span></div>
+        <p>© 2026</p>
+        <div class="footer-line"></div>
+        <p style="font-style: italic; opacity: 0.6;">Fresh • Healthy • Easy</p>
     </footer>
 
 </body>
