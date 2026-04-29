@@ -3,109 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Simple Beginner Recipes</title>
+    <title>CookWithMunavi | Fresh & Simple</title>
 
-    <!-- Google Fonts for High-End Typography -->
+    <!-- 2026 Trend Typography -->
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
-        /* 🌿 THEME VARIABLES */
+        /* 🌿 MINT & PESTO PALETTE */
         :root {
-            --deep-forest: #0B2F2A;   /* Your Pesto Dark Green */
-            --leaf-green: #8BC34A;    /* Vibrant Basil Green */
-            --white: #ffffff;
-            --text-muted: #B2DFDB;
+            --light-mint: #D1E8E2;    /* Airy Background */
+            --spinach-green: #2E5A2F; /* Deep Text Contrast */
+            --pesto-green: #4F7942;   /* Strong Accents */
+            --basil-pop: #8BC34A;     /* Vibrant Action Color */
+            --cream-white: #F8FDF9;   /* Card Background */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--deep-forest);
-            color: var(--white);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            background-color: var(--light-mint);
+            color: var(--spinach-green);
+            line-height: 1.6;
         }
 
-        /* 🔥 NAVBAR (GLASS EFFECT) */
+        /* 🧼 GLASS NAVBAR */
         .navbar {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(11, 47, 42, 0.8); 
-            backdrop-filter: blur(15px);
+            top: 0; width: 100%;
+            background: rgba(209, 232, 226, 0.85);
+            backdrop-filter: blur(10px);
             padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(139, 195, 74, 0.2);
+            border-bottom: 1px solid rgba(46, 90, 47, 0.1);
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .logo .white { color: var(--white); }
-        .logo .green { 
-            color: var(--leaf-green); 
-            text-shadow: 0 0 15px rgba(139, 195, 74, 0.4); 
-        }
+        .logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
+        .logo .brand-dark { color: var(--spinach-green); }
+        .logo .brand-pop { color: var(--basil-pop); }
 
         .nav-links a {
             margin-left: 25px;
             text-decoration: none;
-            color: var(--white);
-            font-size: 15px;
+            color: var(--spinach-green);
             font-weight: 600;
             transition: 0.3s;
-            opacity: 0.8;
         }
 
-        .nav-links a:hover {
-            color: var(--leaf-green);
-            opacity: 1;
-        }
+        .nav-links a:hover { color: var(--basil-pop); }
 
-        /* 🥗 HERO SECTION */
+        /* 🥗 LIGHT HERO SECTION */
         .hero {
             margin-top: 60px;
             position: relative;
-            height: 90vh;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             overflow: hidden;
         }
 
         .hero img {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            width: 100%; height: 100%;
             object-fit: cover;
-            filter: brightness(0.6) saturate(1.2); /* Makes food look fresher and text pop */
+            filter: brightness(0.9); /* Keeps it light and airy */
+            z-index: 1;
         }
 
-        .hero-content {
+        /* Subtle Light Overlay for Text Clarity */
+        .hero::after {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 90%;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(209,232,226,0.3) 0%, rgba(209,232,226,0.6) 100%);
+            z-index: 2;
         }
+
+        .hero-content { position: relative; z-index: 3; width: 90%; }
 
         .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 20px;
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
+            margin-bottom: 15px;
             line-height: 1.1;
-            text-shadow: 2px 4px 20px rgba(0,0,0,0.5);
         }
 
-        /* 🔘 THE UPGRADED BUTTON */
+        .hero-title .main-text { 
+            display: block; 
+            font-weight: 800; 
+            color: var(--spinach-green);
+        }
+
+        .hero-title .sub-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 0.6em;
+            color: var(--pesto-green);
+        }
+
+        /* 🔘 VIBRANT ACTION BUTTON */
         .explore-btn {
-            background: var(--leaf-green);
-            color: var(--deep-forest);
-            padding: 18px 45px;
+            background: var(--basil-pop);
+            color: #fff;
+            padding: 20px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
@@ -113,99 +118,71 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(139, 195, 74, 0.4);
-            border: 2px solid transparent;
+            margin-top: 25px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(139, 195, 74, 0.3);
         }
 
         .explore-btn:hover {
-            transform: scale(1.1) translateY(-5px);
-            background: var(--white);
-            color: var(--leaf-green);
-            border-color: var(--leaf-green);
-            box-shadow: 0 20px 40px rgba(139, 195, 74, 0.5);
+            transform: scale(1.05) translateY(-5px);
+            background: var(--spinach-green);
+            box-shadow: 0 15px 40px rgba(46, 90, 47, 0.3);
         }
 
-        /* 💎 RECIPE SECTION */
-        .section {
-            padding: 100px 20px;
-            background: #082420; /* Darker green for contrast */
-            text-align: center;
-        }
+        /* 💎 MODERN RECIPE CARDS */
+        .section { padding: 100px 20px; text-align: center; }
 
         .section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            color: var(--leaf-green);
+            font-size: 38px;
             margin-bottom: 50px;
         }
 
         .recipes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* 🖼️ UPGRADED CARDS */
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
+            background: var(--cream-white);
+            border-radius: 30px;
             overflow: hidden;
-            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(46, 90, 47, 0.05);
             transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(139, 195, 74, 0.1);
-            opacity: 0;
-            transform: translateY(40px);
+            border: 1px solid rgba(46, 90, 47, 0.05);
+            cursor: pointer;
         }
-
-        .card.show { opacity: 1; transform: translateY(0); }
 
         .card:hover {
             transform: translateY(-15px);
-            border-color: var(--leaf-green);
-            background: rgba(139, 195, 74, 0.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 25px 60px rgba(46, 90, 47, 0.12);
         }
 
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: 0.6s;
-        }
-
-        .card:hover img { transform: scale(1.1); }
+        .card img { width: 100%; height: 260px; object-fit: cover; }
 
         .card h3 {
             padding: 25px;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
+            color: var(--spinach-green);
         }
 
         /* 🦶 FOOTER */
         .footer {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background: var(--deep-forest);
-            border-top: 1px solid rgba(139, 195, 74, 0.1);
-            color: var(--text-muted);
-        }
-
-        /* MOBILE FIXES */
-        @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .hero-title { font-size: 2.5rem; }
+            border-top: 1px solid rgba(46, 90, 47, 0.05);
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">
-            <span class="white">CookWith</span><span class="green">Munavi</span>
+            <span class="brand-dark">CookWith</span><span class="brand-pop">Munavi</span>
         </div>
         <div class="nav-links">
             <a href="#">Home</a>
@@ -213,56 +190,34 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <header class="hero">
-        <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Healthy Cooking">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span style="font-weight: 800; display: block; letter-spacing: -1px;">Cooking Made Easy.</span>
-                    <span style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 0.6em; color: #B2DFDB; display: block; margin-top: 5px;">Flavor in Every Step.</span>
-                </h1>
-                <a href="#recipes" class="explore-btn" style="margin-top: 30px;">Start Cooking Today →</a>
-            </div>
+        <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Fresh Kitchen">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="main-text">Cooking Made Easy.</span>
+                <span class="sub-text">Flavor in Every Step.</span>
+            </h1>
+            <a href="#recipes" class="explore-btn">Start Cooking Today →</a>
+        </div>
     </header>
 
-    <!-- RECIPES -->
     <section class="section" id="recipes">
         <h2>Most Loved Recipes</h2>
         <div class="recipes-grid">
+            <!-- Palak Dal Card -->
             <div class="card" onclick="location.href='recipes/dals/palak-dal.html'">
                 <img src="images/palak-dal.jpeg" alt="Palak Dal">
                 <h3>Palak Dal</h3>
             </div>
-            <div class="card">
-                <img src="https://unsplash.com" alt="Masala Dosa">
-                <h3>Masala Dosa</h3>
-            </div>
-            <div class="card">
-                <img src="https://unsplash.com" alt="Chicken Biryani">
-                <h3>Chicken Biryani</h3>
-            </div>
+            <!-- Additional Cards -->
+            <div class="card"><img src="https://unsplash.com" alt="Dosa"><h3>Masala Dosa</h3></div>
+            <div class="card"><img src="https://unsplash.com" alt="Biryani"><h3>Chicken Biryani</h3></div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
-        <p>© 2026 CookWithMunavi</p>
-        <p style="font-size: 14px; margin-top: 10px;">Fresh • Healthy • Easy</p>
+        <p>© 2026 CookWithMunavi | Fresh • Healthy • Easy</p>
     </footer>
-
-    <script>
-        /* ✨ SCROLL ANIMATION */
-        const cards = document.querySelectorAll('.card');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        cards.forEach(card => observer.observe(card));
-    </script>
 
 </body>
 </html>
