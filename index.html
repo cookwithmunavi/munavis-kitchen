@@ -3,188 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Cooking Made Easy</title>
+    <title>CookWithMunavi | Master the Art of Cooking</title>
 
-    <!-- Professional Typography -->
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
-        /* 🌿 HIGH-CONTRAST PESTO PALETTE */
         :root {
-            --nav-dark: #1E392F;      /* Deep Spinach Green for Navbar */
-            --bg-cream: #FDFCF8;      /* Warm Kitchen Cream for main body */
-            --section-sage: #F1F8F1;  /* Light Sage for Recipe Section */
-            --basil-pop: #8BC34A;     /* Bright Basil Green for Actions */
+            --nav-dark: #1E392F;
+            --bg-cream: #FDFCF8;
+            --section-sage: #F1F8F1;
+            --basil-pop: #8BC34A;
             --white: #ffffff;
-            --text-main: #2E5A2F;     /* Deep green for text */
+            --text-main: #2E5A2F;
+            --expert-shadow: 0 20px 40px rgba(46, 90, 47, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-cream); color: var(--text-main); scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-cream);
-            color: var(--text-main);
-            scroll-behavior: smooth;
-        }
-
-        /* 🧼 HIGH-DEFINITION NAVBAR (Solves the "Blending" Issue) */
+        /* 🧼 EXPERT NAVBAR: Sticky with subtle glow */
         .navbar {
             position: fixed;
             top: 0; width: 100%;
-            background: var(--nav-dark); 
+            background: var(--nav-dark);
             padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             border-bottom: 3px solid var(--basil-pop);
         }
 
         .logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
         .logo .white { color: var(--white); }
-        .logo .green { color: var(--basil-pop); }
+        .logo .green { color: var(--basil-pop); text-shadow: 0 0 10px rgba(139, 195, 74, 0.3); }
 
         .nav-links a {
-            margin-left: 25px;
+            margin-left: 30px;
             text-decoration: none;
             color: var(--white);
             font-weight: 700;
-            font-size: 15px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--basil-pop); }
-
-        /* 🥗 CRISP HERO SECTION */
-        .hero {
-            margin-top: 65px; 
             position: relative;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            padding-bottom: 5px;
         }
 
-        .hero img {
+        /* Expert Hover: Underline grows from center */
+        .nav-links a::after {
+            content: '';
             position: absolute;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: 1;
+            width: 0; height: 2px;
+            bottom: 0; left: 50%;
+            background: var(--basil-pop);
+            transition: all 0.3s ease;
         }
+        .nav-links a:hover::after { width: 100%; left: 0; }
 
-        /* 💎 CRYSTAL GLASS PANEL */
+        /* 🥗 HERO & GLASS PANEL */
+        .hero { margin-top: 65px; position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 10s ease; }
+        .hero:hover img { transform: scale(1.1); } /* Subtle pan effect */
+
         .glass-panel {
-            position: relative;
-            z-index: 3;
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(12px);
-            padding: 50px 70px;
-            border-radius: 40px;
+            position: relative; z-index: 3;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            padding: 60px; border-radius: 40px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-            max-width: 80%;
+            box-shadow: var(--expert-shadow);
         }
 
-        .main-text { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; display: block; line-height: 1; margin-bottom: 10px; }
-        .sub-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: #4F7942; }
-
-        /* 🔘 POPPING BUTTON */
+        /* 🔘 EXPERT BUTTON: Pulsing Glow */
         .explore-btn {
             background: var(--basil-pop);
             color: var(--white);
-            padding: 16px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
             display: inline-block;
-            margin-top: 25px;
-            transition: 0.4s;
-            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.4);
+            margin-top: 30px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        .explore-btn:hover { transform: scale(1.05) translateY(-5px); background: var(--text-main); box-shadow: 0 15px 30px rgba(139, 195, 74, 0.4); }
 
-        .explore-btn:hover { background: var(--text-main); transform: scale(1.05); }
+        /* 🖼️ RECIPE CARDS: Expert Hover & Click Effect */
+        .section { padding: 100px 20px; text-align: center; background: var(--section-sage); }
+        .section h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 60px; color: var(--text-main); }
 
-        /* 🖼️ RECIPE GRID (The Fix for Visual Separation) */
-        .section {
-            padding: 80px 20px;
-            text-align: center;
-            background: var(--section-sage); /* Different background to stop blending */
-        }
-
-        .section h2 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 50px; }
-
-        .recipes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
 
         .card {
             background: var(--white);
-            border-radius: 25px;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Lift cards off the background */
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             cursor: pointer;
-            transition: 0.4s;
-            border: 1px solid rgba(0,0,0,0.02);
         }
 
-        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(46, 90, 47, 0.15); }
-        .card img { width: 100%; height: 230px; object-fit: cover; }
-        .card h3 { padding: 25px; font-weight: 700; color: var(--text-main); }
+        /* 🚀 The "Expert Lift" Hover */
+        .card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(30, 57, 47, 0.15);
+        }
 
-        .footer { padding: 50px; text-align: center; background: var(--nav-dark); color: var(--white); opacity: 0.9; }
+        /* 📸 Image Zoom within Card */
+        .card-img-container { overflow: hidden; height: 260px; position: relative; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; }
+        .card:hover img { transform: scale(1.15); filter: brightness(0.9); }
+
+        .card h3 { padding: 30px; font-weight: 800; font-size: 24px; transition: 0.3s; }
+        .card:hover h3 { color: var(--basil-pop); }
+
+        /* 🖱️ Click Animation */
+        .card:active { transform: scale(0.95); }
+
+        .footer { padding: 60px; text-align: center; background: var(--nav-dark); color: var(--white); }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR: Solid Dark Green for Maximum Visibility -->
     <nav class="navbar">
-        <div class="logo">
-            <span class="white">CookWith</span><span class="green">Munavi</span>
-        </div>
+        <div class="logo"><span class="white">CookWith</span><span class="green">Munavi</span></div>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#recipes">Recipes</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="hero">
         <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Healthy Kitchen">
         <div class="glass-panel">
             <h1 class="hero-title">
-                <span class="main-text">Cooking Made Easy.</span>
-                <span class="sub-text">Flavor in Every Step.</span>
+                <span style="font-size: 3.5rem; display: block; font-weight: 800;">Cooking Made Easy.</span>
+                <span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: #4F7942;">Flavor in Every Step.</span>
             </h1>
             <a href="#recipes" class="explore-btn">Start Cooking Today →</a>
         </div>
     </header>
 
-    <!-- RECIPES SECTION: Soft Sage Background -->
     <section class="section" id="recipes">
         <h2>Most Loved Recipes</h2>
         <div class="recipes-grid">
             
-            <!-- FIXED LINKAGE: Pointing to the specific folder path -->
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
-                <img src="images/palak-dal.jpeg" alt="Palak Dal">
+                <div class="card-img-container">
+                    <img src="images/palak-dal.jpeg" alt="Palak Dal">
+                </div>
                 <h3>Palak Dal</h3>
             </div>
 
-            <!-- Placeholder Cards -->
             <div class="card">
-                <img src="https://unsplash.com" alt="Masala Dosa">
+                <div class="card-img-container">
+                    <img src="https://unsplash.com" alt="Masala Dosa">
+                </div>
                 <h3>Masala Dosa</h3>
             </div>
 
             <div class="card">
-                <img src="https://unsplash.com" alt="Chicken Biryani">
+                <div class="card-img-container">
+                    <img src="https://unsplash.com" alt="Chicken Biryani">
+                </div>
                 <h3>Chicken Biryani</h3>
             </div>
 
