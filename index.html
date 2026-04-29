@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CookWithMunavi | Cooking Made Easy</title>
 
-    <!-- Corrected Google Fonts Link -->
+    <!-- Professional Typography -->
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
-        /* 🌿 WARM KITCHEN PALETTE (No Blue/Dark Overlays) */
+        /* 🌿 HIGH-CONTRAST PESTO PALETTE */
         :root {
-            --bg-cream: #FDFCF8;      /* Warm white background */
-            --pesto-dark: #2E5A2F;    /* Deep green for text */
-            --leaf-green: #8BC34A;    /* Vibrant green for buttons */
+            --nav-dark: #1E392F;      /* Deep Spinach Green for Navbar */
+            --bg-cream: #FDFCF8;      /* Warm Kitchen Cream for main body */
+            --section-sage: #F1F8F1;  /* Light Sage for Recipe Section */
+            --basil-pop: #8BC34A;     /* Bright Basil Green for Actions */
             --white: #ffffff;
+            --text-main: #2E5A2F;     /* Deep green for text */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,44 +24,44 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-cream);
-            color: var(--pesto-dark);
-            overflow-x: hidden;
+            color: var(--text-main);
             scroll-behavior: smooth;
         }
 
-        /* 🧼 HIGH-VISIBILITY NAVBAR */
+        /* 🧼 HIGH-DEFINITION NAVBAR (Solves the "Blending" Issue) */
         .navbar {
             position: fixed;
             top: 0; width: 100%;
-            background: var(--white); /* Solid white for clear visibility */
+            background: var(--nav-dark); 
             padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-bottom: 3px solid var(--leaf-green);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-bottom: 3px solid var(--basil-pop);
         }
 
         .logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
-        .logo .green { color: var(--leaf-green); }
+        .logo .white { color: var(--white); }
+        .logo .green { color: var(--basil-pop); }
 
         .nav-links a {
             margin-left: 25px;
             text-decoration: none;
-            color: var(--pesto-dark);
-            font-size: 16px;
+            color: var(--white);
             font-weight: 700;
+            font-size: 15px;
             transition: 0.3s;
         }
 
-        .nav-links a:hover { color: var(--leaf-green); }
+        .nav-links a:hover { color: var(--basil-pop); }
 
         /* 🥗 CRISP HERO SECTION */
         .hero {
-            margin-top: 65px;
+            margin-top: 65px; 
             position: relative;
-            height: 85vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -73,73 +75,46 @@
             z-index: 1;
         }
 
-        /* 💎 CRYSTAL GLASS PANEL (Readable & Clear) */
+        /* 💎 CRYSTAL GLASS PANEL */
         .glass-panel {
             position: relative;
             z-index: 3;
-            background: rgba(255, 255, 255, 0.85); 
+            background: rgba(255, 255, 255, 0.9); 
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             padding: 50px 70px;
             border-radius: 40px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-            max-width: 85%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            max-width: 80%;
         }
 
-        .hero-title .main-text { 
-            font-size: clamp(2.5rem, 6vw, 4rem); 
-            font-weight: 800; 
-            display: block; 
-            letter-spacing: -1px;
-            line-height: 1;
-        }
+        .main-text { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; display: block; line-height: 1; margin-bottom: 10px; }
+        .sub-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: #4F7942; }
 
-        .hero-title .sub-text {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: 1.8rem;
-            color: var(--pesto-dark);
-            display: block;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        /* 🔘 ACTION BUTTON */
+        /* 🔘 POPPING BUTTON */
         .explore-btn {
-            background: var(--leaf-green);
+            background: var(--basil-pop);
             color: var(--white);
-            padding: 18px 45px;
+            padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             display: inline-block;
-            margin-top: 30px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(139, 195, 74, 0.4);
+            margin-top: 25px;
+            transition: 0.4s;
+            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.4);
         }
 
-        .explore-btn:hover {
-            transform: scale(1.05) translateY(-5px);
-            background: var(--pesto-dark);
-        }
+        .explore-btn:hover { background: var(--text-main); transform: scale(1.05); }
 
-        /* 💎 RECIPE SECTION */
+        /* 🖼️ RECIPE GRID (The Fix for Visual Separation) */
         .section {
-            padding: 100px 20px;
-            background: var(--bg-cream);
+            padding: 80px 20px;
             text-align: center;
+            background: var(--section-sage); /* Different background to stop blending */
         }
 
-        .section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
+        .section h2 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 50px; }
 
         .recipes-grid {
             display: grid;
@@ -151,36 +126,27 @@
 
         .card {
             background: var(--white);
-            border-radius: 30px;
+            border-radius: 25px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Lift cards off the background */
             cursor: pointer;
-            transition: 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 45px rgba(46, 90, 47, 0.1);
-        }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(46, 90, 47, 0.15); }
+        .card img { width: 100%; height: 230px; object-fit: cover; }
+        .card h3 { padding: 25px; font-weight: 700; color: var(--text-main); }
 
-        .card img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-
-        .card h3 { padding: 25px; font-weight: 700; font-size: 22px; }
-
-        .footer { padding: 60px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+        .footer { padding: 50px; text-align: center; background: var(--nav-dark); color: var(--white); opacity: 0.9; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR: Solid Dark Green for Maximum Visibility -->
     <nav class="navbar">
         <div class="logo">
-            <span class="pesto">CookWith</span><span class="green">Munavi</span>
+            <span class="white">CookWith</span><span class="green">Munavi</span>
         </div>
         <div class="nav-links">
             <a href="#">Home</a>
@@ -188,9 +154,9 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <header class="hero">
-        <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Healthy Cooking">
+        <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Healthy Kitchen">
         <div class="glass-panel">
             <h1 class="hero-title">
                 <span class="main-text">Cooking Made Easy.</span>
@@ -200,37 +166,34 @@
         </div>
     </header>
 
-    <!-- RECIPES -->
+    <!-- RECIPES SECTION: Soft Sage Background -->
     <section class="section" id="recipes">
         <h2>Most Loved Recipes</h2>
         <div class="recipes-grid">
             
-            <!-- FIXED LINKAGE: Points to the root file. Update path if needed -->
+            <!-- FIXED LINKAGE: Pointing to the specific folder path -->
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
                 <img src="images/palak-dal.jpeg" alt="Palak Dal">
                 <h3>Palak Dal</h3>
             </div>
 
+            <!-- Placeholder Cards -->
             <div class="card">
-                <img src="https://unsplash.com" alt="Dosa">
+                <img src="https://unsplash.com" alt="Masala Dosa">
                 <h3>Masala Dosa</h3>
             </div>
 
             <div class="card">
-                <img src="https://unsplash.com" alt="Biryani">
+                <img src="https://unsplash.com" alt="Chicken Biryani">
                 <h3>Chicken Biryani</h3>
             </div>
+
         </div>
     </section>
 
     <footer class="footer">
         <p>© 2026 CookWithMunavi | Fresh • Healthy • Easy</p>
     </footer>
-
-    <script>
-        /* ✨ SIMPLE CLICK & SCROLL LOGIC */
-        // No extra JS needed for basic location change.
-    </script>
 
 </body>
 </html>
