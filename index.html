@@ -3,256 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CookWithMunavi</title>
-
-<link rel="preload" as="image" href="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png">
+<title>CookWithMunavi | Fresh Beginner Recipes</title>
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
-/* 🌿 BASE */
+/* 🌿 PESTO & BASIL THEME */
+:root {
+  --deep-forest: #0B2F2A; /* Your chosen dark green */
+  --leaf-green: #8BC34A;  /* Popping fresh green */
+  --soft-mint: #E8F5E9;   /* Background for light sections */
+  --white: #ffffff;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #1a1410, #120d0a);
-  color: #f5f5f5;
+  background: var(--deep-forest);
+  color: var(--white);
   overflow-x: hidden;
 }
 
-/* 🔥 NAVBAR (GLASS EFFECT) */
+/* 🔥 NAVBAR (FRESH OVERLAY) */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(28,21,17,0.8);
-  backdrop-filter: blur(10px);
-  padding: 14px 20px;
+  background: rgba(11, 47, 42, 0.85); /* Deep Forest Glass */
+  backdrop-filter: blur(12px);
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  border-bottom: 1px solid rgba(245,166,35,0.2);
+  border-bottom: 1px solid rgba(139, 195, 74, 0.3);
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.logo .white { color: #fff; }
-.logo .gold { color: #f5a623; }
+.logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+.logo .white { color: var(--white); }
+.logo .gold { color: var(--leaf-green); } /* Updated to Leaf Green */
 
 .nav-links a {
-  margin-left: 15px;
+  margin-left: 20px;
   text-decoration: none;
-  color: #c7b8a3;
+  color: #B2DFDB;
   font-size: 14px;
+  font-weight: 600;
   transition: 0.3s;
 }
 
-.nav-links a:hover {
-  color: #f5a623;
-}
+.nav-links a:hover { color: var(--leaf-green); }
 
-/* HERO */
-.hero {
-  margin-top: 60px;
-  position: relative;
-}
+/* 🥗 HERO SECTION */
+.hero { margin-top: 60px; position: relative; overflow: hidden; }
 
 .hero img {
   width: 100%;
-  max-height: 90vh;
+  max-height: 85vh;
   object-fit: cover;
+  filter: brightness(0.8); /* Makes the button pop more */
 }
 
-/* BUTTON */
 .hero-btn {
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .explore-btn {
-  background: linear-gradient(135deg, #f5a623, #ffcc80);
-  color: #2a1a0f;
-  padding: 14px 30px;
-  border-radius: 30px;
+  background: var(--leaf-green);
+  color: var(--deep-forest);
+  padding: 16px 36px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: 0.3s;
-  box-shadow: 0 4px 20px rgba(245,166,35,0.3);
+  font-weight: 800;
+  font-size: 18px;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(139, 195, 74, 0.4);
 }
 
 .explore-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 30px rgba(245,166,35,0.6);
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(139, 195, 74, 0.6);
+  background: #9ccc65;
 }
 
-.explore-btn:active {
-  transform: scale(0.96);
-}
-
-/* SECTION */
+/* 💎 RECIPE SECTION */
 .section {
   text-align: center;
-  padding: 50px 15px;
-  background: #221a15;
+  padding: 80px 20px;
+  background: #082420; /* Slightly darker than base */
 }
 
 .section h2 {
-  color: #f5a623;
-  font-size: 28px;
-  position: relative;
-  margin-bottom: 30px;
+  color: var(--leaf-green);
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-family: 'Playfair Display', serif;
 }
 
-.section h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #f5a623;
-  margin: 10px auto;
-}
-
-/* RECIPES */
 .recipes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* 💎 CARD (GLASS + ANIMATION) */
+/* ✨ UPGRADED CARDS */
 .card {
-  width: 90%;
-  max-width: 320px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(8px);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 195, 74, 0.1);
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.4s;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: 0.5s;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
 }
 
-/* SCROLL ANIMATION ACTIVE */
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+.card.show { opacity: 1; transform: translateY(0); }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(245,166,35,0.2);
+  transform: translateY(-12px);
+  border-color: var(--leaf-green);
+  background: rgba(139, 195, 74, 0.05);
 }
 
-/* IMAGE */
 .card img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
+  transition: 0.5s;
 }
 
-/* TITLE */
+.card:hover img { transform: scale(1.1); }
+
 .card h3 {
-  margin: 12px;
-  color: #ffcc80;
+  padding: 20px;
+  font-size: 20px;
+  color: var(--white);
 }
 
 /* FOOTER */
 .footer {
   text-align: center;
-  padding: 20px;
-  color: #c7b8a3;
-  background: #1c1511;
-}
-
-/* DESKTOP */
-@media (min-width: 768px) {
-  .card { width: 220px; }
+  padding: 40px;
+  color: #80cbc4;
+  background: var(--deep-forest);
+  border-top: 1px solid rgba(139, 195, 74, 0.1);
 }
 </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">
-    <span class="white">CookWith</span>
-    <span class="gold">Munavi</span>
+    <span class="white">CookWith</span><span class="gold">Munavi</span>
   </div>
-
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#recipes">Recipes</a>
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
-  <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png">
-
+  <img src="images/Gemini_Generated_Image_qz5qiqz5qiqz5qiq.png" alt="Fresh Kitchen">
   <div class="hero-btn">
-    <a href="#recipes" class="explore-btn">Explore Recipes →</a>
+    <a href="#recipes" class="explore-btn">Start Cooking Today →</a>
   </div>
 </div>
 
-<!-- RECIPES -->
 <div class="section" id="recipes">
   <h2>Most Loved Recipes</h2>
-
   <div class="recipes">
-
     <div class="card" onclick="openRecipe()">
       <img src="images/palak-dal.jpeg">
       <h3>Palak Dal</h3>
     </div>
-
     <div class="card">
       <img src="https://images.unsplash.com/photo-1589308078056-fc7b96f1d2">
       <h3>Masala Dosa</h3>
     </div>
-
     <div class="card">
       <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398">
       <h3>Chicken Biryani</h3>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1604908177453-7462950a6a3b">
-      <h3>Medu Vada</h3>
-    </div>
-
   </div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-  © 2026 CookWithMunavi
+  © 2026 CookWithMunavi | Fresh • Healthy • Easy
 </div>
 
 <script>
-function openRecipe() {
-  window.location.href = "recipes/dals/palak-dal.html";
-}
+function openRecipe() { window.location.href = "recipes/dals/palak-dal.html"; }
 
-/* 🎬 SCROLL ANIMATION */
 const cards = document.querySelectorAll('.card');
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
+    if(entry.isIntersecting) entry.target.classList.add('show');
   });
-}, { threshold: 0.2 });
-
+}, { threshold: 0.1 });
 cards.forEach(card => observer.observe(card));
 </script>
 
