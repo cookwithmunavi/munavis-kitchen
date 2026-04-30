@@ -3,170 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | The Modern Indian Kitchen</title>
+    <title>CookWithMunavi | The Signature Style</title>
     
-    <!-- Premium Font Pair -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- FONTS: Dancing Script for the 'Joy' style, Outfit for clean reading -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --deep-teal: #004D40;     /* Your professional green */
-            --saffron: #FF9933;       /* Your popping orange */
-            --silk: #FAF9F6;          /* New: Off-white silk background */
-            --white: #ffffff;
+            --deep-green: #1B3022;   /* Your Heritage Green */
+            --warm-orange: #D47A24;  /* Your Signature Orange */
+            --silk-white: #FAF9F6;
+            --pure-white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--silk); 
-            color: var(--deep-teal);
+            font-family: 'Outfit', sans-serif; 
+            background-color: var(--silk-white); 
+            color: var(--deep-green); 
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* 🧼 SLIM & ELEGANT NAVBAR */
+        /* 🧼 LOGO & NAV */
         .navbar {
-            padding: 25px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: transparent;
-            position: absolute; width: 100%; top: 0; z-index: 100;
+            padding: 40px 8%; position: absolute; width: 100%; z-index: 100;
         }
 
-        .logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
-        .logo span { color: var(--saffron); }
+        /* Brand Name in 'Joy' Style */
+        .logo { 
+            font-family: 'Dancing Script', cursive; 
+            font-size: 38px; font-weight: 700; 
+            color: var(--deep-green); 
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--warm-orange); }
 
         .nav-links a {
-            margin-left: 35px; text-decoration: none; color: var(--deep-forest);
-            font-weight: 500; font-size: 14px; transition: 0.3s;
-            text-transform: uppercase; letter-spacing: 1px;
+            margin-left: 40px; text-decoration: none; color: #333;
+            font-weight: 600; font-size: 14px; text-transform: uppercase; 
+            letter-spacing: 1.5px; transition: 0.3s ease;
         }
-        .nav-links a:hover { color: var(--saffron); }
+        .nav-links a:hover { color: var(--warm-orange); }
 
-        /* 🥘 RESTRUCTURED HERO SECTION */
-        .hero {
-            display: flex; align-items: center;
-            min-height: 85vh; padding: 120px 8% 60px;
-            max-width: 1400px; margin: 0 auto;
-            gap: 50px;
-        }
+        /* 🥘 HERO SECTION */
+        .hero { display: flex; height: 100vh; align-items: center; min-height: 700px; }
 
-        .hero-text { flex: 1; }
+        .hero-text { flex: 1; padding: 0 8%; z-index: 2; }
 
-        /* Typography Fix: Smaller, balanced font sizes */
+        /* Headline in 'Joy' Style */
         .hero-title { 
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 3.8rem); 
-            font-weight: 700; 
-            line-height: 1.2; 
-            margin-bottom: 15px; 
-            color: var(--deep-teal);
+            font-family: 'Dancing Script', cursive; 
+            font-size: clamp(3.5rem, 6vw, 5.5rem); 
+            line-height: 1.1; color: var(--deep-green); margin-bottom: 20px; 
         }
-        .hero-title span { font-style: italic; font-weight: 600; color: var(--saffron); }
+        .hero-title span { color: var(--warm-orange); }
 
         .hero-subtitle { 
-            font-size: 1.1rem; 
-            color: #555; 
-            margin-bottom: 35px; 
-            max-width: 450px;
-            font-weight: 400;
+            font-size: 1.2rem; color: #555; margin-bottom: 45px; 
+            max-width: 480px; font-weight: 300;
         }
 
-        .explore-btn {
-            background: var(--saffron); color: white;
-            padding: 16px 35px; border-radius: 4px; /* Classic Editorial Button */
-            text-decoration: none; font-weight: 700; display: inline-block;
-            transition: 0.4s;
-            text-transform: uppercase; letter-spacing: 1px;
-            font-size: 13px;
+        .btn-primary {
+            background: var(--deep-green); color: var(--pure-white); 
+            padding: 20px 50px; border-radius: 50px; text-decoration: none; 
+            font-weight: 700; display: inline-block; transition: 0.4s ease; 
+            text-transform: uppercase; letter-spacing: 2px; font-size: 13px;
         }
-        .explore-btn:hover { background: var(--deep-teal); transform: translateY(-3px); }
+        .btn-primary:hover { transform: translateY(-4px); background: #2a4732; }
 
-        /* 🍛 THE VISUAL: Elegant "Dish Portrait" */
+        /* RIGHT SIDE: CIRCLE VISUAL */
         .hero-visual { 
-            flex: 1; 
-            position: relative; 
-            display: flex; 
-            justify-content: flex-end; 
-        }
-        
-        .dish-frame {
-            width: 85%;
-            aspect-ratio: 4/5;
-            background: #eee;
-            border-radius: 20px; /* Softer, but not a full circle */
-            overflow: hidden;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
+            flex: 1.3; height: 100%; background: var(--deep-green); 
+            display: flex; align-items: center; justify-content: center;
+            clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
         }
 
-        .dish-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .circle-frame {
+            width: 520px; height: 520px; background: var(--pure-white);
+            border-radius: 50%; overflow: hidden; 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+            border: 15px solid var(--pure-white);
+        }
+        .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 🖼️ RECIPE GRID (CLEAN & TIDY) */
-        .section { padding: 100px 5%; background: var(--white); }
+        /* 🥗 RECIPE GRID SECTION */
+        .recipes { padding: 100px 8%; background: var(--pure-white); }
         .section-title { 
-            font-family: 'Playfair Display', serif;
-            font-size: 32px; text-align: center; margin-bottom: 60px; 
+            font-family: 'Dancing Script', cursive; font-size: 48px; 
+            color: var(--deep-green); margin-bottom: 50px; text-align: center; 
         }
-
-        .recipes-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; max-width: 1200px; margin: 0 auto; 
+        .grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; max-width: 1200px; margin: 0 auto; 
         }
+        .card { cursor: pointer; transition: 0.4s; text-decoration: none; display: block; }
+        .card:hover { transform: translateY(-10px); }
         
-        .card { 
-            background: var(--silk); border-radius: 12px; overflow: hidden; transition: 0.4s; cursor: pointer; 
+        .card-img { 
+            width: 100%; height: 320px; border-radius: 24px; 
+            overflow: hidden; margin-bottom: 20px; border: 1px solid #eee;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card h3 { 
-            padding: 20px; font-weight: 700; font-size: 18px; text-align: left; 
-            font-family: 'Playfair Display', serif;
-        }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Recipe Card Titles also in 'Joy' Style */
+        .card h3 { font-family: 'Dancing Script', cursive; font-size: 32px; color: var(--deep-green); }
+        .card p { color: #888; font-size: 14px; margin-top: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
 
-        .footer { 
-            padding: 60px; text-align: center; background: var(--silk); 
-            font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
-        }
+        footer { padding: 60px; text-align: center; background: var(--silk-white); border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">CookWith<span>Munavi</span></div>
-        <div class="nav-links"><a href="#">Home</a><a href="#recipes">Recipes</a></div>
+        <a href="#" class="logo">CookWith<span>Munavi</span></a>
+        <div class="nav-links">
+            <a href="#recipes">Recipes</a>
+            <a href="#">About</a>
+        </div>
     </nav>
 
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Indian Food,<br><span>Simply Made.</span></h1>
-            <p class="hero-subtitle">Discover authentic, beginner-friendly recipes designed for the modern home kitchen.</p>
-            <a href="#recipes" class="explore-btn">Browse Recipes</a>
+            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking</h1>
+            <p class="hero-subtitle">Your journey to becoming a confident home chef starts here. Simple steps, incredible results.</p>
+            <a href="#recipes" class="btn-primary">Explore Recipes</a>
         </div>
-
         <div class="hero-visual">
-            <div class="dish-frame">
-                <!-- Multi-cuisine professional Indian image -->
-                <img src="https://unsplash.com" alt="Indian Feast">
+            <div class="circle-frame">
+                <img src="https://unsplash.com" alt="Cooking Joy">
             </div>
         </div>
     </header>
 
-    <section class="section" id="recipes">
-        <h2 class="section-title">Most Loved This Week</h2>
-        <div class="recipes-grid">
-            <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
-                <img src="images/palak-dal.jpeg" alt="Palak Dal">
-                <h3>Palak Dal Tadka</h3>
+    <section class="recipes" id="recipes">
+        <h2 class="section-title">Popular Creations</h2>
+        <div class="grid">
+            <!-- PALAK DAL RECIPE CARD -->
+            <a href="recipes/dals/palak-dal.html" class="card">
+                <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
+                <h3>Aromatic Palak Dal</h3>
+                <p>20 Mins • Simple • Healthy</p>
+            </a>
+            <!-- Placeholder -->
+            <div class="card" style="opacity: 0.3; cursor: default;">
+                <div class="card-img" style="background: #f4f4f4;"></div>
+                <h3>Next Recipe...</h3>
+                <p>Coming Soon</p>
             </div>
-            <div class="card"><img src="https://unsplash.com"><h3>Crispy Masala Dosa</h3></div>
-            <div class="card"><img src="https://unsplash.com"><h3>Dum Chicken Biryani</h3></div>
         </div>
     </section>
 
-    <footer class="footer">
-        <strong>CookWith<span style="color:var(--saffron)">Munavi</span></strong>
-        <span style="margin: 0 15px; opacity: 0.3;">|</span>
-        <span>© 2026 The Modern Kitchen</span>
+    <footer>
+        <p style="font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--deep-green);">CookWith<span style="color:var(--warm-orange)">Munavi</span></p>
+        <p style="font-size: 12px; color: #999; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">© 2026 The Modern Kitchen</p>
     </footer>
 
 </body>
