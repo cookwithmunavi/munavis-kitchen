@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Taste the Joy of Home Cooking</title>
+    <title>CookWithMunavi | Taste the Joy</title>
     
     <!-- PREMIUM FONT STACK -->
     <link rel="preconnect" href="https://googleapis.com">
@@ -28,84 +28,69 @@
             line-height: 1.6;
         }
 
-        /* 🧼 CLEAN NAVIGATION */
+        /* 🧼 MINIMAL NAVBAR (LOGO ONLY) */
         .navbar {
             display: flex; 
-            justify-content: space-between; 
+            justify-content: flex-start; /* Keeps logo on the left */
             align-items: center;
-            padding: 40px 8%; 
+            padding: 45px 8%; 
             position: absolute; 
             width: 100%; 
             z-index: 100;
         }
 
+        /* Your Preferred Munavi Style */
         .logo { 
             font-family: 'Playfair Display', serif; 
-            font-size: 28px; 
+            font-size: 30px; 
             font-weight: 800; 
             color: var(--forest-green); 
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
         .logo span { 
             font-family: 'Dancing Script', cursive; 
             color: var(--orange-spice); 
-            font-size: 38px; 
-            margin-left: 5px;
-        }
-
-        .nav-links a {
-            margin-left: 40px; 
-            text-decoration: none; 
-            color: #444;
-            font-weight: 700; 
-            font-size: 13px; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px;
+            font-size: 42px; /* Popping signature style */
+            margin-left: 8px;
+            vertical-align: middle;
         }
 
         /* 🥘 HERO SECTION */
-        .hero { 
-            display: flex; 
-            height: 100vh; 
-            align-items: center; 
-            min-height: 750px; 
-        }
+        .hero { display: flex; height: 100vh; align-items: center; min-height: 750px; }
 
-        .hero-text { 
-            flex: 1; 
-            padding: 0 8%; 
-            z-index: 2; 
-        }
+        .hero-text { flex: 1; padding: 0 8%; z-index: 2; }
 
         .hero-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: clamp(3rem, 5vw, 4.8rem); 
+            font-size: clamp(3rem, 5.5vw, 5rem); 
             line-height: 1.1; 
             color: var(--forest-green); 
             margin-bottom: 25px; 
         }
 
+        /* Your Preferred Joy Style */
         .hero-title span { 
             font-family: 'Dancing Script', cursive; 
             color: var(--orange-spice); 
-            font-size: 1.2em;
+            font-size: 1.25em;
             display: inline-block;
             transform: rotate(-3deg);
             margin: 0 10px;
         }
 
         .hero-subtitle { 
-            font-size: 1.2rem; 
+            font-size: 1.25rem; 
             color: #555; 
             margin-bottom: 45px; 
-            max-width: 450px; 
+            max-width: 480px; 
             font-weight: 300;
         }
 
         .btn-main {
             background: var(--orange-spice); 
             color: var(--pure-white); 
-            padding: 20px 50px; 
+            padding: 22px 55px; 
             border-radius: 50px; 
             text-decoration: none; 
             font-weight: 800; 
@@ -114,7 +99,7 @@
             text-transform: uppercase; 
             letter-spacing: 2px; 
             font-size: 13px;
-            box-shadow: 0 10px 20px rgba(212, 122, 36, 0.2);
+            box-shadow: 0 10px 25px rgba(212, 122, 36, 0.25);
         }
         .btn-main:hover { transform: translateY(-4px); background: #b0651e; }
 
@@ -130,12 +115,12 @@
         }
 
         .circle-frame {
-            width: 520px; 
-            height: 520px; 
+            width: 540px; 
+            height: 540px; 
             background: var(--pure-white);
             border-radius: 50%; 
             overflow: hidden; 
-            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+            box-shadow: 0 45px 90px rgba(0,0,0,0.35);
             border: 15px solid var(--pure-white);
         }
         .circle-frame img { 
@@ -145,90 +130,73 @@
         }
 
         /* 🥗 RECIPE GRID SECTION */
-        .recipes { padding: 100px 8%; background: var(--warm-bg); }
+        .recipes { padding: 120px 8%; background: var(--warm-bg); }
         .section-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: 36px; 
+            font-size: 42px; 
             color: var(--forest-green); 
-            margin-bottom: 50px; 
+            margin-bottom: 60px; 
         }
         
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
-            max-width: 1200px; 
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+            gap: 40px; 
+            max-width: 1250px; 
         }
         
         .card { 
             text-decoration: none; 
             color: inherit; 
             background: var(--pure-white); 
-            border-radius: 20px; 
-            padding: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: 0.3s ease;
+            border-radius: 24px; 
+            padding: 25px; 
+            box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+            transition: 0.4s ease;
         }
-        .card:hover { transform: translateY(-10px); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         
         .card-img { 
             width: 100%; 
-            height: 240px; 
-            border-radius: 12px; 
+            height: 260px; 
+            border-radius: 16px; 
             overflow: hidden; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
         }
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
         
-        .card h3 { font-size: 20px; margin-bottom: 5px; }
-        .card p { color: #888; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+        /* Recipe titles in standard font for clarity */
+        .card h3 { font-size: 22px; font-weight: 800; color: var(--forest-green); margin-bottom: 8px; }
+        .card p { color: #888; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;}
 
-        /* 🦶 FOOTER SECTION */
+        /* 🦶 FOOTER */
         footer {
-            padding: 80px 8% 40px;
+            padding: 100px 8% 50px;
             background-color: var(--pure-white);
-            border-top: 1px solid rgba(0,0,0,0.05);
             text-align: center;
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--forest-green);
-            margin-bottom: 20px;
-            display: block;
+            margin-bottom: 30px;
+            display: inline-block;
             text-decoration: none;
         }
 
         .footer-logo span {
             font-family: 'Dancing Script', cursive;
             color: var(--orange-spice);
-            font-size: 30px;
+            font-size: 36px;
         }
-
-        .footer-links {
-            margin-bottom: 30px;
-        }
-
-        .footer-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #666;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .footer-links a:hover { color: var(--orange-spice); }
 
         .copyright {
             font-size: 12px;
-            color: #999;
+            color: #bbb;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
     </style>
@@ -237,16 +205,12 @@
 
     <nav class="navbar">
         <a href="#" class="logo">CookWith<span>Munavi</span></a>
-        <div class="nav-links">
-            <a href="#recipes">Recipes</a>
-            <a href="#">About</a>
-        </div>
     </nav>
 
     <header class="hero">
         <div class="hero-text">
             <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
-            <p class="hero-subtitle">Beginner-friendly recipes designed for incredible results.</p>
+            <p class="hero-subtitle">Elevated, beginner-friendly recipes designed for incredible results every time.</p>
             <a href="#recipes" class="btn-main">Explore Recipes</a>
         </div>
 
@@ -258,31 +222,25 @@
     </header>
 
     <section class="recipes" id="recipes">
-        <h2 class="section-title">Popular Recipes</h2>
+        <h2 class="section-title">The Collection</h2>
         <div class="grid">
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
                 <h3>Aromatic Palak Dal</h3>
-                <p>20 Mins • Easy</p>
+                <p>20 Mins • Simple • Healthy</p>
             </a>
             
-            <div class="card" style="opacity: 0.5;">
-                <div class="card-img" style="background: #eee;"></div>
-                <h3>More Coming Soon</h3>
-                <p>Stay Tuned</p>
+            <div class="card" style="opacity: 0.4;">
+                <div class="card-img" style="background: #f8f8f8;"></div>
+                <h3>Future Masterpiece</h3>
+                <p>Coming Soon</p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <a href="#" class="footer-logo">CookWith<span>Munavi</span></a>
-        <div class="footer-links">
-            <a href="#">Home</a>
-            <a href="#recipes">Recipes</a>
-            <a href="#">About Me</a>
-        </div>
-        <p class="copyright">© 2026 The Modern Kitchen | Cook with Confidence</p>
+        <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
 </body>
