@@ -3,189 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Fresh & Lovely Recipes</title>
-
-    <!-- Professional Typography -->
+    <title>CookWithMunavi | The Fresh Edit</title>
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
-        /* 🌿 FRESH PESTO & APRICOT PALETTE */
         :root {
-            --forest-green: #1E392F;   /* Deep green for text/footer */
-            --mint-cream: #F7FAF7;     /* Airy, fresh background (No Grey) */
-            --apricot-pop: #FF7043;    /* Appetite-stimulating accent */
-            --spinach-text: #2E5A2F;   /* Main readable green */
+            --deep-forest: #162B23;   /* Deep Kale for text */
+            --apricot: #FF7043;       /* Your lovely popping orange */
+            --mint-light: #F7FAF7;    /* Base fresh mint */
             --white: #ffffff;
-            --round-lg: 50px;          /* Friendly, modern rounded corners */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
+        /* ☀️ UPGRADE: Sun-Kissed Gradient Background */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--mint-cream);
-            color: var(--spinach-text);
-            scroll-behavior: smooth;
+            background: linear-gradient(135deg, #FFF5F2 0%, var(--mint-light) 50%, #F0F7F0 100%);
+            color: var(--deep-forest);
+            min-height: 100vh;
         }
 
-        /* 🧼 FRESH WHITE NAVBAR */
+        /* 🧼 GLASS NAVBAR */
         .navbar {
             position: fixed;
             top: 0; width: 100%;
-            background: var(--white);
-            padding: 18px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border-bottom: 3px solid var(--apricot-pop);
+            border-bottom: 2px solid rgba(255, 112, 67, 0.2);
         }
 
-        .logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
-        .logo .forest { color: var(--forest-green); }
-        .logo .apricot { color: var(--apricot-pop); }
+        .logo { font-size: 24px; font-weight: 800; color: var(--deep-forest); }
+        .logo span { color: var(--apricot); }
 
         .nav-links a {
-            margin-left: 30px;
-            text-decoration: none;
-            color: var(--forest-green);
-            font-weight: 700;
-            transition: 0.3s;
+            margin-left: 30px; text-decoration: none; color: var(--deep-forest);
+            font-weight: 700; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--apricot); }
+
+        /* 🥗 FROSTED HERO SECTION */
+        .hero {
+            margin-top: 60px; height: 75vh;
+            display: flex; align-items: center; justify-content: center;
             position: relative;
         }
 
-        .nav-links a:hover { color: var(--apricot-pop); }
-
-        /* 🥗 LOVELY HERO SECTION */
-        .hero {
-            margin-top: 65px;
-            height: 75vh;
-            background: #eaf2ea; /* Soft green wash */
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            position: relative; 
-            overflow: hidden;
-        }
-
-        .hero img {
-            position: absolute;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.85); /* Slightly brighter for "Fresh" feel */
-        }
-
-        /* 💎 EXTRA ROUNDED GLASS PANEL */
         .glass-panel {
-            position: relative; z-index: 3;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-            padding: 55px 75px; 
-            border-radius: var(--round-lg);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 60px 80px;
+            border-radius: 60px; /* Extra round for 'lovely' feel */
             text-align: center;
-            box-shadow: 0 30px 60px rgba(46, 90, 47, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
             max-width: 85%;
-            border: 1px solid rgba(255,255,255,0.5);
         }
 
-        .main-text { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; color: var(--spinach-text); line-height: 1; }
-        .sub-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--apricot-pop); display: block; margin-top: 8px; }
+        .main-text { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; margin-bottom: 10px; }
+        .sub-text { font-family: 'Playfair Display', serif; font-style: italic; color: var(--apricot); font-size: 1.8rem; }
 
-        /* 🔘 FRESH ACTION BUTTON */
+        /* 🔥 GLOWING BUTTON */
         .explore-btn {
-            background: var(--apricot-pop);
-            color: var(--white);
+            background: var(--apricot);
+            color: white;
             padding: 18px 45px;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            display: inline-block;
-            margin-top: 35px;
+            text-decoration: none; font-weight: 800;
+            display: inline-block; margin-top: 35px;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 25px rgba(255, 112, 67, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 112, 67, 0.4);
         }
 
         .explore-btn:hover {
-            background: var(--forest-green);
             transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(30, 57, 47, 0.3);
+            box-shadow: 0 15px 35px rgba(255, 112, 67, 0.6);
         }
 
-        /* 🖼️ RECIPE GRID (Fresh Cards) */
-        .section { padding: 100px 20px; text-align: center; background: var(--mint-cream); }
-        .section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 60px; color: var(--forest-green); }
-
+        /* 🖼️ RECIPE GRID */
+        .section { padding: 80px 20px; text-align: center; }
         .recipes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; max-width: 1100px; margin: 0 auto;
         }
 
         .card {
-            background: var(--white);
-            border-radius: var(--round-lg); /* Rounded Image & Card */
-            overflow: hidden;
-            transition: all 0.5s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: white; border-radius: 50px; overflow: hidden;
+            transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             cursor: pointer;
-            border: 1px solid rgba(46, 90, 47, 0.05);
         }
 
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 30px 60px rgba(46, 90, 47, 0.15);
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(22, 43, 35, 0.1); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card h3 { padding: 25px; font-weight: 800; }
+
+        /* ⚓ MODERN SLIM FOOTER */
+        .footer {
+            padding: 40px; background: white; text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        .card img { width: 100%; height: 260px; object-fit: cover; transition: 0.6s; }
-        .card:hover img { transform: scale(1.1); }
-
-        .card h3 { padding: 30px; font-weight: 800; font-size: 24px; color: var(--spinach-text); transition: 0.3s; }
-        .card:hover h3 { color: var(--apricot-pop); }
-
-        /* ⚓ SINGLE-LINE FRESH FOOTER */
-        .footer { 
-            padding: 50px 20px; 
-            text-align: center; 
-            background: var(--forest-green); 
-            color: var(--white); 
+        .footer-content {
+            display: flex; justify-content: center; align-items: center;
+            gap: 20px; flex-wrap: wrap; opacity: 0.8; font-size: 14px;
         }
-
-        .footer-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-logo { font-size: 22px; font-weight: 800; }
-        .footer-logo .apricot { color: var(--apricot-pop); }
-        .separator { color: rgba(255,255,255,0.3); font-size: 20px; font-weight: 300; }
-        .copyright { opacity: 0.8; font-weight: 600; letter-spacing: 1px; font-size: 13px; text-transform: uppercase; }
-        .slogan { font-style: italic; opacity: 0.5; font-size: 13px; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="logo">
-            <span class="forest">CookWith</span><span class="apricot">Munavi</span>
-        </div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#recipes">Recipes</a>
-        </div>
+        <div class="logo">CookWith<span>Munavi</span></div>
+        <div class="nav-links"><a href="#">Home</a><a href="#recipes">Recipes</a></div>
     </nav>
 
-    <!-- HERO -->
     <header class="hero">
-        <img src="https://unsplash.com" alt="Fresh Ingredients">
         <div class="glass-panel">
             <h1 class="hero-title">
                 <span class="main-text">Cooking Made Easy.</span>
@@ -195,43 +129,23 @@
         </div>
     </header>
 
-    <!-- RECIPES -->
     <section class="section" id="recipes">
-        <h2>Most Loved Recipes</h2>
+        <h2 style="font-size: 38px; margin-bottom: 50px;">Most Loved Recipes</h2>
         <div class="recipes-grid">
-            
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
                 <img src="images/palak-dal.jpeg" alt="Palak Dal" onerror="this.src='https://placehold.jp'">
                 <h3>Palak Dal</h3>
             </div>
-
-            <div class="card">
-                <img src="https://unsplash.com" alt="Masala Dosa">
-                <h3>Masala Dosa</h3>
-            </div>
-
-            <div class="card">
-                <img src="https://unsplash.com" alt="Chicken Biryani">
-                <h3>Chicken Biryani</h3>
-            </div>
-
+            <div class="card"><img src="https://unsplash.com"><h3>Masala Dosa</h3></div>
+            <div class="card"><img src="https://unsplash.com"><h3>Chicken Biryani</h3></div>
         </div>
     </section>
 
-    <!-- UPDATED SINGLE-LINE FOOTER -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <span style="color:#fff;">CookWith</span><span class="apricot">Munavi</span>
-            </div>
-            
-            <span class="separator">|</span>
-            
-            <p class="copyright">© 2026 CookWithMunavi</p>
-            
-            <span class="separator">|</span>
-            
-            <p class="slogan">Fresh • Healthy • Easy</p>
+        <div class="footer-content">
+            <span>© 2026 CookWithMunavi</span>
+            <span>|</span>
+            <span style="font-style: italic;">Fresh • Healthy • Easy</span>
         </div>
     </footer>
 
