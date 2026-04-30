@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CookWithMunavi | The Modern Kitchen</title>
     
+    <!-- PREMIUM FONTS -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
@@ -27,9 +28,9 @@
             line-height: 1.3;
         }
 
-        /* 🧼 NAVIGATION */
+        /* 🧼 LOGO SECTION */
         .navbar {
-            padding: 20px 6% 0;
+            padding: 25px 6% 0;
             width: 100%; 
             position: absolute;
             top: 0;
@@ -38,7 +39,7 @@
 
         .logo { 
             font-family: 'Playfair Display', serif; 
-            font-size: 1.1rem; 
+            font-size: 1.15rem; 
             font-weight: 900; 
             color: var(--lime-green); 
             text-decoration: none;
@@ -47,85 +48,86 @@
         .logo span { font-weight: 700; font-style: italic; color: var(--bright-orange); margin-left: 2px;}
 
         .logo-line {
-            width: 50px; height: 3px; border-radius: 50px;
+            width: 60px; height: 3px; border-radius: 50px;
             background: linear-gradient(to right, var(--lime-green), var(--bright-orange));
             margin-top: 4px;
         }
 
-        /* 🥘 HERO - MOBILE OVERLAP FIX */
+        /* 🥘 HERO - INCREASED GREEN AREA FOR MOBILE */
         .hero { 
             display: flex; 
             flex-direction: row; 
-            height: 300px; 
+            height: 380px; /* Slightly taller for more impact */
             width: 100%;
             align-items: center;
             overflow: hidden;
         }
 
         .hero-text { 
-            flex: 2.2; 
+            flex: 1.1; /* Balanced split to allow more green space */
             padding-left: 6%; 
-            padding-right: 25px; 
-            margin-top: 35px;
+            padding-right: 5px; 
+            margin-top: 40px;
             z-index: 10;
         }
 
         .hero-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: 1rem; 
+            font-size: 1.2rem; 
             font-weight: 900;
             color: var(--lime-green); 
-            margin-bottom: 5px; 
+            margin-bottom: 8px; 
             line-height: 1.1;
-            max-width: 135px; /* Forces wrap to clear the circle */
         }
         .hero-title span { font-style: italic; font-weight: 700; color: var(--bright-orange); }
 
         .hero-subtitle { 
-            font-size: 0.58rem; 
+            font-size: 0.65rem; 
             color: #666; 
-            margin-bottom: 12px; 
-            max-width: 120px;
+            margin-bottom: 15px; 
+            max-width: 130px;
         }
 
         .btn-main {
             background: var(--bright-orange); 
             color: white; 
-            padding: 7px 14px; 
+            padding: 8px 18px; 
             border-radius: 50px; 
             text-decoration: none; 
             font-weight: 800; 
             display: inline-block; 
             text-transform: uppercase; 
-            font-size: 0.5rem;
+            font-size: 0.55rem;
             letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
         }
 
-        /* 🏛️ VISUAL SECTION */
+        /* 🏛️ BOLD VISUAL SECTION - Larger on mobile */
         .hero-visual { 
-            flex: 1; 
+            flex: 1.6; /* Green area is now the star */
             height: 100%; 
             background: var(--lime-green); 
             display: flex; 
             align-items: center; 
             justify-content: center;
-            clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 45% 100%, 0% 50%);
+            /* Point moved left (15%) to match the desktop layout logic */
+            clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
         }
 
         .circle-frame {
-            width: 80px; 
-            height: 80px;
+            width: 150px; /* Much larger circle to show off the Biryani */
+            height: 150px;
             background: white;
             border-radius: 50%; 
             overflow: hidden; 
-            border: 3px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transform: translateX(15px);
+            border: 4px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transform: translateX(10px); /* Centers it perfectly within the new green space */
         }
         .circle-frame img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* Ensures Biryani isn't squashed */
+            object-fit: cover; 
         }
 
         /* 💻 DESKTOP RESTORE */
@@ -135,16 +137,16 @@
             .logo-line { width: 100px; height: 5px; }
             .hero { height: 100vh; }
             .hero-text { flex: 1; padding-left: 8%; margin-top: 0; }
-            .hero-title { font-size: 4rem; margin-bottom: 20px; max-width: none; }
+            .hero-title { font-size: 4rem; margin-bottom: 20px; }
             .hero-subtitle { font-size: 1.1rem; max-width: 450px; margin-bottom: 40px; }
             .btn-main { padding: 18px 45px; font-size: 12px; }
-            .hero-visual { flex: 1.3; clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%); }
+            .hero-visual { flex: 1.3; }
             .circle-frame { width: 500px; height: 500px; border-width: 15px; transform: none; }
         }
 
         /* 🥗 RECIPES SECTION */
-        .recipes { padding: 50px 6%; background: var(--warm-bg); text-align: center; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--lime-green); margin-bottom: 30px; }
+        .recipes { padding: 80px 6%; background: var(--warm-bg); text-align: center; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--lime-green); margin-bottom: 40px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
         .card { background: white; border-radius: 20px; padding: 20px; text-decoration: none; color: inherit; box-shadow: 0 5px 15px rgba(0,0,0,0.04); display: block; transition: 0.3s;}
         .card:hover { transform: translateY(-8px); }
@@ -153,6 +155,7 @@
         
         .scroll-top { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
 
+        /* 🦶 FOOTER */
         footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid #eee; background: #fff; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--lime-green); text-decoration: none; display: inline-block; margin-bottom: 10px; }
         .footer-logo span { color: var(--bright-orange); font-style: italic; }
@@ -167,14 +170,14 @@
 
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
+            <h1 class="hero-title">Taste the <span>Joy</span> of<br>Home Cooking.</h1>
             <p class="hero-subtitle">Elevated, beginner-friendly recipes designed for incredible results.</p>
             <a href="#recipes" class="btn-main">Explore Recipes</a>
         </div>
 
         <div class="hero-visual">
             <div class="circle-frame">
-                <!-- UPDATED LOCAL PATH -->
+                <!-- Using your local path -->
                 <img src="images/biryani.png" alt="Munavi Signature Biryani">
             </div>
         </div>
@@ -185,8 +188,9 @@
         <div class="grid">
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--lime-green);">Aromatic Palak Dal</h3>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--lime-green);">Aromatic Palak Dal</h3>
             </a>
+            <div class="card" style="opacity: 0.4;"><div class="card-img" style="background: #f8f8f8;"></div><h3>Future Creation</h3></div>
         </div>
     </section>
 
