@@ -28,17 +28,18 @@
             line-height: 1.5;
         }
 
-        /* 🧼 CLEAN NAVIGATION */
+        /* 🧼 TOP-MOST NAVBAR - Removed emptiness at the top */
         .navbar {
             display: flex; 
             justify-content: flex-start;
             align-items: center;
-            padding: 40px 8% 10px;
+            padding: 30px 8% 0; /* Minimal top padding */
+            position: absolute; 
+            top: 0;
             width: 100%; 
-            background: transparent;
+            z-index: 100;
         }
 
-        /* BRAND STYLE: Bold serif + Signature Italic */
         .logo { 
             font-family: 'Playfair Display', serif; 
             font-size: 26px; 
@@ -54,18 +55,19 @@
             margin-left: 3px;
         }
 
-        /* 🥘 HERO SECTION (OFF-WHITE LEFT, GREEN POINTED RIGHT) */
+        /* 🥘 HERO SECTION - Spans full height */
         .hero { 
             display: flex; 
-            height: calc(100vh - 80px); 
+            height: 100vh; 
             align-items: center; 
-            min-height: 600px; 
+            min-height: 700px;
+            position: relative;
         }
 
         .hero-text { 
             flex: 1; 
             padding: 0 8%; 
-            margin-top: -40px;
+            z-index: 2;
         }
 
         .hero-title { 
@@ -77,7 +79,6 @@
             margin-bottom: 15px; 
         }
 
-        /* SIGNATURE JOY */
         .hero-title span { 
             font-style: italic;
             font-weight: 700;
@@ -91,10 +92,8 @@
             margin-bottom: 35px; 
             max-width: 420px; 
             font-weight: 300;
-            line-height: 1.6;
         }
 
-        /* THE ORANGE PROMISE BUTTON */
         .btn-main {
             background: var(--orange-spice); 
             color: var(--pure-white); 
@@ -111,7 +110,7 @@
         }
         .btn-main:hover { transform: translateY(-3px); background: #b0651e; }
 
-        /* THE VISUAL: GREEN BACKGROUND WITH POINTED EDGE */
+        /* 🏛️ EDGE-TO-EDGE VISUAL SECTION */
         .hero-visual { 
             flex: 1.3; 
             height: 100%; 
@@ -119,6 +118,7 @@
             display: flex; 
             align-items: center; 
             justify-content: center;
+            /* Point starts exactly from the top (0%) edge */
             clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
         }
 
@@ -128,7 +128,7 @@
             background: var(--pure-white);
             border-radius: 50%; 
             overflow: hidden; 
-            box-shadow: 0 35px 70px rgba(0,0,0,0.3);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.4);
             border: 12px solid var(--pure-white);
         }
         .circle-frame img { 
@@ -137,9 +137,8 @@
             object-fit: cover; 
         }
 
-        /* 🥗 RECIPES SECTION (THE DESTINATION) */
+        /* 🥗 RECIPES SECTION */
         .recipes { padding: 100px 8%; background: var(--warm-bg); }
-        
         .section-title { 
             font-family: 'Playfair Display', serif; 
             font-size: 34px; 
@@ -171,7 +170,7 @@
         .card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--forest-green); }
         .card p { color: #888; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;}
 
-        /* 🔝 BACK TO TOP BUTTON */
+        /* 🔝 SCROLL TO TOP */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -190,7 +189,6 @@
             transition: 0.3s;
             z-index: 1000;
         }
-        .scroll-top:hover { transform: translateY(-5px); background: var(--orange-spice); }
 
         /* 🦶 FOOTER */
         footer {
@@ -216,18 +214,11 @@
             color: var(--orange-spice);
         }
 
-        .footer-nav {
-            margin-bottom: 30px;
-        }
-
-        .footer-nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #666;
-            font-weight: 600;
+        .copyright {
+            font-size: 11px;
+            color: #ccc;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 13px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -241,22 +232,19 @@
         <div class="hero-text">
             <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
             <p class="hero-subtitle">Elevated, beginner-friendly recipes designed for incredible results every time.</p>
-            
-            <!-- BUTTON: Promise -->
             <a href="#recipes" class="btn-main">Explore the Recipes</a>
         </div>
 
         <div class="hero-visual">
             <div class="circle-frame">
+                <!-- Replace with your cooking photo -->
                 <img src="https://unsplash.com" alt="Cooking Joy">
             </div>
         </div>
     </header>
 
     <section class="recipes" id="recipes">
-        <!-- HEADER: Delivery -->
         <h2 class="section-title">Discover the Recipes</h2>
-        
         <div class="grid">
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
@@ -272,16 +260,11 @@
         </div>
     </section>
 
-    <!-- USER FRIENDLY SCROLL BUTTON -->
     <a href="#top" class="scroll-top">↑</a>
 
     <footer>
         <a href="#top" class="footer-logo">CookWith<span>Munavi</span></a>
-        <div class="footer-nav">
-            <a href="#top">Home</a>
-            <a href="#recipes">Recipes</a>
-        </div>
-        <p style="font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">© 2026 The Modern Kitchen</p>
+        <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
 </body>
