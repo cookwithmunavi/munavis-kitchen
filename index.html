@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Responsive & Bright</title>
+    <title>CookWithMunavi | Perfectly Responsive</title>
     
-    <!-- FONTS -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -30,92 +31,79 @@
         .navbar {
             padding: 20px 8%; 
             width: 100%; 
-            display: flex;
-            justify-content: center; /* Centered on mobile by default */
+            position: absolute;
+            top: 0;
             z-index: 100;
-            background: var(--pure-white);
+            display: flex;
+            justify-content: center; /* Center logo on mobile */
         }
 
         .logo { 
             font-family: 'Playfair Display', serif; 
-            font-size: 24px; font-weight: 800; 
+            font-size: 1.5rem; font-weight: 800; 
             color: var(--lime-green); text-decoration: none;
-            text-align: center;
         }
-        .logo span { font-style: italic; color: var(--bright-orange); }
+        .logo span { font-weight: 700; font-style: italic; color: var(--bright-orange); margin-left: 2px; }
 
-        /* Style C: The Gourmet Dot Line */
-        .logo-anchor {
-            width: 80px; height: 4px; border-radius: 50px;
-            background: linear-gradient(to right, var(--lime-green), var(--bright-orange));
-            margin: 5px auto 0;
-        }
-
-        /* 🥘 HERO SECTION - Responsive Layout */
+        /* 🥘 HERO SECTION - VERTICAL FOR MOBILE */
         .hero { 
             display: flex; 
-            flex-direction: column; /* Stacked on mobile */
-            align-items: center; 
-            text-align: center;
+            flex-direction: column; /* Stacked: Image top, Text bottom */
+            min-height: 100vh;
         }
 
+        /* Text area on mobile */
         .hero-text { 
+            flex: 1;
             padding: 40px 8%; 
-            order: 2; /* Text comes after image on mobile */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            order: 2; /* Move text below image */
         }
 
         .hero-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.5rem; 
+            font-size: 2.4rem; 
             font-weight: 800; line-height: 1.1; 
             color: var(--lime-green); margin-bottom: 15px; 
         }
-        .hero-title span { font-style: italic; color: var(--bright-orange); }
+        .hero-title span { font-style: italic; font-weight: 700; color: var(--bright-orange); }
 
-        .hero-subtitle { font-size: 1rem; color: #666; margin-bottom: 30px; }
+        .hero-subtitle { font-size: 0.95rem; color: #666; margin-bottom: 30px; max-width: 320px; }
 
         .btn-main {
             background: var(--bright-orange); color: white; 
-            padding: 15px 40px; border-radius: 50px; 
+            padding: 14px 35px; border-radius: 50px; 
             text-decoration: none; font-weight: 800; 
             display: inline-block; text-transform: uppercase; 
-            letter-spacing: 1.5px; font-size: 12px;
+            letter-spacing: 1.5px; font-size: 11px;
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.2);
         }
 
-        /* 🏛️ VISUAL SECTION - Mobile Adjusted */
+        /* Visual area on mobile */
         .hero-visual { 
-            width: 100%; 
-            height: 45vh; /* Takes half the screen height */
+            width: 100%;
+            height: 45vh; /* Takes up top half of screen */
             background: var(--lime-green); 
-            display: flex; align-items: center; justify-content: center;
-            order: 1; /* Image on top for mobile */
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            order: 1; /* Image stays at top */
             position: relative;
+            /* Pointed edge facing down for mobile */
+            clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
         }
 
         .circle-frame {
-            width: 280px; height: 280px;
+            width: 250px; height: 250px;
             background: var(--pure-white); border-radius: 50%; 
             overflow: hidden; border: 8px solid var(--pure-white);
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
         .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* 💻 DESKTOP ADJUSTMENTS (Screens wider than 768px) */
-        @media (min-width: 769px) {
-            .navbar { position: absolute; justify-content: flex-start; background: transparent; padding: 40px 8%; }
-            .logo { text-align: left; font-size: 28px; }
-            .logo-anchor { margin: 5px 0 0; }
-            
-            .hero { flex-direction: row; height: 100vh; text-align: left; }
-            .hero-text { flex: 1; padding: 0 8%; order: 1; }
-            .hero-title { font-size: 4rem; }
-            
-            .hero-visual { 
-                flex: 1.2; height: 100%; order: 2; 
-                clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
-            }
-            .circle-frame { width: 500px; height: 500px; border-width: 15px; }
-        }
 
         /* 🥗 RECIPES SECTION */
         .recipes { padding: 60px 8%; background: var(--light-bg); text-align: center; }
@@ -125,29 +113,54 @@
         .card-img { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        footer { padding: 40px; text-align: center; border-top: 1px solid #eee; }
+        /* 💻 DESKTOP ADJUSTMENTS (Screens wider than 768px) */
+        @media (min-width: 769px) {
+            .navbar { justify-content: flex-start; padding: 40px 8%; }
+            .logo { font-size: 1.6rem; }
+            .hero { flex-direction: row; }
+            .hero-text { flex: 1; text-align: left; align-items: flex-start; order: 1; padding: 0 8%; }
+            .hero-title { font-size: 4rem; }
+            .hero-subtitle { font-size: 1.1rem; max-width: 450px; }
+            .hero-visual { 
+                flex: 1.2; height: 100vh; order: 2; 
+                clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+            }
+            .circle-frame { width: 500px; height: 500px; border-width: 15px; }
+        }
+
+        /* 🦶 FOOTER */
+        footer {
+            padding: 60px 8% 30px;
+            background-color: var(--pure-white);
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: var(--lime-green); text-decoration: none; display: block; margin-bottom: 15px; }
+        .footer-logo span { font-style: italic; color: var(--bright-orange); }
+        .copyright { font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 2px; }
+
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo-box">
-            <a href="#" class="logo">CookWith<span>Munavi</span></a>
-            <div class="logo-anchor"></div>
-        </div>
+        <a href="#" class="logo">CookWith<span>Munavi</span></a>
     </nav>
 
     <header class="hero">
-        <div class="hero-text">
-            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
-            <p class="hero-subtitle">Beginner-friendly recipes designed for incredible results every time.</p>
-            <a href="#recipes" class="btn-main">Explore the Recipes</a>
-        </div>
-
+        <!-- IMAGE TOP ON MOBILE -->
         <div class="hero-visual">
             <div class="circle-frame">
-                <img src="https://unsplash.com" alt="Biryani">
+                <!-- VIBRANT IMAGE LINK -->
+                <img src="https://unsplash.com" alt="Cooking Joy">
             </div>
+        </div>
+
+        <!-- TEXT BOTTOM ON MOBILE -->
+        <div class="hero-text">
+            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
+            <p class="hero-subtitle">Elevated, beginner-friendly recipes designed for incredible results every time.</p>
+            <a href="#recipes" class="btn-main">Explore the Recipes</a>
         </div>
     </header>
 
@@ -156,14 +169,15 @@
         <div class="grid">
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
-                <h3>Aromatic Palak Dal</h3>
-                <p style="color:#999; font-size:12px; font-weight:700; text-transform:uppercase; margin-top:5px;">20 Mins • Easy</p>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--lime-green);">Aromatic Palak Dal</h3>
+                <p style="color:#999; font-size:11px; font-weight:700; text-transform:uppercase; margin-top:5px; letter-spacing:1px;">20 Mins • Simple • Healthy</p>
             </a>
         </div>
     </section>
 
     <footer>
-        <p style="font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 2px;">© 2026 CookWithMunavi | The Modern Kitchen</p>
+        <a href="#" class="footer-logo">CookWith<span>Munavi</span></a>
+        <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
 </body>
