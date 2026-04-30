@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Smooth & Interactive</title>
+    <title>CookWithMunavi | Master Edition</title>
     
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -17,9 +17,7 @@
             --warm-bg: #FAF9F2;
         }
 
-        /* 🪄 EYE-PLEASING SMOOTH SCROLL */
-        html { scroll-behavior: smooth; }
-
+        /* Removed standard CSS scroll-behavior to let JS handle the custom speed */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
@@ -90,6 +88,7 @@
             max-width: 130px;
         }
 
+        /* ACTION BUTTON */
         .btn-main {
             background: var(--bright-orange); 
             color: white; 
@@ -101,10 +100,12 @@
             text-transform: uppercase; 
             font-size: 0.55rem;
             letter-spacing: 0.5px;
+            cursor: pointer;
+            border: none;
             box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
-            transition: transform 0.3s ease, background 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .btn-main:hover { transform: scale(1.05); background: #f57c00; }
+        .btn-main:hover { transform: scale(1.08); background: #f57c00; }
 
         .hero-visual { 
             flex: 1.6; 
@@ -145,47 +146,41 @@
         .recipes { padding: 80px 6%; background: var(--warm-bg); text-align: center; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--lime-green); margin-bottom: 40px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 
-        /* ✨ INTERACTIVE RECIPE CARD */
+        /* ✨ INTERACTIVE CARD FIX */
         .card { 
             background: white; 
-            border-radius: 20px; 
+            border-radius: 24px; 
             padding: 20px; 
             text-decoration: none; 
             color: inherit; 
             display: block; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy, premium feel */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             border: 2px solid transparent;
         }
 
-        /* 💥 HOVER POP EFFECT */
+        /* 💥 THE "SELECTION POP" COLOR */
         .card:hover { 
-            transform: translateY(-15px) scale(1.02); 
-            box-shadow: 0 20px 40px rgba(255, 152, 0, 0.15); /* Soft Orange Glow */
-            border-color: var(--bright-orange); /* Border highlights the selection */
+            transform: translateY(-12px); 
+            box-shadow: 0 25px 50px rgba(255, 152, 0, 0.15); /* Orange selection glow */
+            border-color: var(--bright-orange);
         }
         
         .card-img { 
-            width: 100%; 
-            height: 220px; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            margin-bottom: 15px; 
-            transition: transform 0.5s ease;
+            width: 100%; height: 220px; border-radius: 14px; 
+            overflow: hidden; margin-bottom: 15px; 
+            transition: transform 0.6s ease;
         }
-        
-        /* Zoom image slightly on hover */
         .card:hover .card-img img { transform: scale(1.1); }
-        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 
-        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--lime-green); transition: color 0.3s; }
-        .card:hover h3 { color: var(--bright-orange); } /* Text turns orange on select */
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--lime-green); transition: color 0.3s; }
+        .card:hover h3 { color: var(--bright-orange); } /* Text pops to orange on hover */
 
         /* 🔝 SCROLL TO TOP */
-        .scroll-top { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); transition: 0.3s; }
-        .scroll-top:hover { transform: scale(1.1); background: var(--bright-orange); }
+        .scroll-top { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; border: none; }
 
         footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid #eee; background: #fff; }
     </style>
@@ -198,9 +193,10 @@
 
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Taste the <span>Joy</span> of<br>Home Cooking.</h1>
+            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
             <p class="hero-subtitle">Elevated, beginner-friendly recipes designed for incredible results.</p>
-            <a href="#recipes" class="btn-main">Explore Recipes</a>
+            <!-- Custom JS Trigger -->
+            <button onclick="slowScroll('recipes')" class="btn-main">Explore Recipes</button>
         </div>
 
         <div class="hero-visual">
@@ -218,17 +214,47 @@
                 <h3>Aromatic Palak Dal</h3>
                 <p style="color:#999; font-size:12px; font-weight:700; text-transform:uppercase; margin-top:8px; letter-spacing:1px;">20 Mins • Simple • Healthy</p>
             </a>
-            
             <div class="card" style="opacity: 0.4;"><div class="card-img" style="background: #f8f8f8;"></div><h3>Future Creation</h3></div>
         </div>
     </section>
 
-    <a href="#top" class="scroll-top">↑</a>
+    <!-- JS Back to top -->
+    <button onclick="slowScroll('top')" class="scroll-top">↑</button>
 
     <footer>
-        <a href="#top" style="text-decoration:none;"><div class="logo" style="font-size: 1.4rem;">CookWith<span>Munavi</span></div></a>
+        <div class="logo" style="font-size: 1.4rem;">CookWith<span>Munavi</span></div>
         <p style="font-size: 10px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; margin-top: 15px;">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
+
+    <!-- 🪄 VELVET SMOOTH SCROLL SCRIPT -->
+    <script>
+        function slowScroll(targetId) {
+            const target = document.getElementById(targetId);
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1200; // Time in milliseconds (1.2 seconds) - adjust this to make it slower/faster
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOut(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            // Easing function for that "gentle glide" feel
+            function easeInOut(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+    </script>
 
 </body>
 </html>
