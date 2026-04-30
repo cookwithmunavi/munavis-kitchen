@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Bright & Balanced</title>
+    <title>CookWithMunavi | Final Fix</title>
     
-    <!-- PREMIUM FONTS: Playfair Display provides that exact bold/italic serif look -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,800;1,700;1,800&display=swap" rel="stylesheet">
@@ -40,7 +39,6 @@
             font-size: 1.6rem; font-weight: 800; 
             color: var(--lime-green); text-decoration: none;
         }
-        /* Munavi in the Italic Style */
         .logo span { 
             font-weight: 700;
             font-style: italic; 
@@ -61,7 +59,6 @@
             color: var(--lime-green); margin-bottom: 1.5rem; 
         }
 
-        /* Joy now matches the Munavi Italic style exactly */
         .hero-title .joy { 
             font-style: italic;
             font-weight: 700;
@@ -86,23 +83,24 @@
         }
         .btn-main:hover { transform: translateY(-3px); background: var(--lime-green); }
 
-        /* 🏛️ THE VISUAL SECTION */
+        /* 🏛️ THE VISUAL SECTION: Fixed the Oval width */
         .hero-visual { 
-            flex: 1.1; height: 100%; 
+            flex: 1.2; height: 100%; 
             background: var(--lime-green); 
             display: flex; align-items: center; justify-content: center;
             clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
         }
 
+        /* FIXED OVAL SHAPE */
         .pill-frame {
-            width: 70%; 
-            height: 70vh; 
-            max-height: 550px;
+            width: 75%;      /* Increased width for a proper oval look */
+            height: 75vh;    /* Responsive height */
+            max-height: 580px;
             background: var(--pure-white); 
-            border-radius: 1000px; 
+            border-radius: 1000px; /* Perfect oval rounding */
             overflow: hidden; 
-            border: 10px solid var(--pure-white);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border: 12px solid var(--pure-white);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.3);
         }
         .pill-frame img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -111,7 +109,6 @@
         .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--lime-green); margin-bottom: 50px; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; }
-        
         .card { background: white; border-radius: 24px; padding: 20px; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: block; }
         .card:hover { transform: translateY(-10px); }
         .card-img { width: 100%; height: 260px; border-radius: 16px; overflow: hidden; margin-bottom: 20px; }
@@ -128,44 +125,20 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s;
         }
 
-        /* 🦶 FOOTER SECTION */
+        /* 🦶 FOOTER */
         footer {
             padding: 100px 8% 50px;
             background-color: var(--pure-white);
             text-align: center;
             border-top: 1px solid #eee;
         }
-
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--lime-green);
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 30px;
+            font-size: 2rem; font-weight: 800; color: var(--lime-green); text-decoration: none;
+            display: inline-block; margin-bottom: 30px;
         }
-
-        .footer-logo span {
-            font-weight: 700;
-            font-style: italic;
-            color: var(--bright-orange);
-            font-size: 2.4rem;
-        }
-
-        .footer-nav {
-            margin-bottom: 35px;
-        }
-
-        .footer-nav a {
-            margin: 0 20px;
-            text-decoration: none;
-            color: #666;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+        .footer-logo span { font-style: italic; color: var(--bright-orange); font-size: 2.4rem; }
+        .copyright { font-size: 11px; color: #ccc; text-transform: uppercase; letter-spacing: 3px; }
     </style>
 </head>
 <body>
@@ -182,10 +155,9 @@
         </div>
 
         <div class="hero-visual">
-            <div class="circle-frame">
-                <div class="pill-frame">
-                    <img src="https://unsplash.com" alt="Joyful Feast">
-                </div>
+            <div class="pill-frame">
+                <!-- VIBRANT IMAGE LINK -->
+                <img src="https://unsplash.com" alt="Joyful Feast">
             </div>
         </div>
     </header>
@@ -198,8 +170,7 @@
                 <h3>Aromatic Palak Dal</h3>
                 <p>20 Mins • Simple • Healthy</p>
             </a>
-            
-            <div class="card" style="opacity: 0.4; cursor: default;">
+            <div class="card" style="opacity: 0.4;">
                 <div class="card-img" style="background: #eee;"></div>
                 <h3>More Recipes Soon</h3>
                 <p>Stay Tuned</p>
@@ -211,11 +182,7 @@
 
     <footer>
         <a href="#top" class="footer-logo">CookWith<span>Munavi</span></a>
-        <div class="footer-nav">
-            <a href="#top">Home</a>
-            <a href="#recipes">Recipes</a>
-        </div>
-        <p style="font-size: 11px; color: #ccc; text-transform: uppercase; letter-spacing: 3px;">© 2026 The Modern Kitchen</p>
+        <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
 </body>
