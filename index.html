@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Master Layout</title>
+    <title>CookWithMunavi | The Modern Kitchen</title>
     
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
             line-height: 1.3;
         }
 
-        /* 🧼 LOGO SECTION - Pinned Top Left */
+        /* 🧼 LOGO SECTION */
         .navbar {
             padding: 25px 6% 0;
             width: 100%; 
@@ -38,51 +38,52 @@
 
         .logo { 
             font-family: 'Playfair Display', serif; 
-            font-size: 1rem; 
+            font-size: 1.1rem; 
             font-weight: 800; 
             color: var(--lime-green); 
             text-decoration: none;
         }
         .logo span { font-weight: 700; font-style: italic; color: var(--bright-orange); margin-left: 2px;}
 
-        /* 🥘 COMPACT HERO - FORCED SIDE-BY-SIDE */
+        /* 🥘 THE "DESKTOP-ON-MOBILE" HERO */
         .hero { 
             display: flex; 
-            flex-direction: row; /* Keeps laptop style on all screens */
-            height: 340px;       /* Keeps it small on mobile */
+            flex-direction: row; 
+            height: 320px; /* Fixed height for mobile */
             width: 100%;
             align-items: center;
             overflow: hidden;
         }
 
         .hero-text { 
-            flex: 1.5; /* Gives text more room to avoid overlapping the image */
+            flex: 2; /* Give text 70% of the width */
             padding-left: 6%; 
-            padding-right: 5px;
-            margin-top: 30px;
-            z-index: 5;
+            padding-right: 10px;
+            margin-top: 40px;
+            z-index: 10;
         }
 
         .hero-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: 1.3rem; /* Small enough to fit the column */
+            font-size: 1.15rem; /* Scaled down so it never touches the circle */
             font-weight: 900;
             color: var(--lime-green); 
             margin-bottom: 5px; 
+            width: 100%;
         }
         .hero-title span { font-style: italic; color: var(--bright-orange); }
 
         .hero-subtitle { 
-            font-size: 0.7rem; 
+            font-size: 0.65rem; 
             color: #666; 
-            margin-bottom: 15px; 
-            max-width: 140px;
+            margin-bottom: 12px; 
+            max-width: 150px;
         }
 
         .btn-main {
             background: var(--bright-orange); 
             color: white; 
-            padding: 8px 16px; 
+            padding: 8px 15px; 
             border-radius: 50px; 
             text-decoration: none; 
             font-weight: 800; 
@@ -92,54 +93,53 @@
             letter-spacing: 0.5px;
         }
 
-        /* 🏛️ GREEN VISUAL - Sharp Pointed Edge */
+        /* 🏛️ COMPACT GREEN VISUAL */
         .hero-visual { 
-            flex: 1; 
+            flex: 1; /* Image side gets 30% width */
             height: 100%; 
             background: var(--lime-green); 
             display: flex; 
             align-items: center; 
-            justify-content: flex-end; /* Pushes circle to the right edge */
-            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+            justify-content: center;
+            /* Point moved further right (35%) to clear space for text */
+            clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 35% 100%, 0% 50%);
         }
 
         .circle-frame {
-            width: 110px; /* Small circle prevents overlap */
-            height: 110px;
+            width: 100px; /* Precise size for mobile */
+            height: 100px;
             background: white;
             border-radius: 50%; 
             overflow: hidden; 
-            border: 4px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            margin-right: 15px; /* Keeps it away from the center point */
+            border: 3px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateX(10px); /* Nudge right for better balance */
         }
         .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 💻 LAPTOP SCALING */
+        /* 💻 LAPTOP/DESKTOP RESTORE */
         @media (min-width: 992px) {
             .navbar { padding: 40px 8%; }
             .logo { font-size: 1.6rem; }
             .hero { height: 100vh; }
             .hero-text { flex: 1; padding-left: 8%; margin-top: 0; }
-            .hero-title { font-size: 4.2rem; margin-bottom: 20px; }
+            .hero-title { font-size: 4rem; margin-bottom: 20px; }
             .hero-subtitle { font-size: 1.1rem; max-width: 450px; margin-bottom: 40px; }
             .btn-main { padding: 18px 45px; font-size: 12px; }
-            .hero-visual { flex: 1.3; }
-            .circle-frame { width: 500px; height: 500px; border-width: 15px; margin-right: 0; }
+            .hero-visual { flex: 1.3; clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%); }
+            .circle-frame { width: 500px; height: 500px; border-width: 15px; transform: none; }
         }
 
-        /* 🥗 RECIPES SECTION */
+        /* 🥗 RECIPES */
         .recipes { padding: 40px 5%; background: var(--warm-bg); text-align: center; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--lime-green); margin-bottom: 30px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--lime-green); margin-bottom: 25px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .card { background: white; border-radius: 20px; padding: 20px; text-decoration: none; color: inherit; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: block; }
+        .card { background: white; border-radius: 15px; padding: 15px; text-decoration: none; color: inherit; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: block; }
         .card-img { width: 100%; height: 180px; border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* 🔝 SCROLL TO TOP */
         .scroll-top { position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
 
-        /* 🦶 FOOTER */
         footer { padding: 50px 8% 30px; text-align: center; border-top: 1px solid #eee; background: #fff; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 800; color: var(--lime-green); text-decoration: none; display: block; margin-bottom: 10px; }
         .footer-logo span { color: var(--bright-orange); font-style: italic; }
@@ -161,8 +161,8 @@
 
         <div class="hero-visual">
             <div class="circle-frame">
-                <!-- Ensure this link is correct -->
-                <img src="https://unsplash.com" alt="Biryani">
+                <!-- Replace with your image -->
+                <img src="https://unsplash.com" alt="Cooking">
             </div>
         </div>
     </header>
@@ -172,7 +172,7 @@
         <div class="grid">
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--lime-green);">Aromatic Palak Dal</h3>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--lime-green);">Aromatic Palak Dal</h3>
             </a>
         </div>
     </section>
