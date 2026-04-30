@@ -3,261 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | The Modern Kitchen</title>
+    <title>CookWithMunavi | Bright & Delicious</title>
     
+    <!-- PREMIUM FONTS: Playfair for Brand, Dancing Script for Joy, Outfit for Reading -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@400;800&family=Playfair+Display:ital,wght@0,800;1,700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Updated to match the earthy tones in your image */
-            --earthy-orange: #C16E3E; 
-            --deep-forest: #223B25; 
-            --cream-bg: #F5F2E9;      
+            /* VIBRANT PALETTE: Sampled from your favorite banner reference */
+            --bright-orange: #FF9800; 
+            --lime-green: #68A306;    
             --pure-white: #ffffff;
+            --light-bg: #f9f9f9;
         }
 
+        /* 🧼 BASIC RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         
         body { 
             font-family: 'Outfit', sans-serif; 
-            background-color: var(--cream-bg); 
-            color: var(--deep-forest); 
+            background-color: var(--pure-white); 
+            color: #333; 
             overflow-x: hidden;
             line-height: 1.5;
         }
 
-        /* 🧼 LOGO SECTION - No Top Gap */
+        /* 🧼 LOGO SECTION - Pinned to Top */
         .navbar {
-            display: flex; 
-            justify-content: flex-start;
-            align-items: center;
-            padding: 25px 8% 0; 
+            padding: 35px 8% 10px; 
             position: absolute; 
-            top: 0;
-            width: 100%; 
-            z-index: 100;
+            top: 0; width: 100%; z-index: 100;
         }
 
         .logo { 
             font-family: 'Playfair Display', serif; 
-            font-size: 26px; 
-            font-weight: 800; 
-            color: var(--deep-forest); 
-            text-decoration: none;
-            letter-spacing: -0.5px;
+            font-size: 28px; font-weight: 800; 
+            color: var(--lime-green); text-decoration: none;
         }
         .logo span { 
-            font-weight: 700;
-            font-style: italic; 
-            color: var(--earthy-orange); 
-            margin-left: 3px;
+            font-style: italic; color: var(--bright-orange); margin-left: 4px;
         }
 
-        /* 🥘 HERO SECTION - Edge to Edge */
-        .hero { 
-            display: flex; 
-            height: 100vh; 
-            align-items: center; 
-            min-height: 700px;
-            position: relative;
-        }
+        /* 🥘 HERO SECTION */
+        .hero { display: flex; height: 100vh; align-items: center; position: relative; }
 
-        .hero-text { 
-            flex: 1; 
-            padding: 0 8%; 
-            z-index: 2;
-        }
+        .hero-text { flex: 1; padding: 0 8%; z-index: 2; }
 
         .hero-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 4.5vw, 3.8rem); 
-            font-weight: 800;
-            line-height: 1.1; 
-            color: var(--deep-forest); 
-            margin-bottom: 15px; 
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem); 
+            font-weight: 800; line-height: 1.1; 
+            color: var(--lime-green); margin-bottom: 20px; 
         }
 
-        .hero-title span { 
-            font-style: italic;
-            font-weight: 700;
-            color: var(--earthy-orange); 
+        /* THE BRIGHT SIGNATURE "JOY" */
+        .hero-title .joy { 
+            font-family: 'Dancing Script', cursive; 
+            color: var(--bright-orange); 
+            font-size: 1.25em;
             display: inline-block;
+            transform: rotate(-3deg);
+            margin: 0 10px;
         }
 
         .hero-subtitle { 
-            font-size: 1.1rem; 
-            color: #555; 
-            margin-bottom: 35px; 
-            max-width: 420px; 
-            font-weight: 300;
+            font-size: 1.2rem; color: #555; 
+            margin-bottom: 45px; max-width: 450px; font-weight: 400;
         }
 
+        /* HIGH-VISIBILITY ORANGE BUTTON */
         .btn-main {
-            background: var(--earthy-orange); 
-            color: var(--pure-white); 
-            padding: 16px 45px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            display: inline-block; 
-            transition: 0.4s ease; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            font-size: 12px;
+            background: var(--bright-orange); color: white; 
+            padding: 18px 45px; border-radius: 50px; 
+            text-decoration: none; font-weight: 800; 
+            display: inline-block; text-transform: uppercase; 
+            letter-spacing: 2px; font-size: 13px;
+            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.3);
+            transition: 0.3s ease;
         }
-        .btn-main:hover { transform: translateY(-3px); opacity: 0.9; }
+        .btn-main:hover { transform: translateY(-4px); background: var(--lime-green); box-shadow: none; }
 
-        /* 🏛️ GREEN SECTION - Edge to Edge */
+        /* 🏛️ THE VISUAL: VIBRANT LIME GREEN SECTION */
         .hero-visual { 
-            flex: 1.3; 
-            height: 100%; 
-            background: var(--deep-forest); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
+            flex: 1.3; height: 100%; 
+            background: var(--lime-green); 
+            display: flex; align-items: center; justify-content: center;
+            /* Pointed edge starting from the top */
             clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
         }
 
-        .circle-frame {
-            width: 480px; 
-            height: 480px; 
-            background: var(--pure-white);
-            border-radius: 50%; 
-            overflow: hidden; 
-            box-shadow: 0 35px 70px rgba(0,0,0,0.4);
-            border: 12px solid var(--pure-white);
+        /* PREMIUM PILL FRAME: From your reference */
+        .pill-frame {
+            width: 520px; height: 680px;
+            background: var(--pure-white); border-radius: 300px; 
+            overflow: hidden; border: 15px solid var(--pure-white);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.25);
         }
-        .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .pill-frame img { width: 100%; height: 100%; object-fit: cover; }
 
         /* 🥗 RECIPES SECTION */
-        .recipes { padding: 100px 8%; background: var(--cream-bg); }
-        .section-title { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 34px; 
-            color: var(--deep-forest); 
-            margin-bottom: 50px; 
-        }
+        .recipes { padding: 120px 8%; background: var(--light-bg); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--lime-green); margin-bottom: 60px; }
         
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 35px; 
-            max-width: 1200px; 
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
-        .card { 
-            text-decoration: none; 
-            color: inherit; 
-            background: var(--pure-white); 
-            border-radius: 20px; 
-            padding: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-            transition: 0.3s ease;
-        }
-        .card:hover { transform: translateY(-10px); }
+        .card { background: white; border-radius: 24px; padding: 25px; transition: 0.4s; box-shadow: 0 15px 35px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: block; }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
         
-        .card-img { width: 100%; height: 240px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+        .card-img { width: 100%; height: 260px; border-radius: 18px; overflow: hidden; margin-bottom: 25px; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
         
-        .card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--deep-forest); }
-        .card p { color: #888; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;}
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--lime-green); }
+        .card p { color:#888; font-weight:700; text-transform:uppercase; font-size:12px; margin-top: 8px; letter-spacing: 1px; }
 
-        /* 🔝 SCROLL TO TOP */
+        /* 🔝 SCROLL TO TOP BUTTON */
         .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--deep-forest);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            z-index: 1000;
+            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+            background: var(--lime-green); color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-size: 24px; z-index: 1000;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: 0.3s;
         }
+        .scroll-top:hover { background: var(--bright-orange); transform: translateY(-5px); }
 
-        /* 🦶 FOOTER */
-        footer {
-            padding: 80px 8% 40px;
-            background-color: var(--pure-white);
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--deep-forest);
-            text-decoration: none;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .footer-logo span {
-            font-weight: 700;
-            font-style: italic;
-            color: var(--earthy-orange);
-        }
-
-        .copyright {
-            font-size: 11px;
-            color: #ccc;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        /* 🦶 FOOTER SECTION */
+        footer { padding: 100px 8% 50px; text-align: center; background: white; border-top: 1px solid #eee; }
+        .footer-logo { font-family: 'Playfair Display', serif; text-decoration:none; color:var(--lime-green); font-size:28px; font-weight:800; display: inline-block; margin-bottom: 30px; }
+        .footer-logo span { color:var(--bright-orange); font-style:italic; }
+        .copyright { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR AREA -->
     <nav id="top" class="navbar">
         <a href="#" class="logo">CookWith<span>Munavi</span></a>
     </nav>
 
+    <!-- HERO AREA -->
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
-            <p class="hero-subtitle">Elevated, beginner-friendly recipes designed for incredible results every time.</p>
+            <h1 class="hero-title">Taste the <span class="joy">Joy</span> of Home Cooking.</h1>
+            <p class="hero-subtitle">Mouth-watering, beginner-friendly recipes designed for incredible results every time.</p>
             <a href="#recipes" class="btn-main">Explore the Recipes</a>
         </div>
 
         <div class="hero-visual">
-            <div class="circle-frame">
-                <!-- Replace with your cooking photo -->
-                <img src="https://unsplash.com" alt="Cooking Joy">
+            <div class="pill-frame">
+                <!-- Replace with a high-resolution, vibrant food photo -->
+                <img src="https://unsplash.com" alt="Biryani Feast">
             </div>
         </div>
     </header>
 
+    <!-- RECIPES GRID -->
     <section class="recipes" id="recipes">
         <h2 class="section-title">Discover the Recipes</h2>
         <div class="grid">
+            <!-- PALAK DAL RECIPE CARD -->
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
                 <h3>Aromatic Palak Dal</h3>
                 <p>20 Mins • Simple • Healthy</p>
             </a>
             
-            <div class="card" style="opacity: 0.4;">
-                <div class="card-img" style="background: #f8f8f8;"></div>
-                <h3>Future Recipe</h3>
-                <p>Coming Soon</p>
+            <!-- Placeholder -->
+            <div class="card" style="opacity: 0.4; cursor: default;">
+                <div class="card-img" style="background: #f0f0f0;"></div>
+                <h3>Coming Soon...</h3>
+                <p>Stay Tuned</p>
             </div>
         </div>
     </section>
 
+    <!-- USER HELPER BUTTON -->
     <a href="#top" class="scroll-top">↑</a>
 
+    <!-- FOOTER AREA -->
     <footer>
-        <a href="#top" class="footer-logo">CookWith<span>Munavi</span></a>
+        <a href="#" class="footer-logo">CookWith<span>Munavi</span></a>
         <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
