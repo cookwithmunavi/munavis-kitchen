@@ -3,276 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Fresh & Simple Recipes</title>
-    
-    <!-- Premium Google Fonts -->
+    <title>CookWithMunavi | A Journey Through Indian Flavors</title>
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
         :root {
-            --deep-forest: #1B3022;    /* Elegant dark green for text */
-            --pistachio: #E8F3EE;      /* Soft, lovely green for accents */
-            --coral-peach: #FF8A65;    /* Vibrant, fresh pop for buttons */
-            --mint-white: #F9FBFA;     /* Very fresh, clean background */
-            --white: #ffffff;
+            --spice-red: #8B2635;      /* Deep Saffron/Chili Red */
+            --turmeric: #F4B942;       /* Golden Turmeric Accent */
+            --bg-silk: #FCF9F5;        /* Warm Off-White Silk */
+            --forest: #1B3022;         /* Deep Forest Pesto */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--mint-white); 
-            color: var(--deep-forest);
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-silk); color: var(--forest); }
 
-        /* 🧼 CLEAN BOUTIQUE NAVBAR */
+        /* 🧼 FLOATING NAV */
         .navbar {
-            padding: 30px 60px;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            background: transparent;
+            padding: 25px 80px;
+            display: flex; justify-content: space-between; align-items: center;
+            position: absolute; width: 100%; top: 0; z-index: 100;
         }
 
-        .logo { font-size: 26px; font-weight: 800; letter-spacing: -1px; }
-        .logo span { color: var(--coral-peach); }
+        .logo { font-size: 26px; font-weight: 800; color: var(--forest); }
+        .logo span { color: var(--spice-red); }
 
         .nav-links a {
-            margin-left: 40px; 
-            text-decoration: none; 
-            color: var(--deep-forest);
-            font-weight: 700; 
-            font-size: 16px; 
-            position: relative;
-            transition: 0.3s;
+            margin-left: 40px; text-decoration: none; color: var(--forest);
+            font-weight: 700; font-size: 15px; transition: 0.3s;
         }
+        .nav-links a:hover { color: var(--spice-red); }
 
-        .nav-links a::after {
-            content: ''; position: absolute; width: 0; height: 2px;
-            bottom: -5px; left: 0; background: var(--coral-peach); transition: 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--coral-peach); }
-
-        /* 🥗 EXPERT SPLIT HERO (No Background Image Needed) */
+        /* 🥘 UNIFIED HERO SECTION */
         .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px 80px 100px;
-            max-width: 1300px;
-            margin: 0 auto;
-            min-height: 75vh;
+            display: flex; align-items: center;
+            min-height: 90vh; padding: 100px 80px 40px;
+            max-width: 1400px; margin: 0 auto;
         }
 
-        .hero-text { flex: 1.2; padding-right: 60px; }
+        .hero-text { flex: 1; z-index: 2; }
+        .hero-title { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1; margin-bottom: 20px; color: var(--forest); }
+        .hero-title span { color: var(--spice-red); }
+        .hero-subtitle { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2rem; color: var(--turmeric); margin-bottom: 40px; }
 
-        .hero-title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 2rem;
-            color: var(--coral-peach);
-            margin-bottom: 45px;
-            opacity: 0.9;
-        }
-
-        /* 🔘 THE "DOPAMINE" BUTTON */
         .explore-btn {
-            background: var(--coral-peach);
-            color: white;
-            padding: 22px 50px;
-            border-radius: 60px;
-            text-decoration: none; 
-            font-weight: 800;
-            font-size: 1.1rem;
-            display: inline-block;
+            background: var(--spice-red); color: white;
+            padding: 20px 50px; border-radius: 60px;
+            text-decoration: none; font-weight: 800; display: inline-block;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 35px rgba(255, 138, 101, 0.35);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: 0 15px 30px rgba(139, 38, 53, 0.25);
+        }
+        .explore-btn:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 40px rgba(139, 38, 53, 0.4); }
+
+        /* 🍛 MULTI-CUISINE VISUAL */
+        .hero-visual { flex: 1.2; position: relative; display: flex; justify-content: flex-end; }
+        
+        .main-image {
+            width: 100%; max-width: 550px; height: 550px;
+            border-radius: 50%; /* Traditional "Thali" circle shape */
+            object-fit: cover;
+            border: 15px solid white;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+            animation: rotateThali 100s linear infinite;
         }
 
-        .explore-btn:hover { 
-            transform: scale(1.08) translateY(-8px); 
-            box-shadow: 0 20px 45px rgba(255, 138, 101, 0.5); 
-            background: var(--deep-forest);
-        }
+        @keyframes rotateThali { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
 
-        /* 🖼️ FEATURED CARD (SOLVES THE BLANK BG ISSUE) */
-        .hero-visual {
-            flex: 0.8;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
+        /* 🖼️ RECIPE GRID */
+        .section { padding: 100px 80px; background: white; border-radius: 80px 80px 0 0; }
+        .section-title { font-size: 38px; text-align: center; margin-bottom: 60px; font-family: 'Playfair Display', serif; }
 
-        .featured-card {
-            background: var(--white);
-            width: 100%;
-            max-width: 420px;
-            padding: 25px;
-            border-radius: 60px;
-            text-align: center;
-            transform: rotate(3deg); /* Expert playful tilt */
-            box-shadow: 0 40px 80px rgba(27, 48, 34, 0.08);
-            border: 1px solid rgba(0,0,0,0.02);
-            transition: 0.5s ease;
-        }
+        .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .card { background: var(--bg-silk); border-radius: 50px; overflow: hidden; transition: 0.4s; cursor: pointer; }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 260px; object-fit: cover; }
+        .card h3 { padding: 30px; font-weight: 800; font-size: 22px; }
 
-        .featured-card:hover {
-            transform: rotate(0deg) scale(1.02);
-        }
-
-        .featured-card img {
-            width: 100%; height: 350px;
-            object-fit: cover; 
-            border-radius: 45px;
-            margin-bottom: 25px;
-        }
-
-        .featured-card h4 { font-size: 1.5rem; font-weight: 800; margin-bottom: 5px; }
-        .featured-card p { opacity: 0.6; font-size: 0.95rem; font-weight: 600; }
-
-        /* 🖼️ RECIPE GRID SECTION */
-        .section { 
-            padding: 120px 60px; 
-            background: var(--white); 
-            border-radius: 100px 100px 0 0; /* Modern organic curve */
-            box-shadow: 0 -20px 50px rgba(0,0,0,0.02);
-        }
-
-        .section-title { 
-            font-family: 'Playfair Display', serif;
-            font-size: 42px; 
-            margin-bottom: 70px; 
-            text-align: center; 
-        }
-
-        .recipes-grid {
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 50px; 
-            max-width: 1200px; 
-            margin: 0 auto;
-        }
-
-        .card {
-            background: var(--mint-white); 
-            border-radius: 60px; 
-            overflow: hidden;
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
-            cursor: pointer; 
-            border: 1px solid rgba(0,0,0,0.03);
-            text-align: center;
-        }
-
-        .card:hover { 
-            transform: translateY(-20px); 
-            box-shadow: 0 30px 60px rgba(27, 48, 34, 0.1); 
-        }
-
-        .card img { width: 100%; height: 280px; object-fit: cover; }
-        .card h3 { padding: 35px; font-weight: 800; font-size: 24px; transition: 0.3s; }
-        .card:hover h3 { color: var(--coral-peach); }
-
-        /* ⚓ SLIM MINIMAL FOOTER */
-        .footer { 
-            padding: 80px 60px; 
-            text-align: center; 
-            border-top: 1px solid #f0f0f0; 
-            background: var(--white);
-        }
-
-        .footer-content { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 25px; 
-            font-weight: 700; 
-            color: var(--deep-forest);
-        }
-
-        .footer-logo span { color: var(--coral-peach); }
-        .footer-copy { opacity: 0.4; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* MOBILE OPTIMIZATION */
-        @media (max-width: 900px) {
-            .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
-            .hero-text { padding-right: 0; margin-bottom: 60px; }
-            .hero-visual { width: 100%; }
-            .navbar { padding: 20px; }
-        }
+        .footer { padding: 60px; text-align: center; border-top: 1px solid #eee; display: flex; justify-content: center; gap: 20px; font-weight: 700; opacity: 0.8; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">CookWith<span>Munavi</span></div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#recipes">Recipes</a>
-        </div>
+        <div class="nav-links"><a href="#">Home</a><a href="#recipes">Recipes</a></div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Cooking<br>Made Easy.</h1>
-            <p class="hero-subtitle">Flavor in Every Step.</p>
-            <a href="#recipes" class="explore-btn">Start Cooking Today →</a>
+            <h1 class="hero-title">Indian Food<br><span>Made Easy.</span></h1>
+            <p class="hero-subtitle">Authentic flavors in every step.</p>
+            <a href="#recipes" class="explore-btn">Start Your Journey →</a>
         </div>
 
         <div class="hero-visual">
-            <div class="featured-card">
-                <!-- FEATURED IMAGE: Use your best Palak Dal photo here -->
-                <img src="images/palak-dal.jpeg" alt="Today's Special">
-                <h4>Palak Dal</h4>
-                <p>FRESH • VEGAN • 20 MINS</p>
-            </div>
+            <!-- This image represents the multi-cuisine Indian Plate -->
+            <img src="https://unsplash.com" class="main-image" alt="Indian Cuisine Platter">
         </div>
     </header>
 
-    <!-- RECIPES SECTION -->
     <section class="section" id="recipes">
         <h2 class="section-title">Most Loved Recipes</h2>
-        
         <div class="recipes-grid">
-            <!-- Palak Dal -->
             <div class="card" onclick="window.location.href='recipes/dals/palak-dal.html';">
                 <img src="images/palak-dal.jpeg" alt="Palak Dal">
                 <h3>Palak Dal</h3>
             </div>
-
-            <!-- Masala Dosa -->
-            <div class="card">
-                <img src="https://unsplash.com" alt="Masala Dosa">
-                <h3>Masala Dosa</h3>
-            </div>
-
-            <!-- Chicken Biryani -->
-            <div class="card">
-                <img src="https://unsplash.com" alt="Chicken Biryani">
-                <h3>Chicken Biryani</h3>
-            </div>
+            <div class="card"><img src="https://unsplash.com"><h3>Masala Dosa</h3></div>
+            <div class="card"><img src="https://unsplash.com"><h3>Chicken Biryani</h3></div>
         </div>
     </section>
 
-    <!-- SINGLE-LINE FOOTER -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">CookWith<span>Munavi</span></div>
-            <span style="opacity: 0.2; font-weight: 300;">|</span>
-            <p class="footer-copy">© 2026 THE FRESH KITCHEN</p>
-        </div>
+        <strong>CookWith<span style="color:var(--spice-red)">Munavi</span></strong>
+        <span>|</span>
+        <span>© 2026 THE FLAVOR ARCHIVE</span>
     </footer>
 
 </body>
