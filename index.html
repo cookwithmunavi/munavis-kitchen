@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | The Signature Style</title>
+    <title>CookWithMunavi | The Modern Kitchen</title>
     
-    <!-- FONTS: Dancing Script for the 'Joy' style, Outfit for clean reading -->
+    <!-- GOOGLE FONTS: Playfair for authority, Dancing Script for the signature look, Outfit for clean reading -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --deep-green: #1B3022;   /* Your Heritage Green */
-            --warm-orange: #D47A24;  /* Your Signature Orange */
-            --silk-white: #FAF9F6;
+            --orange-spice: #D47A24; /* Your Signature Orange */
+            --forest-green: #1B3022; /* Your Heritage Green */
+            --silk-white: #FAF9F6;   /* Soft Background */
             --pure-white: #ffffff;
         }
 
@@ -22,104 +22,119 @@
         
         body { 
             font-family: 'Outfit', sans-serif; 
-            background-color: var(--silk-white); 
-            color: var(--deep-green); 
+            background-color: var(--pure-white); 
+            color: var(--forest-green); 
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* 🧼 LOGO & NAV */
+        /* 🧼 CLEAN NAVIGATION */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 40px 8%; position: absolute; width: 100%; z-index: 100;
         }
 
-        /* Brand Name in 'Joy' Style */
+        /* LOGO: Munavi in Signature Style */
         .logo { 
-            font-family: 'Dancing Script', cursive; 
-            font-size: 38px; font-weight: 700; 
-            color: var(--deep-green); 
+            font-family: 'Playfair Display', serif; 
+            font-size: 28px; font-weight: 700; 
+            color: var(--forest-green); 
             text-decoration: none;
             letter-spacing: -0.5px;
         }
-        .logo span { color: var(--warm-orange); }
+        .logo span { 
+            font-family: 'Dancing Script', cursive; 
+            color: var(--orange-spice); 
+            font-size: 38px; 
+            margin-left: 5px;
+        }
 
         .nav-links a {
             margin-left: 40px; text-decoration: none; color: #333;
             font-weight: 600; font-size: 14px; text-transform: uppercase; 
             letter-spacing: 1.5px; transition: 0.3s ease;
         }
-        .nav-links a:hover { color: var(--warm-orange); }
+        .nav-links a:hover { color: var(--orange-spice); }
 
-        /* 🥘 HERO SECTION */
+        /* 🥘 HERO SECTION (WHITE ON LEFT, GREEN ON RIGHT) */
         .hero { display: flex; height: 100vh; align-items: center; min-height: 700px; }
 
         .hero-text { flex: 1; padding: 0 8%; z-index: 2; }
 
-        /* Headline in 'Joy' Style */
         .hero-title { 
-            font-family: 'Dancing Script', cursive; 
-            font-size: clamp(3.5rem, 6vw, 5.5rem); 
-            line-height: 1.1; color: var(--deep-green); margin-bottom: 20px; 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(3rem, 5vw, 4.8rem); 
+            line-height: 1.1; color: var(--forest-green); margin-bottom: 25px; 
         }
-        .hero-title span { color: var(--warm-orange); }
+
+        /* HEADLINE: Joy in Signature Style */
+        .hero-title .joy-text { 
+            font-family: 'Dancing Script', cursive; 
+            color: var(--orange-spice); 
+            font-size: 1.3em;
+            display: inline-block;
+            transform: rotate(-4deg);
+            margin: 0 10px;
+        }
 
         .hero-subtitle { 
             font-size: 1.2rem; color: #555; margin-bottom: 45px; 
-            max-width: 480px; font-weight: 300;
+            max-width: 450px; font-weight: 300;
         }
 
-        .btn-primary {
-            background: var(--deep-green); color: var(--pure-white); 
+        /* POPPING ORANGE BUTTON */
+        .btn-main {
+            background: var(--orange-spice); color: var(--pure-white); 
             padding: 20px 50px; border-radius: 50px; text-decoration: none; 
-            font-weight: 700; display: inline-block; transition: 0.4s ease; 
+            font-weight: 800; display: inline-block; transition: 0.4s ease; 
             text-transform: uppercase; letter-spacing: 2px; font-size: 13px;
+            box-shadow: 0 10px 20px rgba(212, 122, 36, 0.2);
         }
-        .btn-primary:hover { transform: translateY(-4px); background: #2a4732; }
+        .btn-main:hover { transform: translateY(-4px); background: var(--forest-green); }
 
-        /* RIGHT SIDE: CIRCLE VISUAL */
+        /* RIGHT SECTION: GREEN SPLIT WITH CIRCLE */
         .hero-visual { 
-            flex: 1.3; height: 100%; background: var(--deep-green); 
+            flex: 1.3; height: 100%; background: var(--forest-green); 
             display: flex; align-items: center; justify-content: center;
-            clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+            clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
         }
 
-        .circle-frame {
+        .circle-holder {
             width: 520px; height: 520px; background: var(--pure-white);
             border-radius: 50%; overflow: hidden; 
-            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
             border: 15px solid var(--pure-white);
         }
-        .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .circle-holder img { width: 100%; height: 100%; object-fit: cover; }
 
         /* 🥗 RECIPE GRID SECTION */
         .recipes { padding: 100px 8%; background: var(--pure-white); }
         .section-title { 
-            font-family: 'Dancing Script', cursive; font-size: 48px; 
-            color: var(--deep-green); margin-bottom: 50px; text-align: center; 
+            font-family: 'Playfair Display', serif; font-size: 40px; 
+            color: var(--forest-green); margin-bottom: 50px; text-align: center; 
         }
         .grid { 
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 40px; max-width: 1200px; margin: 0 auto; 
+            gap: 50px; max-width: 1250px; margin: 0 auto; 
         }
         .card { cursor: pointer; transition: 0.4s; text-decoration: none; display: block; }
-        .card:hover { transform: translateY(-10px); }
+        .card:hover { transform: translateY(-12px); }
         
         .card-img { 
-            width: 100%; height: 320px; border-radius: 24px; 
+            width: 100%; height: 320px; border-radius: 20px; 
             overflow: hidden; margin-bottom: 20px; border: 1px solid #eee;
         }
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* Recipe Card Titles also in 'Joy' Style */
-        .card h3 { font-family: 'Dancing Script', cursive; font-size: 32px; color: var(--deep-green); }
-        .card p { color: #888; font-size: 14px; margin-top: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--forest-green); }
+        .card p { color: #888; font-size: 13px; margin-top: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;}
 
-        footer { padding: 60px; text-align: center; background: var(--silk-white); border-top: 1px solid #eee; }
+        footer { padding: 80px; text-align: center; background: var(--silk-white); border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR AREA -->
     <nav class="navbar">
         <a href="#" class="logo">CookWith<span>Munavi</span></a>
         <div class="nav-links">
@@ -128,40 +143,42 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking</h1>
+            <h1 class="hero-title">Taste the <span class="joy-text">Joy</span> of Home Cooking</h1>
             <p class="hero-subtitle">Your journey to becoming a confident home chef starts here. Simple steps, incredible results.</p>
-            <a href="#recipes" class="btn-primary">Explore Recipes</a>
+            <a href="#recipes" class="btn-main">Explore Recipes</a>
         </div>
         <div class="hero-visual">
-            <div class="circle-frame">
+            <div class="circle-holder">
+                <!-- High-quality image link -->
                 <img src="https://unsplash.com" alt="Cooking Joy">
             </div>
         </div>
     </header>
 
+    <!-- RECIPES SECTION -->
     <section class="recipes" id="recipes">
-        <h2 class="section-title">Popular Creations</h2>
+        <h2 class="section-title">Aromatic Favorites</h2>
         <div class="grid">
-            <!-- PALAK DAL RECIPE CARD -->
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
                 <h3>Aromatic Palak Dal</h3>
-                <p>20 Mins • Simple • Healthy</p>
+                <p>20 Mins • Easy • Healthy</p>
             </a>
-            <!-- Placeholder -->
             <div class="card" style="opacity: 0.3; cursor: default;">
-                <div class="card-img" style="background: #f4f4f4;"></div>
-                <h3>Next Recipe...</h3>
-                <p>Coming Soon</p>
+                <div class="card-img" style="background: #f0f0f0;"></div>
+                <h3>Coming Soon...</h3>
+                <p>Stay Tuned</p>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <p style="font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--deep-green);">CookWith<span style="color:var(--warm-orange)">Munavi</span></p>
-        <p style="font-size: 12px; color: #999; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">© 2026 The Modern Kitchen</p>
+        <p style="font-family: 'Playfair Display', serif; font-size: 24px;">CookWith<span style="font-family: 'Dancing Script', cursive; color:var(--orange-spice); font-size: 32px;">Munavi</span></p>
+        <p style="font-size: 11px; color: #aaa; margin-top: 15px; text-transform: uppercase; letter-spacing: 2px;">© 2026 The Modern Kitchen</p>
     </footer>
 
 </body>
