@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | The Modern Kitchen</title>
+    <title>CookWithMunavi | Smooth & Interactive</title>
     
-    <!-- PREMIUM FONTS -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
@@ -18,7 +17,10 @@
             --warm-bg: #FAF9F2;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        /* 🪄 EYE-PLEASING SMOOTH SCROLL */
+        html { scroll-behavior: smooth; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             font-family: 'Outfit', sans-serif; 
@@ -53,18 +55,18 @@
             margin-top: 4px;
         }
 
-        /* 🥘 HERO - INCREASED GREEN AREA FOR MOBILE */
+        /* 🥘 HERO SECTION */
         .hero { 
             display: flex; 
             flex-direction: row; 
-            height: 380px; /* Slightly taller for more impact */
+            height: 380px; 
             width: 100%;
             align-items: center;
             overflow: hidden;
         }
 
         .hero-text { 
-            flex: 1.1; /* Balanced split to allow more green space */
+            flex: 1.1; 
             padding-left: 6%; 
             padding-right: 5px; 
             margin-top: 40px;
@@ -100,35 +102,30 @@
             font-size: 0.55rem;
             letter-spacing: 0.5px;
             box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
         }
+        .btn-main:hover { transform: scale(1.05); background: #f57c00; }
 
-        /* 🏛️ BOLD VISUAL SECTION - Larger on mobile */
         .hero-visual { 
-            flex: 1.6; /* Green area is now the star */
+            flex: 1.6; 
             height: 100%; 
             background: var(--lime-green); 
             display: flex; 
             align-items: center; 
             justify-content: center;
-            /* Point moved left (15%) to match the desktop layout logic */
             clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
         }
 
         .circle-frame {
-            width: 150px; /* Much larger circle to show off the Biryani */
+            width: 150px; 
             height: 150px;
             background: white;
             border-radius: 50%; 
             overflow: hidden; 
             border: 4px solid white;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            transform: translateX(10px); /* Centers it perfectly within the new green space */
         }
-        .circle-frame img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
+        .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
 
         /* 💻 DESKTOP RESTORE */
         @media (min-width: 992px) {
@@ -141,25 +138,56 @@
             .hero-subtitle { font-size: 1.1rem; max-width: 450px; margin-bottom: 40px; }
             .btn-main { padding: 18px 45px; font-size: 12px; }
             .hero-visual { flex: 1.3; }
-            .circle-frame { width: 500px; height: 500px; border-width: 15px; transform: none; }
+            .circle-frame { width: 500px; height: 500px; border-width: 15px; }
         }
 
         /* 🥗 RECIPES SECTION */
         .recipes { padding: 80px 6%; background: var(--warm-bg); text-align: center; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--lime-green); margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .card { background: white; border-radius: 20px; padding: 20px; text-decoration: none; color: inherit; box-shadow: 0 5px 15px rgba(0,0,0,0.04); display: block; transition: 0.3s;}
-        .card:hover { transform: translateY(-8px); }
-        .card-img { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
-        .card-img img { width: 100%; height: 100%; object-fit: cover; }
         
-        .scroll-top { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 
-        /* 🦶 FOOTER */
+        /* ✨ INTERACTIVE RECIPE CARD */
+        .card { 
+            background: white; 
+            border-radius: 20px; 
+            padding: 20px; 
+            text-decoration: none; 
+            color: inherit; 
+            display: block; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy, premium feel */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            border: 2px solid transparent;
+        }
+
+        /* 💥 HOVER POP EFFECT */
+        .card:hover { 
+            transform: translateY(-15px) scale(1.02); 
+            box-shadow: 0 20px 40px rgba(255, 152, 0, 0.15); /* Soft Orange Glow */
+            border-color: var(--bright-orange); /* Border highlights the selection */
+        }
+        
+        .card-img { 
+            width: 100%; 
+            height: 220px; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            margin-bottom: 15px; 
+            transition: transform 0.5s ease;
+        }
+        
+        /* Zoom image slightly on hover */
+        .card:hover .card-img img { transform: scale(1.1); }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--lime-green); transition: color 0.3s; }
+        .card:hover h3 { color: var(--bright-orange); } /* Text turns orange on select */
+
+        /* 🔝 SCROLL TO TOP */
+        .scroll-top { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .scroll-top:hover { transform: scale(1.1); background: var(--bright-orange); }
+
         footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid #eee; background: #fff; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--lime-green); text-decoration: none; display: inline-block; margin-bottom: 10px; }
-        .footer-logo span { color: var(--bright-orange); font-style: italic; }
-        .copyright { font-size: 10px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -177,7 +205,6 @@
 
         <div class="hero-visual">
             <div class="circle-frame">
-                <!-- Using your local path -->
                 <img src="images/biryani.png" alt="Munavi Signature Biryani">
             </div>
         </div>
@@ -188,8 +215,10 @@
         <div class="grid">
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--lime-green);">Aromatic Palak Dal</h3>
+                <h3>Aromatic Palak Dal</h3>
+                <p style="color:#999; font-size:12px; font-weight:700; text-transform:uppercase; margin-top:8px; letter-spacing:1px;">20 Mins • Simple • Healthy</p>
             </a>
+            
             <div class="card" style="opacity: 0.4;"><div class="card-img" style="background: #f8f8f8;"></div><h3>Future Creation</h3></div>
         </div>
     </section>
@@ -197,8 +226,8 @@
     <a href="#top" class="scroll-top">↑</a>
 
     <footer>
-        <a href="#top" class="footer-logo">CookWith<span>Munavi</span></a>
-        <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
+        <a href="#top" style="text-decoration:none;"><div class="logo" style="font-size: 1.4rem;">CookWith<span>Munavi</span></div></a>
+        <p style="font-size: 10px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; margin-top: 15px;">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
 </body>
