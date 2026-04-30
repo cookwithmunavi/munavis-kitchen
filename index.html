@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Master Edition</title>
+    <title>CookWithMunavi | The Perfect Experience</title>
     
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -15,15 +15,16 @@
             --lime-green: #68A306;    
             --pure-white: #ffffff;
             --warm-bg: #FAF9F2;
+            --text-dark: #333333;
+            --text-muted: #555555; /* Darker grey for better visibility */
         }
 
-        /* Removed standard CSS scroll-behavior to let JS handle the custom speed */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             font-family: 'Outfit', sans-serif; 
             background-color: var(--pure-white); 
-            color: #333; 
+            color: var(--text-dark); 
             overflow-x: hidden;
             line-height: 1.3;
         }
@@ -83,12 +84,11 @@
 
         .hero-subtitle { 
             font-size: 0.65rem; 
-            color: #666; 
+            color: var(--text-muted); 
             margin-bottom: 15px; 
             max-width: 130px;
         }
 
-        /* ACTION BUTTON */
         .btn-main {
             background: var(--bright-orange); 
             color: white; 
@@ -103,9 +103,9 @@
             cursor: pointer;
             border: none;
             box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s ease;
         }
-        .btn-main:hover { transform: scale(1.08); background: #f57c00; }
+        .btn-main:hover { transform: scale(1.05); background: #f57c00; }
 
         .hero-visual { 
             flex: 1.6; 
@@ -148,7 +148,7 @@
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 
-        /* ✨ INTERACTIVE CARD FIX */
+        /* ✨ REFINED SLOW INTERACTIVE CARD */
         .card { 
             background: white; 
             border-radius: 24px; 
@@ -156,33 +156,47 @@
             text-decoration: none; 
             color: inherit; 
             display: block; 
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            /* Slower transition for a premium feel */
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             border: 2px solid transparent;
         }
 
-        /* 💥 THE "SELECTION POP" COLOR */
         .card:hover { 
             transform: translateY(-12px); 
-            box-shadow: 0 25px 50px rgba(255, 152, 0, 0.15); /* Orange selection glow */
+            box-shadow: 0 30px 60px rgba(255, 152, 0, 0.15); 
             border-color: var(--bright-orange);
         }
         
         .card-img { 
             width: 100%; height: 220px; border-radius: 14px; 
             overflow: hidden; margin-bottom: 15px; 
-            transition: transform 0.6s ease;
+        }
+        .card-img img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 1.2s ease; /* Slower zoom */
         }
         .card:hover .card-img img { transform: scale(1.1); }
-        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 
-        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--lime-green); transition: color 0.3s; }
-        .card:hover h3 { color: var(--bright-orange); } /* Text pops to orange on hover */
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--lime-green); transition: color 0.6s ease; }
+        .card:hover h3 { color: var(--bright-orange); }
 
         /* 🔝 SCROLL TO TOP */
-        .scroll-top { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; border: none; }
+        .scroll-top { position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px; background: var(--lime-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; border: none; transition: 0.4s; }
+        .scroll-top:hover { transform: scale(1.1); background: var(--bright-orange); }
 
+        /* 🦶 READABLE FOOTER */
         footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid #eee; background: #fff; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--lime-green); text-decoration: none; display: inline-block; margin-bottom: 15px; }
+        .footer-logo span { color: var(--bright-orange); font-style: italic; }
+        
+        .copyright { 
+            font-size: 11px; 
+            color: var(--text-muted); /* Darker color for clear visibility */
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -193,9 +207,8 @@
 
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
+            <h1 class="hero-title">Taste the <span>Joy</span> of<br>Home Cooking.</h1>
             <p class="hero-subtitle">Elevated, beginner-friendly recipes designed for incredible results.</p>
-            <!-- Custom JS Trigger -->
             <button onclick="slowScroll('recipes')" class="btn-main">Explore Recipes</button>
         </div>
 
@@ -212,28 +225,26 @@
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
                 <h3>Aromatic Palak Dal</h3>
-                <p style="color:#999; font-size:12px; font-weight:700; text-transform:uppercase; margin-top:8px; letter-spacing:1px;">20 Mins • Simple • Healthy</p>
+                <p style="color:#888; font-size:12px; font-weight:700; text-transform:uppercase; margin-top:8px; letter-spacing:1px;">20 Mins • Simple • Healthy</p>
             </a>
             <div class="card" style="opacity: 0.4;"><div class="card-img" style="background: #f8f8f8;"></div><h3>Future Creation</h3></div>
         </div>
     </section>
 
-    <!-- JS Back to top -->
     <button onclick="slowScroll('top')" class="scroll-top">↑</button>
 
     <footer>
-        <div class="logo" style="font-size: 1.4rem;">CookWith<span>Munavi</span></div>
-        <p style="font-size: 10px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; margin-top: 15px;">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
+        <div class="footer-logo">CookWith<span>Munavi</span></div>
+        <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
-    <!-- 🪄 VELVET SMOOTH SCROLL SCRIPT -->
     <script>
         function slowScroll(targetId) {
             const target = document.getElementById(targetId);
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
             const startPosition = window.pageYOffset;
             const distance = targetPosition - startPosition;
-            const duration = 1200; // Time in milliseconds (1.2 seconds) - adjust this to make it slower/faster
+            const duration = 1800; // Even slower (1.8 seconds) for maximum smoothness
             let startTime = null;
 
             function animation(currentTime) {
@@ -244,14 +255,12 @@
                 if (timeElapsed < duration) requestAnimationFrame(animation);
             }
 
-            // Easing function for that "gentle glide" feel
             function easeInOut(t, b, c, d) {
                 t /= d / 2;
                 if (t < 1) return c / 2 * t * t + b;
                 t--;
                 return -c / 2 * (t * (t - 2) - 1) + b;
             }
-
             requestAnimationFrame(animation);
         }
     </script>
