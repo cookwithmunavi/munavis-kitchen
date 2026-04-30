@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookWithMunavi | Compact Responsive</title>
+    <title>CookWithMunavi | Responsive & Bright</title>
     
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
         :root {
             --bright-orange: #FF9800; 
             --lime-green: #68A306;    
             --pure-white: #ffffff;
-            --warm-bg: #FAF9F2;
+            --light-bg: #f9f9f9;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -24,135 +23,130 @@
             background-color: var(--pure-white); 
             color: #333; 
             overflow-x: hidden;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        /* 🧼 COMPACT NAVBAR */
+        /* 🧼 LOGO SECTION */
         .navbar {
-            padding: 15px 5% 5px;
+            padding: 20px 8%; 
             width: 100%; 
-            position: absolute;
-            top: 0;
+            display: flex;
+            justify-content: center; /* Centered on mobile by default */
             z-index: 100;
+            background: var(--pure-white);
         }
 
         .logo { 
             font-family: 'Playfair Display', serif; 
-            font-size: 1rem; 
-            font-weight: 800; 
-            color: var(--lime-green); 
-            text-decoration: none;
+            font-size: 24px; font-weight: 800; 
+            color: var(--lime-green); text-decoration: none;
+            text-align: center;
         }
         .logo span { font-style: italic; color: var(--bright-orange); }
 
-        /* 🥘 COMPACT HERO - FORCED HORIZONTAL */
+        /* Style C: The Gourmet Dot Line */
+        .logo-anchor {
+            width: 80px; height: 4px; border-radius: 50px;
+            background: linear-gradient(to right, var(--lime-green), var(--bright-orange));
+            margin: 5px auto 0;
+        }
+
+        /* 🥘 HERO SECTION - Responsive Layout */
         .hero { 
             display: flex; 
-            flex-direction: row; /* Forced side-by-side */
-            height: 380px;       /* Fixed height to prevent elongation on mobile */
-            width: 100%;
-            align-items: center;
-            overflow: hidden;
-            border-bottom: 1px solid #eee;
+            flex-direction: column; /* Stacked on mobile */
+            align-items: center; 
+            text-align: center;
         }
 
         .hero-text { 
-            flex: 1.1; 
-            padding-left: 5%; 
-            padding-right: 2%;
-            margin-top: 20px;
+            padding: 40px 8%; 
+            order: 2; /* Text comes after image on mobile */
         }
 
         .hero-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: 1.4rem; /* Significantly smaller for side-by-side mobile */
-            font-weight: 900;
-            color: var(--lime-green); 
-            margin-bottom: 8px; 
+            font-size: 2.5rem; 
+            font-weight: 800; line-height: 1.1; 
+            color: var(--lime-green); margin-bottom: 15px; 
         }
         .hero-title span { font-style: italic; color: var(--bright-orange); }
 
-        .hero-subtitle { 
-            font-size: 0.75rem; 
-            color: #666; 
-            margin-bottom: 15px; 
-            max-width: 160px;
-        }
+        .hero-subtitle { font-size: 1rem; color: #666; margin-bottom: 30px; }
 
         .btn-main {
-            background: var(--bright-orange); 
-            color: white; 
-            padding: 8px 18px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: 800; 
-            display: inline-block; 
-            text-transform: uppercase; 
-            font-size: 0.6rem;
-            letter-spacing: 0.5px;
+            background: var(--bright-orange); color: white; 
+            padding: 15px 40px; border-radius: 50px; 
+            text-decoration: none; font-weight: 800; 
+            display: inline-block; text-transform: uppercase; 
+            letter-spacing: 1.5px; font-size: 12px;
         }
 
-        /* 🏛️ GREEN VISUAL - Compact & Pointed */
+        /* 🏛️ VISUAL SECTION - Mobile Adjusted */
         .hero-visual { 
-            flex: 1; 
-            height: 100%; 
+            width: 100%; 
+            height: 45vh; /* Takes half the screen height */
             background: var(--lime-green); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+            display: flex; align-items: center; justify-content: center;
+            order: 1; /* Image on top for mobile */
+            position: relative;
         }
 
         .circle-frame {
-            width: 130px; /* Small circle to fit the compact hero */
-            height: 130px;
-            background: white;
-            border-radius: 50%; 
-            overflow: hidden; 
-            border: 4px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            width: 280px; height: 280px;
+            background: var(--pure-white); border-radius: 50%; 
+            overflow: hidden; border: 8px solid var(--pure-white);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
         .circle-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 💻 LAPTOP/DESKTOP SCALING UP */
-        @media (min-width: 992px) {
-            .navbar { padding: 40px 8%; }
-            .logo { font-size: 1.6rem; }
-            .hero { height: 100vh; }
-            .hero-title { font-size: 4.2rem; margin-bottom: 20px; }
-            .hero-subtitle { font-size: 1.1rem; max-width: 450px; margin-bottom: 40px; }
-            .btn-main { padding: 18px 45px; font-size: 12px; }
+        /* 💻 DESKTOP ADJUSTMENTS (Screens wider than 768px) */
+        @media (min-width: 769px) {
+            .navbar { position: absolute; justify-content: flex-start; background: transparent; padding: 40px 8%; }
+            .logo { text-align: left; font-size: 28px; }
+            .logo-anchor { margin: 5px 0 0; }
+            
+            .hero { flex-direction: row; height: 100vh; text-align: left; }
+            .hero-text { flex: 1; padding: 0 8%; order: 1; }
+            .hero-title { font-size: 4rem; }
+            
+            .hero-visual { 
+                flex: 1.2; height: 100%; order: 2; 
+                clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+            }
             .circle-frame { width: 500px; height: 500px; border-width: 15px; }
-            .hero-text { padding-left: 8%; margin-top: 0; }
         }
 
         /* 🥗 RECIPES SECTION */
-        .recipes { padding: 40px 5%; background: var(--warm-bg); text-align: center; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--lime-green); margin-bottom: 25px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 15px; padding: 15px; text-decoration: none; color: inherit; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: block; }
-        .card-img { width: 100%; height: 180px; border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
+        .recipes { padding: 60px 8%; background: var(--light-bg); text-align: center; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--lime-green); margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 20px; padding: 20px; text-decoration: none; color: inherit; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card-img { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
-        
-        footer { padding: 30px; text-align: center; border-top: 1px solid #eee; background: #fff; }
+
+        footer { padding: 40px; text-align: center; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="#" class="logo">CookWith<span>Munavi</span></a>
+        <div class="logo-box">
+            <a href="#" class="logo">CookWith<span>Munavi</span></a>
+            <div class="logo-anchor"></div>
+        </div>
     </nav>
 
     <header class="hero">
         <div class="hero-text">
-            <h1 class="hero-title">Taste the <span>Joy</span> of<br>Home Cooking.</h1>
-            <p class="hero-subtitle">Beginner-friendly recipes designed for incredible results.</p>
-            <a href="#recipes" class="btn-main">Explore Recipes</a>
+            <h1 class="hero-title">Taste the <span>Joy</span> of Home Cooking.</h1>
+            <p class="hero-subtitle">Beginner-friendly recipes designed for incredible results every time.</p>
+            <a href="#recipes" class="btn-main">Explore the Recipes</a>
         </div>
 
         <div class="hero-visual">
             <div class="circle-frame">
-                <img src="https://unsplash.com" alt="Cooking">
+                <img src="https://unsplash.com" alt="Biryani">
             </div>
         </div>
     </header>
@@ -162,14 +156,14 @@
         <div class="grid">
             <a href="recipes/dals/palak-dal.html" class="card">
                 <div class="card-img"><img src="images/palak-dal.jpeg" alt="Palak Dal"></div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--lime-green);">Aromatic Palak Dal</h3>
+                <h3>Aromatic Palak Dal</h3>
+                <p style="color:#999; font-size:12px; font-weight:700; text-transform:uppercase; margin-top:5px;">20 Mins • Easy</p>
             </a>
         </div>
     </section>
 
     <footer>
-        <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--lime-green); margin-bottom: 5px;">CookWith<span style="color:var(--bright-orange); font-style:italic;">Munavi</span></p>
-        <p style="font-size: 9px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">© 2026 The Modern Kitchen</p>
+        <p style="font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 2px;">© 2026 CookWithMunavi | The Modern Kitchen</p>
     </footer>
 
 </body>
