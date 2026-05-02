@@ -56,7 +56,7 @@
         .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 15px; }
         .hero-recipe h1 span { color: var(--bright-orange); }
 
-        /* DASHBOARD - Restored all items from 1000063929.jpg */
+        /* DASHBOARD - Restored 100% of items from your images */
         .unified-section { max-width: 1200px; margin: -80px auto 40px; padding: 0 6%; position: relative; z-index: 10; }
         .master-board { background: white; border-radius: 30px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid #f0f0f0; }
         .board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -64,7 +64,7 @@
         .ing-list li { padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.9rem; display: flex; justify-content: space-between; }
         .qty { font-weight: 800; color: var(--lime-green); }
 
-        /* STEP CONTENT */
+        /* STEP ENGINE */
         .container { padding: 40px 6%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
         .sidebar { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 10px; }
         .step-btn { white-space: nowrap; padding: 14px 28px; border-radius: 50px; border: 2px solid #eee; background: white; font-weight: 800; font-size: 0.8rem; cursor: pointer; color: #888; }
@@ -161,36 +161,36 @@
 
             <div class="step-content" id="s1">
                 <div class="mini-card" data-time="300">
-                    <div class="task-header"><strong>Wash & Prep</strong><span class="step-time">5 MINS</span></div>
-                    <p>Rinse dal 3 times. Wash spinach twice. Chop tomatoes and slit green chilies.</p>
+                    <div class="task-header"><strong>Meticulous Prep</strong><span class="step-time">5 MINS</span></div>
+                    <p>Wash dal until water runs clear. Soak spinach in a deep bowl twice to remove all hidden grit. Slit green chilies lengthwise and roughly chop tomatoes.</p>
                 </div>
                 <div class="mini-card" data-time="900">
-                    <div class="task-header"><strong>Pressure Cook</strong><span class="step-time">15 MINS</span></div>
-                    <p>Add dal, palak, tomatoes, chilies, tamarind and water to cooker. **Do not add salt.** 4 whistles on medium.</p>
+                    <div class="task-header"><strong>Pressure Cooking</strong><span class="step-time">15 MINS</span></div>
+                    <p>Place dal, spinach, tomatoes, chilies, tamarind, and water into the cooker. **CRITICAL: No salt yet** as it slows dal softening. Close lid and cook for 4 whistles on medium heat.</p>
                 </div>
-                <div style="display:flex; margin-top:20px;"><button class="nav-btn next" onclick="nextStep()">Next: The Tadka ➡</button></div>
+                <div style="display:flex; margin-top:20px;"><button class="nav-btn next" onclick="nextStep()">Next: Master the Tadka ➡</button></div>
             </div>
 
             <div class="step-content" id="s2" style="display:none">
                 <div class="mini-card" data-time="180">
                     <div class="task-header"><strong>Tempering Spices</strong><span class="step-time">3 MINS</span></div>
-                    <p>Heat ghee. Crackle mustard/cumin. Add dry red chilies and crushed garlic until golden.</p>
+                    <p>Heat ghee in a pan. Add mustard and cumin. Once they stop crackling, add dry red chilies and crushed garlic. Sauté until garlic turns a rich, nutty golden brown.</p>
                 </div>
                 <div class="mini-card" data-time="240">
-                    <div class="task-header"><strong>Sauté Aromatics</strong><span class="step-time">4 MINS</span></div>
-                    <p>Add onions and curry leaves. Sauté until translucent and soft.</p>
+                    <div class="task-header"><strong>Sautéing Aromatics</strong><span class="step-time">4 MINS</span></div>
+                    <p>Add onions and curry leaves. Sauté on medium-low heat until onions are soft and translucent. Do not brown them too much; keep them tender.</p>
                 </div>
-                <div style="display:flex; gap:10px; margin-top:20px;"><button class="nav-btn back" onclick="prevStep()">⬅ Back</button><button class="nav-btn next" onclick="nextStep()">Final Step ➡</button></div>
+                <div style="display:flex; gap:10px; margin-top:20px;"><button class="nav-btn back" onclick="prevStep()">⬅ Back</button><button class="nav-btn next" onclick="nextStep()">Final Integration ➡</button></div>
             </div>
 
             <div class="step-content" id="s3" style="display:none">
-                <div class="mini-card" data-time="120">
-                    <div class="task-header"><strong>Mash & Mix Spices</strong><span class="step-time">2 MINS</span></div>
-                    <p>Open cooker. **Add Salt now.** Whisk/Mash the dal well. Pour the hot Tadka over it.</p>
+                <div class="mini-card" data-time="180">
+                    <div class="task-header"><strong>Mash & Mix</strong><span class="step-time">3 MINS</span></div>
+                    <p>Let pressure release naturally. Open lid, **add salt now**, and use a whisk or heavy spoon to mash the dal and spinach into a smooth, creamy consistency.</p>
                 </div>
-                <div class="mini-card" data-time="60">
-                    <div class="task-header"><strong>The Final Freshness</strong><span class="step-time">1 MIN</span></div>
-                    <p>Toss in freshly chopped coriander. Stir once and cover with a lid for 1 minute before serving.</p>
+                <div class="mini-card" data-time="120">
+                    <div class="task-header"><strong>The Infusion</strong><span class="step-time">2 MINS</span></div>
+                    <p>Pour the hot Tadka directly into the mashed dal. Stir once, add freshly chopped coriander, and cover immediately with a lid for 2 minutes to trap the steam and aroma.</p>
                 </div>
                 <div style="display:flex; margin-top:20px;"><button class="nav-btn back" onclick="prevStep()">⬅ Back</button></div>
             </div>
