@@ -53,9 +53,11 @@
             text-align: center;
             color: white;
         }
-        .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 15px; }
+        .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 15px; color: white; }
+        .hero-recipe h1 span { color: var(--bright-orange); }
+        .meta-tag { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; margin: 0 5px; }
 
-        /* INGREDIENTS DASHBOARD */
+        /* DASHBOARD */
         .unified-section { max-width: 1200px; margin: -80px auto 40px; padding: 0 6%; position: relative; z-index: 10; }
         .master-board { background: white; border-radius: 30px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid #f0f0f0; }
         .board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -74,18 +76,16 @@
         .timer { font-size: 4rem; font-weight: 800; color: var(--lime-green); display: block; line-height: 1; }
         #timer-label { font-size: 0.7rem; color: var(--bright-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* TASK CARDS */
         .mini-card { background: white; padding: 20px; border-radius: 20px; margin-bottom: 15px; cursor: pointer; border-left: 8px solid var(--bright-orange); transition: 0.3s; }
         .mini-card.active-task { border-left-color: var(--lime-green); background: #f4f9eb; transform: scale(1.02); }
         .mini-card.completed { border-left-color: var(--lime-green) !important; background: #f1f8e9 !important; opacity: 0.6; }
         
-        .task-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .step-time { font-size: 0.7rem; font-weight: 800; color: var(--bright-orange); background: #fff3e0; padding: 2px 8px; border-radius: 4px; }
-        
-        /* BULLET POINTS STYLING */
-        .task-list { list-style: none; padding-left: 0; }
+        .task-list { list-style: none; padding-left: 0; margin-top: 8px; }
         .task-list li { font-size: 0.85rem; color: #555; margin-bottom: 6px; position: relative; padding-left: 20px; }
         .task-list li::before { content: "•"; color: var(--bright-orange); font-weight: bold; position: absolute; left: 0; }
+
+        .tips-section { background: #e3f2fd; padding: 25px; border-radius: 20px; border: 1px dashed var(--lime-green); margin-top: 30px; }
+        .tips-title { font-weight: 800; color: var(--slate-blue); font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 
         .nav-btn { padding: 18px; border-radius: 18px; font-weight: 800; cursor: pointer; border: none; flex: 1; transition: 0.3s; }
         .nav-btn.next { background: var(--bright-orange); color: white; }
@@ -105,6 +105,11 @@
 
     <div class="hero-recipe">
         <h1>Palak <span>Dal</span></h1>
+        <div class="meta-container">
+            <span class="meta-tag">🕒 30 MINS</span>
+            <span class="meta-tag">⭐ BEGINNER SAFE</span>
+            <span class="meta-tag">🥗 STEP-BY-STEP</span>
+        </div>
     </div>
 
     <section class="unified-section">
@@ -161,62 +166,55 @@
 
             <div class="step-content" id="s1">
                 <div class="mini-card" data-time="300">
-                    <div class="task-header"><strong>Meticulous Prep</strong><span class="step-time">5 MINS</span></div>
+                    <div style="display:flex; justify-content:space-between;"><strong>Meticulous Prep</strong><span style="font-size:0.7rem; font-weight:800; color:var(--bright-orange);">5 MINS</span></div>
                     <ul class="task-list">
-                        <li>Rinse toor dal 3 times until the water runs clear.</li>
-                        <li>Soak spinach in a deep bowl of water twice to remove grit.</li>
-                        <li>Slit green chilies lengthwise and roughly chop tomatoes.</li>
+                        <li>Rinse toor dal 3 times until water runs clear.</li>
+                        <li>Soak spinach in deep water twice to remove grit.</li>
+                        <li>Slit green chilies and chop tomatoes.</li>
                     </ul>
                 </div>
                 <div class="mini-card" data-time="900">
-                    <div class="task-header"><strong>Pressure Cooking</strong><span class="step-time">15 MINS</span></div>
+                    <div style="display:flex; justify-content:space-between;"><strong>Pressure Cooking</strong><span style="font-size:0.7rem; font-weight:800; color:var(--bright-orange);">15 MINS</span></div>
                     <ul class="task-list">
-                        <li>Combine dal, spinach, tomatoes, chilies, and tamarind in cooker.</li>
-                        <li>Add 3 cups of water. **CRITICAL: Do not add salt yet.**</li>
+                        <li>Add dal, spinach, tomatoes, and tamarind to cooker.</li>
+                        <li>Add 3 cups water. **No salt yet.**</li>
                         <li>Cook for 4 whistles on medium-high heat.</li>
                     </ul>
                 </div>
-                <div style="display:flex; margin-top:20px;"><button class="nav-btn next" onclick="nextStep()">Next: Master the Tadka ➡</button></div>
+                <div style="display:flex; margin-top:20px;"><button class="nav-btn next" onclick="nextStep()">Next: The Tadka ➡</button></div>
             </div>
 
             <div class="step-content" id="s2" style="display:none">
                 <div class="mini-card" data-time="180">
-                    <div class="task-header"><strong>Tempering Spices</strong><span class="step-time">3 MINS</span></div>
+                    <div style="display:flex; justify-content:space-between;"><strong>Tempering</strong><span style="font-size:0.7rem; font-weight:800; color:var(--bright-orange);">3 MINS</span></div>
                     <ul class="task-list">
-                        <li>Heat ghee in a pan until shimmering.</li>
-                        <li>Add mustard/cumin seeds until they crackle fully.</li>
-                        <li>Add dry red chilies and crushed garlic; sauté until golden brown.</li>
+                        <li>Heat ghee and crackle mustard/cumin seeds.</li>
+                        <li>Add dry red chilies and crushed garlic.</li>
+                        <li>Sauté until garlic is nutty golden brown.</li>
                     </ul>
                 </div>
-                <div class="mini-card" data-time="240">
-                    <div class="task-header"><strong>Sautéing Aromatics</strong><span class="step-time">4 MINS</span></div>
-                    <ul class="task-list">
-                        <li>Add sliced onions and curry leaves to the pan.</li>
-                        <li>Sauté on medium-low heat until translucent.</li>
-                        <li>Ensure onions remain tender and don't over-brown.</li>
-                    </ul>
-                </div>
-                <div style="display:flex; gap:10px; margin-top:20px;"><button class="nav-btn back" onclick="prevStep()">⬅ Back</button><button class="nav-btn next" onclick="nextStep()">Final Integration ➡</button></div>
+                <div style="display:flex; gap:10px; margin-top:20px;"><button class="nav-btn back" onclick="prevStep()">⬅ Back</button><button class="nav-btn next" onclick="nextStep()">Final Step ➡</button></div>
             </div>
 
             <div class="step-content" id="s3" style="display:none">
                 <div class="mini-card" data-time="180">
-                    <div class="task-header"><strong>Mash & Mix</strong><span class="step-time">3 MINS</span></div>
+                    <div style="display:flex; justify-content:space-between;"><strong>Mash & Mix</strong><span style="font-size:0.7rem; font-weight:800; color:var(--bright-orange);">3 MINS</span></div>
                     <ul class="task-list">
-                        <li>Release pressure naturally and open the cooker lid.</li>
-                        <li>**Add Salt now.** Whisk dal until smooth and creamy.</li>
-                        <li>Pour the hot Tadka directly into the mashed dal.</li>
-                    </ul>
-                </div>
-                <div class="mini-card" data-time="120">
-                    <div class="task-header"><strong>The Infusion</strong><span class="step-time">2 MINS</span></div>
-                    <ul class="task-list">
-                        <li>Toss in freshly chopped coriander leaves.</li>
-                        <li>Stir once and cover with a lid immediately.</li>
-                        <li>Rest for 2 minutes to lock in the aromatic steam.</li>
+                        <li>Release pressure and open cooker lid.</li>
+                        <li>**Add Salt now.** Whisk until smooth.</li>
+                        <li>Pour hot Tadka directly into the mashed dal.</li>
                     </ul>
                 </div>
                 <div style="display:flex; margin-top:20px;"><button class="nav-btn back" onclick="prevStep()">⬅ Back</button></div>
+            </div>
+
+            <div class="tips-section">
+                <div class="tips-title">💡 Chef's Secrets for Beginners</div>
+                <ul class="task-list">
+                    <li>Always add salt AFTER pressure cooking to ensure dal softens perfectly.</li>
+                    <li>For extra flavor, use Ghee instead of oil for the Tadka.</li>
+                    <li>Sautéing garlic until golden (not burnt) gives the authentic aroma.</li>
+                </ul>
             </div>
         </div>
     </div>
