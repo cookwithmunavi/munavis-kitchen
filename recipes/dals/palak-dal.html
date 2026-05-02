@@ -25,7 +25,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Outfit', sans-serif; background-color: var(--pure-white); color: var(--text-dark); line-height: 1.6; -webkit-tap-highlight-color: transparent; }
 
-        /* 🧼 CONSISTENT NAVBAR */
+        /* FIXED NAVBAR */
         .navbar { 
             padding: 15px 6%; 
             display: flex; 
@@ -45,18 +45,19 @@
             color: var(--lime-green); 
             font-weight: 800; 
             font-size: 0.9rem; 
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 50px;
             background: var(--lite-green);
-            transition: 0.3s; 
+            transition: 0.3s;
+            border: 2px solid transparent;
         }
-        .home-link:hover { background: var(--lime-green); color: white; }
+        .home-link:hover { background: var(--lime-green); color: white; border-color: var(--lime-green); }
 
-        /* 🥘 THEMED HERO SECTION */
+        /* THEMED HERO SECTION - Fresh Veggies & Dal Image */
         .hero-recipe { 
             padding: 100px 6% 140px; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=2000&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1546833998-877b37c2e5c6?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             text-align: center;
@@ -68,7 +69,7 @@
             font-size: 3.5rem; 
             color: #ffffff; 
             z-index: 2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
         .hero-recipe h1 span { color: var(--bright-orange); font-style: italic; }
         
@@ -110,7 +111,8 @@
         .timer { font-size: 3.5rem; font-weight: 800; color: var(--lime-green); display: block; line-height: 1; margin-bottom: 5px; }
         #timer-label { font-size: 0.75rem; color: var(--bright-orange); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
-        .mini-card { background: white; padding: 20px; border-radius: 18px; margin-bottom: 15px; cursor: pointer; border-left: 6px solid var(--bright-orange); transition: 0.3s; }
+        /* CARDS WITHOUT ICONS */
+        .mini-card { background: white; padding: 22px; border-radius: 18px; margin-bottom: 15px; cursor: pointer; border-left: 6px solid var(--bright-orange); transition: 0.3s; }
         .mini-card.active-task { border-left-color: var(--lime-green); background: #f0f7e6; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         
         .mini-card.completed { 
@@ -121,7 +123,7 @@
         }
         .mini-card.completed strong, .mini-card.completed p { color: var(--lime-green) !important; }
 
-        .mini-card strong { color: var(--lime-green); font-size: 1.1rem; display: block; margin-bottom: 5px; }
+        .mini-card strong { color: var(--lime-green); font-size: 1.15rem; display: block; margin-bottom: 5px; }
         .mini-card p { font-size: 0.9rem; color: #555; }
         .time-tag { display: inline-block; background: var(--bright-orange); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 800; margin-top: 10px; }
 
@@ -146,7 +148,7 @@
         <div class="recipe-meta">
             <span class="meta-tag">🕒 30 MINS</span>
             <span class="meta-tag">👨‍🍳 BEGINNER</span>
-            <span class="meta-tag">🌿 FRESH VEGGIES</span>
+            <span class="meta-tag">🌿 FRESH INGREDIENTS</span>
         </div>
     </div>
 
@@ -178,10 +180,10 @@
         <div class="dashboard-frame frame-tools">
             <h2 class="frame-heading">🛠️ Kitchen Tools</h2>
             <ul class="ing-list">
-                <li><span>Pressure Cooker</span> <span class="qty">Step 1</span></li>
-                <li><span>Small Tadka Pan</span> <span class="qty">Step 2</span></li>
+                <li><span>Pressure Cooker</span> <span class="qty">Main</span></li>
+                <li><span>Small Tadka Pan</span> <span class="qty">Tadka</span></li>
                 <li><span>Wooden Spoon</span> <span class="qty">Stirring</span></li>
-                <li><span>Masher</span> <span class="qty">Creamy Text</span></li>
+                <li><span>Masher</span> <span class="qty">Whisking</span></li>
             </ul>
         </div>
     </section>
@@ -202,17 +204,17 @@
             <div class="step-content" id="s1">
                 <div class="mini-card" data-time="60">
                     <strong>Rinse Dal</strong>
-                    <p>Wash ½ cup toor dal 3 times until water is clear.</p>
+                    <p>Wash ½ cup toor dal 3 times until water is clear to remove excess starch.</p>
                     <span class="time-tag">1:00 MIN</span>
                 </div>
                 <div class="mini-card" data-time="900">
                     <strong>Pressure Cook</strong>
-                    <p>Combine dal, palak, tomatoes, and water. High flame for 3 whistles.</p>
+                    <p>Combine dal, palak, and spices. High flame for 3 whistles, then simmer.</p>
                     <span class="time-tag">15:00 MINS</span>
                 </div>
                 <div class="mini-card" data-time="300">
                     <strong>Release & Mash</strong>
-                    <p>Let pressure release naturally, then mash for a creamy texture.</p>
+                    <p>Turn off flame. Let pressure release naturally, then mash for a creamy texture.</p>
                     <span class="time-tag">5:00 MINS</span>
                 </div>
                 <div class="step-nav"><button class="nav-btn next" onclick="nextStep()">Prepare Tadka ➡</button></div>
@@ -221,12 +223,12 @@
             <div class="step-content" id="s2" style="display:none">
                 <div class="mini-card" data-time="60">
                     <strong>Fry Aromatics</strong>
-                    <p>Heat oil. Fry crushed garlic and dry red chilies until golden.</p>
+                    <p>Heat oil in pan. Fry crushed garlic and dry red chilies until golden and fragrant.</p>
                     <span class="time-tag">1:00 MIN</span>
                 </div>
                 <div class="mini-card" data-time="180">
                     <strong>Sauté Onions</strong>
-                    <p>Add seeds, curry leaves, and onion. Cook until translucent.</p>
+                    <p>Add seeds, curry leaves, and onion. Sauté until onions are translucent.</p>
                     <span class="time-tag">3:00 MINS</span>
                 </div>
                 <div class="step-nav">
@@ -238,7 +240,7 @@
             <div class="step-content" id="s3" style="display:none">
                 <div class="mini-card" data-time="300">
                     <strong>The Final Simmer</strong>
-                    <p>Combine tadka with dal. Simmer for 5 mins. Top with coriander.</p>
+                    <p>Combine tadka with dal. Simmer for 5 mins for deep flavor. Top with coriander.</p>
                     <span class="time-tag">5:00 MINS</span>
                 </div>
                 <div style="text-align:center; padding: 25px; background:var(--lime-green); color:white; border-radius:20px;">
