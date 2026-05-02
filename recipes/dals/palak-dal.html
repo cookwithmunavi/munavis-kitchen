@@ -31,83 +31,79 @@
         }
 
         /* 🧼 NAVBAR */
-        .navbar { padding: 20px 6%; width: 100%; display: flex; align-items: center; background: white; border-bottom: 1px solid #f0f0f0; }
+        .navbar { padding: 15px 6%; width: 100%; display: flex; align-items: center; background: white; border-bottom: 1px solid #f0f0f0; }
         .logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 900; color: var(--lime-green); text-decoration: none; }
         .logo span { color: var(--bright-orange); font-style: italic; }
 
         /* 🥘 HERO */
-        .hero-recipe { padding: 40px 6% 20px; background: var(--warm-bg); text-align: center; }
-        .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--lime-green); margin-bottom: 10px; }
+        .hero-recipe { padding: 30px 6% 20px; background: var(--warm-bg); text-align: center; }
+        .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--lime-green); margin-bottom: 8px; }
         .hero-recipe h1 span { color: var(--bright-orange); font-style: italic; }
         
-        .recipe-snapshot { display: flex; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap; }
+        .recipe-snapshot { display: flex; justify-content: center; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
         .snap-item { 
-            background: white; padding: 8px 15px; border-radius: 50px; font-size: 0.75rem; 
+            background: white; padding: 6px 12px; border-radius: 50px; font-size: 0.7rem; 
             font-weight: 800; color: var(--text-muted); box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             border: 1px solid #eee;
         }
 
-        /* 📋 OPTIMIZED INGREDIENTS SECTION */
+        /* 📋 ORGANIZED INGREDIENTS SECTION */
         .prep-zone { padding: 0 6% 30px; max-width: 1200px; margin: 20px auto 0; }
         .prep-card { background: white; border-radius: 24px; padding: 25px; border: 1px solid #eee; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
         .prep-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 2px solid var(--warm-bg); padding-bottom: 15px; }
         
-        .serve-btn { border: 2px solid var(--lime-green); background: transparent; color: var(--lime-green); padding: 5px 15px; border-radius: 10px; cursor: pointer; font-weight: 800; transition: 0.3s; }
+        .serve-btn { border: 2px solid var(--lime-green); background: transparent; color: var(--lime-green); padding: 5px 12px; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 0.75rem; transition: 0.3s; }
         .serve-btn.active { background: var(--lime-green); color: white; }
 
-        .ingredients-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
-        .shopping-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .ingredients-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; }
+        .ingredient-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         
-        .orange-label { color: var(--bright-orange); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1.5px; margin-bottom: 12px; display: block; font-weight: 800; }
-        .ing-list { list-style: none; }
-        .ing-list li { padding: 8px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.85rem; display: flex; align-items: flex-start; }
-        .ing-list li::before { content: "•"; color: var(--bright-orange); margin-right: 10px; font-weight: bold; }
+        .orange-label { color: var(--bright-orange); text-transform: uppercase; font-size: 0.65rem; letter-spacing: 1.2px; margin-bottom: 10px; display: block; font-weight: 800; }
+        .ing-list { list-style: none; margin-bottom: 15px; }
+        .ing-list li { padding: 6px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.85rem; display: flex; align-items: center; }
+        .ing-list li::before { content: "•"; color: var(--bright-orange); margin-right: 8px; font-weight: bold; }
         .qty { font-weight: 800; color: var(--lime-green); margin-right: 4px; }
 
         /* 🪜 COOKING ENGINE */
         .container { display: flex; flex-direction: column; padding: 20px; gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .sidebar { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 10px; }
+        .sidebar { display: flex; overflow-x: auto; gap: 8px; padding-bottom: 10px; }
         .step-btn {
-            white-space: nowrap; padding: 12px 24px; border-radius: 50px; border: 2px solid #eee;
-            background: white; font-weight: 800; font-size: 0.75rem; cursor: pointer; color: var(--text-muted); transition: 0.3s;
+            white-space: nowrap; padding: 10px 20px; border-radius: 50px; border: 2px solid #eee;
+            background: white; font-weight: 800; font-size: 0.7rem; cursor: pointer; color: var(--text-muted);
         }
         .step-btn.active { background: var(--lime-green); color: white; border-color: var(--lime-green); }
 
-        .content { background: var(--warm-bg); padding: 25px; border-radius: 28px; flex: 1; min-height: 450px; position: relative; }
-        .progress-container { height: 8px; background: #e8e6df; border-radius: 10px; margin-bottom: 25px; overflow: hidden; }
-        .progress-fill { height: 100%; width: 33%; background: linear-gradient(to right, var(--lime-green), var(--bright-orange)); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .content { background: var(--warm-bg); padding: 25px; border-radius: 28px; flex: 1; min-height: 420px; }
+        .progress-container { height: 8px; background: #e8e6df; border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+        .progress-fill { height: 100%; width: 33%; background: linear-gradient(to right, var(--lime-green), var(--bright-orange)); transition: 0.8s ease; }
 
-        .timer-box { background: white; padding: 20px; border-radius: 20px; text-align: center; margin-bottom: 25px; border: 2px solid var(--lime-green); box-shadow: 0 10px 20px rgba(104, 163, 6, 0.1); }
-        .timer { font-size: 3rem; font-weight: 800; color: var(--lime-green); display: block; font-variant-numeric: tabular-nums; }
-        .timer-label { font-size: 0.7rem; color: var(--bright-orange); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
+        .timer-box { background: white; padding: 15px; border-radius: 18px; text-align: center; margin-bottom: 20px; border: 2px solid var(--lime-green); }
+        .timer { font-size: 2.8rem; font-weight: 800; color: var(--lime-green); display: block; }
 
         .mini-card {
-            background: white; padding: 18px; border-radius: 18px; margin-bottom: 15px;
-            cursor: pointer; transition: 0.3s; border-left: 6px solid var(--bright-orange);
+            background: white; padding: 15px; border-radius: 15px; margin-bottom: 12px;
+            cursor: pointer; transition: 0.2s; border-left: 5px solid var(--bright-orange);
         }
-        .mini-card.active-task { border-left-color: var(--lime-green); background: #f0f7e6; transform: scale(1.02); }
-        .mini-card.completed { opacity: 0.6; text-decoration: line-through; border-left-color: #ddd; }
-        .mini-card strong { color: var(--lime-green); font-size: 1.05rem; display: block; margin-bottom: 4px; }
-        .mini-card p { font-size: 0.85rem; color: var(--text-muted); }
+        .mini-card.active-task { border-left-color: var(--lime-green); background: #f0f7e6; }
+        .mini-card strong { color: var(--lime-green); font-size: 1rem; display: block; }
+        .mini-card p { font-size: 0.8rem; color: var(--text-muted); }
 
         /* 🔘 NAVIGATION BUTTONS */
-        .step-nav { display: flex; justify-content: space-between; margin-top: 30px; gap: 15px; }
+        .step-nav { display: flex; justify-content: space-between; margin-top: 25px; gap: 12px; }
         .nav-btn { 
-            padding: 16px 24px; border-radius: 15px; font-weight: 800; cursor: pointer; 
-            font-size: 0.75rem; text-transform: uppercase; border: none; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center;
+            padding: 14px; border-radius: 12px; font-weight: 800; cursor: pointer; 
+            font-size: 0.7rem; text-transform: uppercase; border: none; flex: 1;
         }
-        .nav-btn.next { background: var(--bright-orange); color: white; flex: 2; }
-        .nav-btn.back { background: var(--muted-green); color: white; flex: 1; }
-        .nav-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .nav-btn.next { background: var(--bright-orange); color: white; }
+        .nav-btn.back { background: var(--muted-green); color: white; }
 
         @media (min-width: 992px) {
             .container { flex-direction: row; padding: 20px 6%; }
-            .sidebar { flex-direction: column; width: 260px; }
+            .sidebar { flex-direction: column; width: 220px; }
         }
         @media (max-width: 768px) {
-            .shopping-columns { grid-template-columns: 1fr; }
-            .ingredients-grid { grid-template-columns: 1fr; }
+            .ingredients-layout { grid-template-columns: 1fr; }
+            .ingredient-sections { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -122,45 +118,53 @@
         <div class="recipe-snapshot">
             <div class="snap-item">🕒 30 Mins</div>
             <div class="snap-item">👨‍🍳 Beginner</div>
-            <div class="snap-item">🌶️ Mild-Medium</div>
+            <div class="snap-item">🌿 Healthy</div>
         </div>
     </div>
 
     <section class="prep-zone">
         <div class="prep-card">
             <div class="prep-header">
-                <h2 style="font-family: 'Playfair Display'; color: var(--lime-green);">Ingredients</h2>
+                <h2 style="font-family: 'Playfair Display'; color: var(--lime-green); font-size: 1.3rem;">Ingredients</h2>
                 <div class="servings">
                     <button onclick="updateQty(1)" id="btn-1" class="serve-btn active">2 Servings</button>
                     <button onclick="updateQty(2)" id="btn-2" class="serve-btn">4 Servings</button>
                 </div>
             </div>
 
-            <div class="ingredients-grid">
-                <div class="shopping-area">
-                    <span class="orange-label">Shopping List</span>
-                    <div class="shopping-columns">
+            <div class="ingredients-layout">
+                <div class="ingredient-sections">
+                    <div>
+                        <span class="orange-label">Step 1: For the Cooker</span>
                         <ul class="ing-list">
                             <li><span class="qty" data-base="0.5">0.5</span> Cup Toor Dal</li>
-                            <li><span class="qty" data-base="2">2</span> Cups Palak (Chopped)</li>
-                            <li><span class="qty" data-base="2">2</span> Tomatoes</li>
-                            <li><span class="qty" data-base="1">1</span> Onion</li>
-                            <li><span class="qty" data-base="4">4</span> Cloves Garlic</li>
-                        </ul>
-                        <ul class="ing-list">
+                            <li><span class="qty" data-base="2">2</span> Cups Fresh Palak</li>
+                            <li><span class="qty" data-base="2">2</span> Tomatoes (Chopped)</li>
                             <li><span class="qty" data-base="2">2</span> Green Chilies</li>
-                            <li><span class="qty" data-base="2">2</span> Dry Red Chilies</li>
-                            <li><span class="qty" data-base="1">1</span> tsp Mustard & Cumin</li>
-                            <li><span class="qty" data-base="8">8</span> Curry Leaves</li>
+                            <li><span class="qty" data-base="1">1</span> pc Tamarind</li>
                             <li><span class="qty" data-base="0.5">0.5</span> tsp Turmeric & Salt</li>
                         </ul>
                     </div>
+                    <div>
+                        <span class="orange-label">Step 2: For the Tadka</span>
+                        <ul class="ing-list">
+                            <li><span class="qty" data-base="1">1</span> Onion (Finely sliced)</li>
+                            <li><span class="qty" data-base="4">4</span> Cloves Garlic (Crushed)</li>
+                            <li><span class="qty" data-base="2">2</span> Dry Red Chilies</li>
+                            <li><span class="qty" data-base="1">1</span> tsp Mustard & Cumin</li>
+                            <li><span class="qty" data-base="8">8</span> Curry Leaves</li>
+                        </ul>
+                        <span class="orange-label">Final Garnish</span>
+                        <ul class="ing-list">
+                            <li><span class="qty" data-base="1">1</span> tbsp Fresh Coriander</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="tools-area">
+                <div class="tools-sidebar">
                     <span class="orange-label">Kitchen Tools</span>
-                    <ul class="ing-list" style="color: var(--text-muted);">
+                    <ul class="ing-list" style="border: none;">
                         <li>Pressure Cooker</li>
-                        <li>Small Tadka Pan</li>
+                        <li>Tadka Pan</li>
                         <li>Wooden Spoon</li>
                     </ul>
                 </div>
@@ -179,21 +183,17 @@
             <div class="progress-container"><div class="progress-fill" id="p-bar"></div></div>
             <div class="timer-box">
                 <span class="timer" id="timer-display">00:00</span>
-                <p class="timer-label" id="timer-label">Tap a task to start</p>
+                <p style="font-size: 0.6rem; color: var(--bright-orange); font-weight: 800; text-transform: uppercase;">Tap task to start timer</p>
             </div>
 
             <div class="step-content active" id="s1">
-                <div class="mini-card" data-time="60">
-                    <strong>Rinse & Clean</strong>
-                    <p>Wash toor dal 3 times until the water is clear.</p>
-                </div>
                 <div class="mini-card" data-time="900">
-                    <strong>Pressure Cook</strong>
-                    <p>Add dal, palak, tomatoes, chilies, tamarind, turmeric, salt, and water. 3 whistles on high.</p>
+                    <strong>Cooker Prep</strong>
+                    <p>Place all "Cooker" ingredients with 2 glasses of water. Cook for 3 whistles on high flame.</p>
                 </div>
                 <div class="mini-card" data-time="300">
-                    <strong>Cooldown</strong>
-                    <p>Let steam release naturally, then mash slightly.</p>
+                    <strong>Mash Dal</strong>
+                    <p>Once pressure releases, mash the mixture slightly for a creamy base.</p>
                 </div>
                 <div class="step-nav">
                     <button class="nav-btn next" onclick="nextStep()">Next: Prepare Tadka ➡</button>
@@ -201,30 +201,26 @@
             </div>
 
             <div class="step-content" id="s2" style="display:none">
-                <div class="mini-card" data-time="40">
-                    <strong>Fry Garlic & Dry Chilies</strong>
-                    <p>Heat oil. Add garlic and red chilies until golden brown.</p>
-                </div>
-                <div class="mini-card" data-time="120">
-                    <strong>Temper Spices</strong>
-                    <p>Add mustard, cumin, curry leaves, and onion. Sauté until soft.</p>
+                <div class="mini-card" data-time="180">
+                    <strong>The Tempering</strong>
+                    <p>Heat oil in tadka pan. Add garlic, dry chilies, seeds, and curry leaves. Sauté onions until golden.</p>
                 </div>
                 <div class="step-nav">
-                    <button class="nav-btn back" onclick="prevStep()">⬅ Back</button>
+                    <button class="nav-btn back" onclick="prevStep()">⬅ Back to Dal</button>
                     <button class="nav-btn next" onclick="nextStep()">Next: Final Mix ➡</button>
                 </div>
             </div>
 
             <div class="step-content" id="s3" style="display:none">
                 <div class="mini-card" data-time="300">
-                    <strong>The Final Simmer</strong>
-                    <p>Add tadka to dal and simmer for 5 mins for deep flavor.</p>
+                    <strong>Combine & Garnish</strong>
+                    <p>Pour tadka over dal. Simmer for 5 mins. Top with fresh coriander leaves.</p>
                 </div>
-                <div style="text-align:center; padding: 20px; background:var(--lime-green); color:white; border-radius:15px;">
-                    <h3>Ready to Eat! 🎉</h3>
+                <div style="text-align:center; padding: 20px; background:var(--lime-green); color:white; border-radius:15px; margin-top:10px;">
+                    <h3 style="font-family:'Playfair Display'">Enjoy your Meal! 🍽️</h3>
                 </div>
                 <div class="step-nav">
-                    <button class="nav-btn back" onclick="prevStep()">⬅ Back</button>
+                    <button class="nav-btn back" onclick="prevStep()">⬅ Back to Tadka</button>
                 </div>
             </div>
         </div>
@@ -268,7 +264,7 @@
                     document.getElementById('timer-display').innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
                     if(remaining-- <= 0) {
                         clearInterval(timerInterval);
-                        card.classList.add('completed');
+                        card.style.opacity = "0.6";
                     }
                 }, 1000);
             });
