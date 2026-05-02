@@ -26,65 +26,71 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Outfit', sans-serif; background-color: var(--pure-white); color: var(--text-dark); line-height: 1.6; -webkit-tap-highlight-color: transparent; }
 
-        /* HEADER */
-        .navbar { padding: 20px 6%; display: flex; align-items: center; background: white; border-bottom: 1px solid #f0f0f0; }
+        /* 🧼 NAVBAR WITH HOME NAVIGATION */
+        .navbar { 
+            padding: 15px 6%; 
+            display: flex; 
+            justify-content: space-between; /* Creates space between logo and nav links */
+            align-items: center; 
+            background: white; 
+            border-bottom: 1px solid #f0f0f0; 
+        }
         .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--lime-green); text-decoration: none; }
         .logo span { color: var(--bright-orange); font-style: italic; }
 
-        /* 📸 UPDATED HERO SECTION WITH IMAGE BACKGROUND */
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+        .nav-links a:hover { color: var(--lime-green); }
+
+        /* 🥘 THEMED HERO SECTION */
         .hero-recipe { 
-            padding: 80px 6% 120px; /* Increased padding for image visibility */
-            background-color: var(--warm-bg); /* Fallback color */
+            padding: 80px 6% 120px; 
+            background-color: var(--warm-bg); /* Fallback */
             
-            /* CHANGE THE URL BELOW TO USE A LOCAL IMAGE */
-            /* Suggestion: Use a high-quality photo of fresh spinach and dal. */
-            background-image: url('https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            /* NEW THEMATIC IMAGE: Fresh Veggies & Dal */
+            background-image: url('https://images.unsplash.com/photo-1629114757342-995f5195079a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3');
             
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            
             text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        /* Subtle overlay to improve text contrast on light areas of the image */
         .hero-recipe::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.1); /* Very slight dark overlay */
+            background: rgba(0,0,0,0.2); /* Darker overlay for high white text contrast */
             z-index: 1;
         }
 
-        /* Hero text adjustments for image legibility */
         .hero-recipe h1 { 
             font-family: 'Playfair Display', serif; 
             font-size: 3rem; 
-            color: #ffffff; /* Use White for contrast against image */
+            color: #ffffff; /* White text for legibility */
             margin-bottom: 10px;
             position: relative;
             z-index: 2;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Soft shadow for readability */
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Stronger shadow */
         }
         .hero-recipe h1 span { color: var(--bright-orange); font-style: italic; }
         
-        .recipe-meta { 
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            margin-top: 15px;
-            position: relative;
-            z-index: 2;
-        }
+        .recipe-meta { display: flex; justify-content: center; gap: 15px; margin-top: 15px; position: relative; z-index: 2; }
         .meta-tag { background: rgba(255,255,255,0.9); padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; color: #555; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         /* INGREDIENT DASHBOARD */
         .ingredient-dashboard { 
             padding: 0 6% 40px; 
             max-width: 1200px; 
-            margin: -60px auto 0; /* Increased negative margin to sit deeper in hero image */
+            margin: -60px auto 0; 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 25px;
@@ -141,14 +147,19 @@
 </head>
 <body>
 
-    <nav class="navbar"><a href="#" class="logo">CookWith<span>Munavi</span></a></nav>
+    <nav class="navbar">
+        <a href="../../index.html" class="logo">CookWith<span>Munavi</span></a>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home: Palak</a></li>
+        </ul>
+    </nav>
 
     <div class="hero-recipe">
         <h1>Palak <span>Dal</span></h1>
         <div class="recipe-meta">
             <span class="meta-tag">🕒 30 MINS</span>
             <span class="meta-tag">👨‍🍳 BEGINNER</span>
-            <span class="meta-tag">🌿 HEALTHY</span>
+            <span class="meta-tag">🌿 FRESH</span>
         </div>
     </div>
 
