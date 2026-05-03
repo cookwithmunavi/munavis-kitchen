@@ -11,8 +11,8 @@
 
     <style>
         :root {
-            --terracotta: #A0522D;      /* Now for 'CookWith' and primary accents */
-            --deep-forest: #2E7D32;     /* Now for 'Munavi' and success states */
+            --terracotta: #A0522D;      
+            --deep-forest: #2E7D32;     
             --lite-green-bg: #F1F8E9;
             --slate-blue: #455A64;
             --pure-white: #ffffff;
@@ -30,17 +30,17 @@
         .home-link { text-decoration: none; color: var(--terracotta); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; border: 1.5px solid var(--terracotta); padding: 5px 15px; border-radius: 8px; transition: 0.3s; }
         .home-link:hover { background: var(--terracotta); color: white; }
 
-        /* Hero */
+        /* Hero - Logic for full ingredient visibility */
         .hero-recipe { 
             padding: 120px 6% 140px; 
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('../../images/IMG_20260503_204921~2.png');
             background-size: cover; 
-            background-position: center; 
+            background-position: center top; 
             text-align: center; 
             color: white;
+            min-height: 450px;
         }
         .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 3.5rem); margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero-recipe h1 span { color: var(--terracotta); }
         
         .meta-container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
         .meta-tag { background: rgba(0,0,0,0.4); padding: 5px 15px; border-radius: 50px; font-size: 0.65rem; font-weight: 800; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
@@ -60,7 +60,7 @@
         /* Dashboard Frame */
         .engine-frame { background: var(--warm-bg); border-radius: 35px; padding: 20px; border: 1px solid #f0e6d2; margin-top: 20px; }
         
-        /* Progress */
+        /* Progress Bar */
         .progress-wrapper { margin-bottom: 25px; }
         .progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 900; color: var(--deep-forest); margin-bottom: 8px; text-transform: uppercase; }
         .progress-track { width: 100%; height: 8px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
@@ -95,7 +95,14 @@
         .chef-tips h4 { font-size: 0.8rem; font-weight: 800; margin-bottom: 10px; color: var(--slate-blue); text-transform: uppercase; }
 
         @media (max-width: 600px) {
-            .hero-recipe { padding: 80px 4% 100px; background-attachment: scroll; }
+            .hero-recipe { 
+                padding: 60px 4% 80px; 
+                background-size: 100% auto; 
+                background-repeat: no-repeat;
+                background-color: #312117; /* Dark wood blend */
+                min-height: 400px;
+            }
+            .hero-recipe h1 { margin-top: 40px; }
             .master-board { padding: 20px; }
         }
     </style>
@@ -108,7 +115,7 @@
     </nav>
 
     <div class="hero-recipe">
-        <h1>Palak <span>Dal</span></h1>
+        <h1>Palak Dal</h1>
         <div class="meta-container">
             <span class="meta-tag">🕒 30 Mins</span>
             <span class="meta-tag">⭐ Beginner Safe</span>
