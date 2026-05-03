@@ -11,9 +11,9 @@
 
     <style>
         :root {
-            --terracotta: #A0522D; /* Updated from orange */
-            --lime-green: #68A306;    
-            --lite-green: #F1F8E9;
+            --terracotta: #A0522D;      /* Now for 'CookWith' and primary accents */
+            --deep-forest: #2E7D32;     /* Now for 'Munavi' and success states */
+            --lite-green-bg: #F1F8E9;
             --slate-blue: #455A64;
             --pure-white: #ffffff;
             --warm-bg: #FAF9F2;
@@ -25,14 +25,14 @@
 
         /* Navbar */
         .navbar { padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--lime-green); text-decoration: none; }
-        .logo span { color: var(--terracotta); font-style: italic; }
-        .home-link { text-decoration: none; color: var(--lime-green); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--terracotta); text-decoration: none; }
+        .logo span { color: var(--deep-forest); font-style: normal; font-weight: 900; }
+        .home-link { text-decoration: none; color: var(--deep-forest); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
 
         /* Hero */
         .hero-recipe { 
             padding: 100px 6% 120px; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('../../images/raw_ingredients.jpg');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('../../images/raw_ingredients.jpg');
             background-size: cover; background-position: center; text-align: center; color: white;
         }
         .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 3.5rem); margin-bottom: 15px; }
@@ -43,7 +43,7 @@
 
         /* Layout */
         .unified-section { max-width: 1100px; margin: -50px auto 40px; padding: 0 4%; position: relative; z-index: 10; }
-        .master-board { background: white; border-radius: 30px; padding: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid #f0f0f0; }
+        .master-board { background: white; border-radius: 30px; padding: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; }
         
         /* Grid */
         .board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
@@ -51,32 +51,32 @@
         
         .ing-list { list-style: none; }
         .ing-list li { padding: 12px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
-        .qty { font-weight: 800; color: var(--lime-green); }
+        .qty { font-weight: 800; color: var(--deep-forest); }
 
         /* Dashboard Frame */
         .engine-frame { background: var(--warm-bg); border-radius: 35px; padding: 20px; border: 1px solid #f0e6d2; margin-top: 20px; }
         
         /* Progress */
         .progress-wrapper { margin-bottom: 25px; }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 900; color: var(--lime-green); margin-bottom: 8px; text-transform: uppercase; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 900; color: var(--deep-forest); margin-bottom: 8px; text-transform: uppercase; }
         .progress-track { width: 100%; height: 8px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
-        #cooking-progress { width: 0%; height: 100%; background: var(--lime-green); transition: 0.5s ease; }
+        #cooking-progress { width: 0%; height: 100%; background: var(--deep-forest); transition: 0.5s ease; }
 
         .step-nav { display: flex; gap: 8px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; }
         .step-btn { white-space: nowrap; padding: 12px 20px; border-radius: 50px; border: 1px solid #ddd; background: white; font-weight: 800; font-size: 0.7rem; cursor: pointer; color: #999; }
-        .step-btn.active { background: var(--lime-green); color: white; border-color: var(--lime-green); }
+        .step-btn.active { background: var(--deep-forest); color: white; border-color: var(--deep-forest); }
 
-        .timer-box { background: white; padding: 25px; border-radius: 25px; text-align: center; margin-bottom: 25px; border: 2px solid var(--lime-green); }
-        .timer { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 800; color: var(--lime-green); display: block; line-height: 1; }
+        .timer-box { background: white; padding: 25px; border-radius: 25px; text-align: center; margin-bottom: 25px; border: 2px solid var(--deep-forest); }
+        .timer { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 800; color: var(--deep-forest); display: block; line-height: 1; }
         #timer-label { font-size: 0.6rem; color: var(--terracotta); font-weight: 900; text-transform: uppercase; margin-top: 10px; }
 
         .task-card { background: white; padding: 20px; border-radius: 20px; margin-bottom: 12px; cursor: pointer; border-left: 6px solid var(--terracotta); transition: 0.3s; }
-        .task-card.active-task { border-left-color: var(--lime-green); background: #f4f9eb; transform: scale(1.01); }
-        .task-card.completed { border-left-color: var(--lime-green) !important; background: #f1f8e9 !important; opacity: 0.8; }
+        .task-card.active-task { border-left-color: var(--deep-forest); background: #fdfaf5; transform: scale(1.01); }
+        .task-card.completed { border-left-color: var(--deep-forest) !important; background: var(--lite-green-bg) !important; opacity: 0.8; }
         
         .task-info { display: flex; justify-content: space-between; margin-bottom: 8px; align-items: center; }
         .task-name { font-weight: 800; font-size: 0.9rem; color: var(--text-dark); }
-        .task-time { font-weight: 800; font-size: 0.65rem; color: var(--lime-green); }
+        .task-time { font-weight: 800; font-size: 0.65rem; color: var(--deep-forest); }
 
         .task-details { list-style: none; padding-left: 0; }
         .task-details li { font-size: 0.8rem; color: #555; margin-bottom: 5px; padding-left: 15px; position: relative; }
@@ -87,7 +87,7 @@
         .next { background: var(--terracotta); color: white; }
         .back { background: var(--slate-blue); color: white; }
         
-        .chef-tips { background: #e3f2fd; padding: 20px; border-radius: 20px; margin-top: 25px; border: 1px dashed var(--lime-green); }
+        .chef-tips { background: #efebe9; padding: 20px; border-radius: 20px; margin-top: 25px; border: 1px dashed var(--deep-forest); }
         .chef-tips h4 { font-size: 0.8rem; font-weight: 800; margin-bottom: 10px; color: var(--slate-blue); text-transform: uppercase; }
 
         @media (max-width: 600px) {
@@ -119,7 +119,7 @@
                     <div class="col-title">Cooker Items</div>
                     <ul class="ing-list">
                         <li><span>Toor Dal</span> <span class="qty">0.5 Cup</span></li>
-                        <li><span>Fresh Palak</span> <span class="qty">2 Cups</span></li>
+                        <li><span>Palak</span> <span class="qty">2 Cups</span></li>
                         <li><span>Tomatoes</span> <span class="qty">2 Medium</span></li>
                         <li><span>Green Chilies</span> <span class="qty">2 Nos</span></li>
                         <li><span>Tamarind</span> <span class="qty">Small piece</span></li>
