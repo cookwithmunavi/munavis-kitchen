@@ -3,326 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palak Dal | CookWithMunavi</title>
+    <title>Palak Dal - cookwithMunavi</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <!-- External Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
 
-    <style>
-        :root {
-            --terracotta: #A0522D;      
-            --deep-forest: #2E7D32;     
-            --lite-green-bg: #F1F8E9;
-            --slate-blue: #455A64;
-            --pure-white: #ffffff;
-            --warm-bg: #FAF9F2;
-            --text-dark: #2C3E50;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--pure-white); color: var(--text-dark); line-height: 1.6; }
-
-        /* Navbar */
-        .navbar { padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; }
-        .logo { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.6rem; 
-            font-weight: 900; 
-            color: var(--terracotta); 
-            text-decoration: none; 
-            display: flex;
-            align-items: baseline;
-            letter-spacing: -1px;
-        }
-
-        .brand-suffix { 
-            color: var(--deep-forest); 
-            display: inline-flex; 
-            align-items: baseline; 
-        }
-
-        .i-wrapper { 
-            position: relative; 
-            display: inline-block; 
-            line-height: 1; 
-        }
-
-        .leaf-icon { 
-            position: absolute; 
-            top: -16px; /* Scaled down for navbar */
-            left: 50%; 
-            transform: translateX(-40%); 
-            width: 22px; /* Scaled down for navbar */
-            height: 22px; 
-            fill: var(--deep-forest); 
-        }
-        
-        .home-link { text-decoration: none; color: var(--terracotta); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; border: 1.5px solid var(--terracotta); padding: 5px 15px; border-radius: 8px; transition: 0.3s; }
-        .home-link:hover { background: var(--terracotta); color: white; }
-
-        /* Hero - Logic for full ingredient visibility */
-        .hero-recipe { 
-            padding: 120px 6% 140px; 
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('../../images/IMG_20260503_204921~2.png');
-            background-size: cover; 
-            background-position: center top; 
-            text-align: center; 
-            color: white;
-            min-height: 450px;
-        }
-        .hero-recipe h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 3.5rem); margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        
-        .meta-container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .meta-tag { background: rgba(0,0,0,0.4); padding: 5px 15px; border-radius: 50px; font-size: 0.65rem; font-weight: 800; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
-
-        /* Layout */
-        .unified-section { max-width: 1100px; margin: -50px auto 40px; padding: 0 4%; position: relative; z-index: 10; }
-        .master-board { background: white; border-radius: 30px; padding: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; }
-        
-        /* Grid */
-        .board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .col-title { font-weight: 800; font-size: 0.75rem; color: var(--terracotta); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; border-left: 4px solid var(--terracotta); padding-left: 10px; }
-        
-        .ing-list { list-style: none; }
-        .ing-list li { padding: 12px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
-        .qty { font-weight: 800; color: var(--deep-forest); }
-
-        /* Dashboard Frame */
-        .engine-frame { background: var(--warm-bg); border-radius: 35px; padding: 20px; border: 1px solid #f0e6d2; margin-top: 20px; }
-        
-        /* Progress Bar */
-        .progress-wrapper { margin-bottom: 25px; }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 900; color: var(--deep-forest); margin-bottom: 8px; text-transform: uppercase; }
-        .progress-track { width: 100%; height: 8px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
-        #cooking-progress { width: 0%; height: 100%; background: var(--deep-forest); transition: 0.5s ease; }
-
-        .step-nav { display: flex; gap: 8px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; }
-        .step-btn { white-space: nowrap; padding: 12px 20px; border-radius: 50px; border: 1px solid #ddd; background: white; font-weight: 800; font-size: 0.7rem; cursor: pointer; color: #999; }
-        .step-btn.active { background: var(--deep-forest); color: white; border-color: var(--deep-forest); }
-
-        .timer-box { background: white; padding: 25px; border-radius: 25px; text-align: center; margin-bottom: 25px; border: 2px solid var(--deep-forest); }
-        .timer { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 800; color: var(--deep-forest); display: block; line-height: 1; }
-        #timer-label { font-size: 0.6rem; color: var(--terracotta); font-weight: 900; text-transform: uppercase; margin-top: 10px; }
-
-        .task-card { background: white; padding: 20px; border-radius: 20px; margin-bottom: 12px; cursor: pointer; border-left: 6px solid var(--terracotta); transition: 0.3s; }
-        .task-card.active-task { border-left-color: var(--deep-forest); background: #fdfaf5; transform: scale(1.01); }
-        .task-card.completed { border-left-color: var(--deep-forest) !important; background: var(--lite-green-bg) !important; opacity: 0.8; }
-        
-        .task-info { display: flex; justify-content: space-between; margin-bottom: 8px; align-items: center; }
-        .task-name { font-weight: 800; font-size: 0.9rem; color: var(--text-dark); }
-        .task-time { font-weight: 800; font-size: 0.65rem; color: var(--deep-forest); }
-
-        .task-details { list-style: none; padding-left: 0; }
-        .task-details li { font-size: 0.8rem; color: #555; margin-bottom: 5px; padding-left: 15px; position: relative; }
-        .task-details li::before { content: "•"; color: var(--terracotta); position: absolute; left: 0; font-weight: bold; }
-
-        .nav-controls { display: flex; gap: 10px; margin-top: 15px; }
-        .nav-btn { flex: 1; padding: 18px; border-radius: 15px; font-weight: 800; cursor: pointer; border: none; font-size: 0.8rem; }
-        .next { background: var(--terracotta); color: white; }
-        .back { background: var(--slate-blue); color: white; }
-        
-        .chef-tips { background: #efebe9; padding: 20px; border-radius: 20px; margin-top: 25px; border: 1px dashed var(--deep-forest); }
-        .chef-tips h4 { font-size: 0.8rem; font-weight: 800; margin-bottom: 10px; color: var(--slate-blue); text-transform: uppercase; }
-
-        @media (max-width: 600px) {
-            .hero-recipe { 
-                padding: 60px 4% 80px; 
-                background-size: 100% auto; 
-                background-repeat: no-repeat;
-                background-color: #312117; 
-                min-height: 400px;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#A0522D',
+                        forest: '#2E7D32',
+                        'warm-bg': '#FAF9F2',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
             }
-            .hero-recipe h1 { margin-top: 40px; }
-            .master-board { padding: 20px; }
+        }
+    </script>
+    <style>
+        body { background-color: white; }
+        .tabular-nums { font-variant-numeric: tabular-nums; }
+        .scroll-top { 
+            position: fixed; 
+            bottom: 25px; 
+            right: 25px; 
+            width: 45px; 
+            height: 45px; 
+            background: #A0522D; /* Default Terracotta */
+            color: white; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-decoration: none; 
+            font-size: 20px; 
+            z-index: 1000; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            cursor: pointer; 
+            border: none; 
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .scroll-top:hover { 
+            transform: scale(1.1) translateY(-5px); 
+            background: #2E7D32; /* Change to Green on click/hover */
         }
     </style>
 </head>
 <body>
+    <div id="root"></div>
 
-    <nav class="navbar">
-        <a href="../../index.html" class="logo">
-            cookwith<span class="brand-suffix">Munav<div class="i-wrapper">&imath;<svg class="leaf-icon" viewBox="0 0 24 24"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg></div></span>
-        </a>
-        <a href="../../index.html" class="home-link">Home</a>
-    </nav>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const { motion, AnimatePresence } = window.Motion;
 
-    <div class="hero-recipe">
-        <h1>Palak Dal</h1>
-        <div class="meta-container">
-            <span class="meta-tag">🕒 30 Mins</span>
-            <span class="meta-tag">⭐ Beginner Safe</span>
-            <span class="meta-tag">🥗 Step-By-Step</span>
-        </div>
-    </div>
+        const RECIPE_DATA = {
+            title: "Palak Dal",
+            ingredients: [
+                { category: "Cooker Items", items: [
+                    { name: "Toor Dal", qty: "0.5 Cup" },
+                    { name: "Palak", qty: "2 Cups" },
+                    { name: "Tomatoes", qty: "2 Medium" },
+                    { name: "Green Chilies", qty: "2 Nos" },
+                    { name: "Tamarind", qty: "Small Piece" },
+                    { name: "Turmeric powder", qty: "0.5 tbsp" },
+                    { name: "Salt", qty: "0.5 tbsp" },
+                    { name: "Water", qty: "3 Cups" }
+                ]},
+                { category: "Tadka Spices", items: [
+                    { name: "Oil / Ghee", qty: "2 tbsp" },
+                    { name: "Onion", qty: "1 Small" },
+                    { name: "Garlic", qty: "4 Cloves" },
+                    { name: "Dry Red Chilies", qty: "2 Nos" },
+                    { name: "Mustard Seeds", qty: "1 tbsp" },
+                    { name: "Cumin Seeds", qty: "1 tbsp" },
+                    { name: "Curry Leaves", qty: "1 Handful" }
+                ]},
+                { category: "Pre-Check", items: [
+                    { name: "Dal Rinsed?", qty: "3 Times" },
+                    { name: "Palak Clean?", qty: "3 Times" },
+                    { name: "Palak Chopped", qty: "Yes" },
+                    { name: "Cooker Ready?", qty: "Ready" },
+                    { name: "Garlic Peeled?", qty: "Yes" },
+                    { name: "Onions Chopped?", qty: "Yes" }
+                ]},
+                { category: "Garnish", items: [
+                    { name: "Coriander Leaves Chopped", qty: "1 Handful" }
+                ]}
+            ],
+            steps: [
+                {
+                    id: 1,
+                    label: "PREP & COOK",
+                    tasks: [
+                        { id: "t1", name: "Meticulous Prep", timeLabel: "5 MINS", timeSeconds: 300, details: ["Rinse toor dal 3 times until clear.", "Wash palak twice to remove hidden grit.", "Slit green chilies and chop tomatoes."] },
+                        { id: "t2", name: "Pressure Cooking", timeLabel: "15 MINS", timeSeconds: 900, details: ["Combine dal, palak, tomatoes, and tamarind in cooker.", "Add 3 cups water. **No salt yet.**", "Cook for 4 whistles on medium-high heat."] }
+                    ]
+                },
+                {
+                    id: 2,
+                    label: "THE TADKA",
+                    tasks: [
+                        { id: "t3", name: "Golden Tempering", timeLabel: "5 MINS", timeSeconds: 300, details: ["Heat ghee/oil and crackle mustard/cumin seeds.", "Add garlic and red dry chillies; sauté until golden brown.", "Add onions and curry leaves; sauté until soft."] }
+                    ]
+                },
+                {
+                    id: 3,
+                    label: "FINISHING",
+                    tasks: [
+                        { id: "t4", name: "Mash & Mix", timeLabel: "3 MINS", timeSeconds: 180, details: ["Release pressure naturally and open cooker.", "**Add Salt now.** Whisk dal until smooth.", "Pour hot Tadka directly into the dal."] },
+                        { id: "t5", name: "The Infusion", timeLabel: "2 MINS", timeSeconds: 120, details: ["Toss in freshly chopped coriander leaves.", "Cover immediately for 2 minutes to lock aroma."] }
+                    ]
+                }
+            ]
+        };
 
-    <section class="unified-section">
-        <div class="master-board">
-            <div class="board-grid">
-                <div>
-                    <div class="col-title">Cooker Items</div>
-                    <ul class="ing-list">
-                        <li><span>Toor Dal</span> <span class="qty">0.5 Cup</span></li>
-                        <li><span>Palak</span> <span class="qty">2 Cups</span></li>
-                        <li><span>Tomatoes</span> <span class="qty">2 Medium</span></li>
-                        <li><span>Green Chilies</span> <span class="qty">2 Nos</span></li>
-                        <li><span>Tamarind</span> <span class="qty">Small piece</span></li>
-                        <li><span>Turmeric powder</span> <span class="qty">0.5 tsp</span></li>
-                        <li><span>Water</span> <span class="qty">3 Cups</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="col-title">Tadka Spices</div>
-                    <ul class="ing-list">
-                        <li><span>Oil / Ghee</span> <span class="qty">2 tbsp</span></li>
-                        <li><span>Onion</span> <span class="qty">1 Small</span></li>
-                        <li><span>Garlic</span> <span class="qty">4 Cloves</span></li>
-                        <li><span>Dry Red Chilies</span> <span class="qty">2 Nos</span></li>
-                        <li><span>Mustard Seeds</span> <span class="qty">1 tbsp</span></li>
-                        <li><span>Cumin Seeds</span> <span class="qty">1 tbsp</span></li>
-                        <li><span>Curry Leaves</span> <span class="qty">1 Handful</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="col-title">Garnish</div>
-                    <ul class="ing-list">
-                        <li><span>Coriander Leaves Chopped</span> <span class="qty">1 Handful</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="col-title">Pre-Check</div>
-                    <ul class="ing-list">
-                        <li><span>Dal Rinsed?</span> <span class="qty">3 Times</span></li>
-                        <li><span>Palak Clean?</span> <span class="qty">3 Times</span></li>
-                        <li><span>Palak Chopped</span> <span class="qty">Yes</span></li>
-                        <li><span>Cooker Ready?</span> <span class="qty">Ready</span></li>
-                        <li><span>Garlic Peeled?</span> <span class="qty">Yes</span></li>
-                        <li><span>Onions Chopped?</span> <span class="qty">Yes</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="engine-frame">
-                <div class="progress-wrapper">
-                    <div class="progress-label"><span>Step Completion</span> <span id="progress-text">0%</span></div>
-                    <div class="progress-track"><div id="cooking-progress"></div></div>
-                </div>
-
-                <div class="step-nav">
-                    <button class="step-btn active" id="btn1" onclick="showStep(1)">01. PREP & COOK</button>
-                    <button class="step-btn" id="btn2" onclick="showStep(2)">02. THE TADKA</button>
-                    <button class="step-btn" id="btn3" onclick="showStep(3)">03. FINISHING</button>
-                </div>
-
-                <div class="timer-box">
-                    <span class="timer" id="timer-display">0:00</span>
-                    <p id="timer-label">TAP A TASK TO START</p>
-                </div>
-
-                <div id="s1" class="step-content">
-                    <div class="task-card" data-time="300">
-                        <div class="task-info"><span class="task-name">Meticulous Prep</span><span class="task-time">5 MINS</span></div>
-                        <ul class="task-details">
-                            <li>Rinse toor dal 3 times until clear.</li>
-                            <li>Wash palak twice to remove hidden grit.</li>
-                            <li>Slit green chilies and chop tomatoes.</li>
-                        </ul>
+        const Logo = ({ className = "" }) => (
+            <a href="#" className={`font-display text-[1.6rem] font-black text-terracotta tracking-tight flex items-baseline no-underline ${className}`}>
+                cookwith
+                <span className="text-forest flex items-baseline ml-0.5">
+                    Munav
+                    <div className="relative inline-block leading-none">
+                        ı
+                        <svg 
+                            className="absolute -top-[16px] left-1/2 -translate-x-[50%] w-[22px] h-[22px] fill-forest" 
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/>
+                        </svg>
                     </div>
-                    <div class="task-card" data-time="900">
-                        <div class="task-info"><span class="task-name">Pressure Cooking</span><span class="task-time">15 MINS</span></div>
-                        <ul class="task-details">
-                            <li>Combine dal, palak, tomatoes, and tamarind in cooker.</li>
-                            <li>Add 3 cups water. **No salt yet.**</li>
-                            <li>Cook for 4 whistles on medium-high heat.</li>
-                        </ul>
-                    </div>
-                    <button class="nav-btn next" onclick="showStep(2)">Go to Tadka ➡</button>
-                </div>
+                </span>
+            </a>
+        );
 
-                <div id="s2" class="step-content" style="display:none">
-                    <div class="task-card" data-time="300">
-                        <div class="task-info"><span class="task-name">Golden Tempering</span><span class="task-time">5 MINS</span></div>
-                        <ul class="task-details">
-                            <li>Heat ghee/oil and crackle mustard/cumin seeds.</li>
-                            <li>Add garlic and red dry chillies; sauté until nutty golden brown.</li>
-                            <li>Add onions and curry leaves; sauté until soft.</li>
-                        </ul>
+        function App() {
+            const [activeStep, setActiveStep] = useState(1);
+            const [completedTasks, setCompletedTasks] = useState(new Set());
+            const [checkedIngredients, setCheckedIngredients] = useState(new Set());
+            const [activeTaskId, setActiveTaskId] = useState(null);
+            const [activeTaskName, setActiveTaskName] = useState("");
+            const [timeLeft, setTimeLeft] = useState(0);
+            const [isTimerRunning, setIsTimerRunning] = useState(false);
+            const [showScrollTop, setShowScrollTop] = useState(false);
+            const timerRef = useRef(null);
+
+            useEffect(() => {
+                const handleScroll = () => setShowScrollTop(window.scrollY > 300);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            useEffect(() => {
+                if (isTimerRunning && timeLeft > 0) {
+                    timerRef.current = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
+                } else if (timeLeft === 0 && isTimerRunning) {
+                    setIsTimerRunning(false);
+                    if (activeTaskId) {
+                        setCompletedTasks(prev => {
+                            const next = new Set(prev);
+                            next.add(activeTaskId);
+                            return next;
+                        });
+                        setActiveTaskId(null);
+                        setActiveTaskName("");
+                    }
+                }
+                return () => clearInterval(timerRef.current);
+            }, [isTimerRunning, timeLeft, activeTaskId]);
+
+            const handleTaskClick = (task) => {
+                setCompletedTasks(prev => {
+                    const next = new Set(prev);
+                    next.add(task.id);
+                    return next;
+                });
+                setActiveTaskId(task.id);
+                setActiveTaskName(task.name);
+                setTimeLeft(task.timeSeconds);
+                setIsTimerRunning(true);
+            };
+
+            const scrollToTop = () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            const toggleIngredient = (name) => {
+                setCheckedIngredients(prev => {
+                    const next = new Set(prev);
+                    if (next.has(name)) next.delete(name);
+                    else next.add(name);
+                    return next;
+                });
+            };
+
+            const currentStepData = RECIPE_DATA.steps.find(s => s.id === activeStep);
+            const totalTasks = RECIPE_DATA.steps.reduce((acc, s) => acc + s.tasks.length, 0);
+            const progressPercent = Math.round((completedTasks.size / totalTasks) * 100);
+
+            return (
+                <div className="min-h-screen bg-white font-sans text-slate-800">
+                    <nav className="border-b border-slate-100 px-[6%] py-4 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-md z-50">
+                        <div className="flex items-center">
+                            <Logo />
+                        </div>
+                        <a href="../../index.html" className="bg-terracotta text-white px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 shadow-lg shadow-terracotta/20 transition-all no-underline">HOME</a>
+                    </nav>
+
+                    <div className="h-64 md:h-80 bg-cover bg-center flex items-center justify-center relative overflow-hidden" 
+                         style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('../../images/palak_dal_page_hero.png')` }}>
+                        <div className="text-center">
+                            <h1 className="font-display text-5xl md:text-7xl text-white font-black drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]">Palak Dal</h1>
+                            <div className="flex justify-center gap-2 mt-4">
+                                <span className="bg-white/30 backdrop-blur-md border border-white/40 px-4 py-1.5 rounded-full text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-2 shadow-sm">🕒 30 Mins</span>
+                                <span className="bg-white/30 backdrop-blur-md border border-white/40 px-4 py-1.5 rounded-full text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-2 shadow-sm">⭐ Beginner Safe</span>
+                                <span className="bg-white/30 backdrop-blur-md border border-white/40 px-4 py-1.5 rounded-full text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-2 shadow-sm">🥗 Step-By-Step</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="nav-controls">
-                        <button class="nav-btn back" onclick="showStep(1)">⬅ Back</button>
-                        <button class="nav-btn next" onclick="showStep(3)">Go to Finishing ➡</button>
+
+                    <div className="max-w-[1200px] mx-auto px-4 md:px-8 -mt-16 pb-20 relative z-10">
+                        {/* Ingredients Table */}
+                        <section className="bg-white rounded-[2rem] border border-slate-100 shadow-2xl p-8 md:p-12 mb-10 overflow-hidden">
+                            <h2 className="text-base md:text-lg font-black text-forest uppercase tracking-[0.4em] mb-12 text-center py-4 bg-forest/5 rounded-2xl border border-forest/10 max-w-md mx-auto shadow-inner">
+                                Pantry Essentials
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                                {RECIPE_DATA.ingredients.map((group, idx) => (
+                                    <div key={idx}>
+                                        <h3 className="text-[10px] font-black text-terracotta uppercase tracking-[0.2em] mb-6 border-l-4 border-terracotta pl-4 leading-none">{group.category}</h3>
+                                        <ul className="space-y-3">
+                                            {group.items.map((item, i) => (
+                                                <li 
+                                                    key={i} 
+                                                    onClick={() => toggleIngredient(item.name)}
+                                                    className="flex items-start gap-3 text-sm border-b border-slate-50 pb-2 cursor-pointer group"
+                                                >
+                                                    <div className={`mt-0.5 w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${checkedIngredients.has(item.name) ? 'bg-forest border-forest' : 'border-slate-200 group-hover:border-forest/50'}`}>
+                                                        {checkedIngredients.has(item.name) && <span className="text-white text-[10px] font-bold">✓</span>}
+                                                    </div>
+                                                    <div className="flex-1 flex justify-between items-center">
+                                                        <span className={`font-bold transition-all ${checkedIngredients.has(item.name) ? 'text-slate-300 line-through' : 'text-slate-500'}`}>{item.name}</span>
+                                                        <span className={`font-black transition-all ${checkedIngredients.has(item.name) ? 'text-slate-300 line-through' : 'text-forest'}`}>{item.qty}</span>
+                                                    </div>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Progress Bar */}
+                        <div className="mb-10 px-1">
+                            <div className="flex justify-between text-[11px] font-black text-forest uppercase tracking-widest mb-3">
+                                <span>Step Progress</span>
+                                <span className="text-terracotta">{progressPercent}%</span>
+                            </div>
+                            <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                <div style={{ width: `${progressPercent}%` }} className="h-full bg-forest transition-all duration-1000"></div>
+                            </div>
+                        </div>
+
+                        {/* Step Navigation Tabs */}
+                        <div className="flex flex-wrap gap-2 mb-8">
+                            {RECIPE_DATA.steps.map(step => {
+                                const isDone = step.tasks.every(t => completedTasks.has(t.id));
+                                const isActive = activeStep === step.id;
+                                return (
+                                    <button 
+                                        key={step.id} 
+                                        onClick={() => setActiveStep(step.id)}
+                                        className={`px-6 py-3 rounded-full text-[9px] font-black uppercase tracking-widest transition-all border-2 ${isActive ? 'bg-terracotta border-terracotta text-white shadow-lg' : isDone ? 'bg-forest border-forest text-white' : 'bg-white border-slate-100 text-slate-400'}`}
+                                    >
+                                        0{step.id}. {step.label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {/* Timer Box */}
+                        <div className="bg-white rounded-[1.5rem] py-4 md:py-6 px-6 border-2 border-forest text-center mb-6 shadow-sm">
+                            <span className="text-4xl md:text-5xl font-black text-forest tabular-nums tracking-tighter leading-none block">
+                                {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}
+                            </span>
+                            <p className="text-[8px] font-black text-terracotta uppercase tracking-[0.3em] mt-2">
+                                {activeTaskId ? `${activeTaskName} RUNNING...` : 'Tap a task card below to start'}
+                            </p>
+                            {activeTaskId && (
+                                <div className="flex justify-center gap-3 mt-4">
+                                    <button 
+                                        onClick={() => setIsTimerRunning(!isTimerRunning)}
+                                        className="bg-forest text-white px-5 py-2 rounded-lg font-black text-[8px] uppercase tracking-widest flex items-center gap-2 active:scale-95 transition-all outline-none"
+                                    >
+                                        {isTimerRunning ? "Pause" : "Resume"}
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Tasks List */}
+                        <AnimatePresence mode="wait">
+                            <motion.div 
+                                key={activeStep}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.4, ease: "easeOut" }}
+                                className="space-y-4 mb-2"
+                            >
+                                {currentStepData.tasks.map(task => {
+                                    const isDone = completedTasks.has(task.id);
+                                    const isActive = activeTaskId === task.id;
+                                    return (
+                                        <div 
+                                            key={task.id} 
+                                            onClick={() => handleTaskClick(task)}
+                                            className={`p-6 md:p-8 rounded-[2rem] border-l-[8px] transition-all cursor-pointer shadow-sm ${isDone ? 'bg-[#F1F8E9] border-forest' : isActive ? 'bg-white border-forest scale-[1.01] shadow-xl' : 'bg-white border-terracotta hover:border-forest/20'}`}
+                                        >
+                                            <div className="flex justify-between items-center mb-4">
+                                                <h4 className={`text-lg font-black tracking-tight ${isDone ? 'text-slate-400' : 'text-slate-800'}`}>{task.name}</h4>
+                                                <span className="text-[9px] font-black text-forest uppercase bg-forest/5 px-3 py-1 rounded-full">{isDone ? "Done" : task.timeLabel}</span>
+                                            </div>
+                                            <ul className="space-y-2">
+                                                {task.details.map((detail, idx) => (
+                                                    <li key={idx} className="text-[14px] text-slate-600 font-medium flex gap-3">
+                                                        <span className="text-terracotta">•</span>
+                                                        <span>{detail}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    );
+                                })}
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {/* Step Navigation Buttons */}
+                        <div className="flex justify-between items-center mt-4 pt-6 border-t border-slate-100 mb-8">
+                            <div>
+                                {activeStep > 1 && (
+                                    <button 
+                                        onClick={() => { setActiveStep(activeStep - 1); window.scrollTo({ top: 400, behavior: 'smooth' }); }}
+                                        className="min-w-[140px] bg-terracotta text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-terracotta/20 hover:scale-105 active:scale-95 transition-all outline-none"
+                                    >
+                                        ← BACK
+                                    </button>
+                                )}
+                            </div>
+                            
+                            <div>
+                                {activeStep < RECIPE_DATA.steps.length ? (
+                                    <button 
+                                        onClick={() => { setActiveStep(activeStep + 1); window.scrollTo({ top: 400, behavior: 'smooth' }); }}
+                                        className="min-w-[140px] bg-terracotta text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-terracotta/20 hover:scale-105 active:scale-95 transition-all outline-none"
+                                    >
+                                        GO TO {RECIPE_DATA.steps.find(s => s.id === activeStep + 1).label} →
+                                    </button>
+                                ) : (
+                                    <div className="flex items-center gap-2 text-forest font-black text-[10px] uppercase tracking-widest bg-forest/10 px-6 py-3 rounded-xl border border-forest/20 animate-pulse">
+                                        ✨ RECIPE COMPLETE
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Chef Secrets */}
+                        <div className="mt-10 bg-[#FAF9F2] p-8 rounded-[2rem] border-2 border-dashed border-forest/20 relative overflow-hidden shadow-inner">
+                            <div className="relative z-10">
+                                <h4 className="font-display text-xl font-black text-forest mb-6 flex items-center gap-3">
+                                    <svg className="w-6 h-6 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                                    </svg>
+                                    CHEF'S SECRETS
+                                </h4>
+                                <ul className="space-y-4">
+                                    <li className="text-[13px] text-slate-500 font-bold flex gap-4">
+                                        <span className="text-terracotta">•</span>
+                                        Salt prevents dal from softening—always add it at the very end after whistling.
+                                    </li>
+                                    <li className="text-[13px] text-slate-500 font-bold flex gap-4">
+                                        <span className="text-terracotta">•</span>
+                                        Sautéing garlic until nutty golden (not burnt) is the key to that smoky aroma.
+                                    </li>
+                                    <li className="text-[13px] text-slate-500 font-bold flex gap-4">
+                                        <span className="text-terracotta">•</span>
+                                        Covering the dal immediately after adding tadka locks in the deep flavor.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <footer className="mt-20 text-center">
+                            <div className="flex items-center justify-center mb-6">
+                                <Logo />
+                            </div>
+                            <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em]">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
+                        </footer>
+
+                        <button 
+                            onClick={scrollToTop}
+                            className={`scroll-top ${showScrollTop ? 'visible' : ''}`}
+                        >
+                            ↑
+                        </button>
                     </div>
                 </div>
-
-                <div id="s3" class="step-content" style="display:none">
-                    <div class="task-card" data-time="180">
-                        <div class="task-info"><span class="task-name">Mash & Mix</span><span class="task-time">3 MINS</span></div>
-                        <ul class="task-details">
-                            <li>Release pressure naturally and open cooker.</li>
-                            <li>**Add Salt now.** Whisk dal until smooth.</li>
-                            <li>Pour hot Tadka directly into the dal.</li>
-                        </ul>
-                    </div>
-                    <div class="task-card" data-time="120">
-                        <div class="task-info"><span class="task-name">The Infusion</span><span class="task-time">2 MINS</span></div>
-                        <ul class="task-details">
-                            <li>Toss in freshly chopped coriander leaves.</li>
-                            <li>Cover immediately for 2 minutes to lock aroma.</li>
-                        </ul>
-                    </div>
-                    <button class="nav-btn back" onclick="showStep(2)">⬅ Back</button>
-                </div>
-                
-                <div class="chef-tips">
-                    <h4>💡 Chef's Secrets</h4>
-                    <ul class="task-details">
-                        <li>Salt prevents dal from softening—always add it at the very end.</li>
-                        <li>Sautéing garlic until golden (not burnt) is key for aroma.</li>
-                        <li>Covering the dal immediately locks in the smoky smell.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        let timerInterval;
-        let completedTasks = new Set();
-        const cards = document.querySelectorAll('.task-card');
-
-        function showStep(n) {
-            document.querySelectorAll('.step-btn').forEach((b, i) => b.classList.toggle('active', i === n-1));
-            document.querySelectorAll('.step-content').forEach((c, i) => c.style.display = i === n-1 ? 'block' : 'none');
-            clearInterval(timerInterval);
-            document.getElementById('timer-display').innerText = "0:00";
-            document.getElementById('timer-label').innerText = "TAP A TASK TO START";
+            );
         }
 
-        cards.forEach((card, index) => {
-            card.addEventListener('click', () => {
-                if (card.classList.contains('completed')) return;
-                cards.forEach(c => c.classList.remove('active-task'));
-                card.classList.add('active-task');
-                
-                let time = parseInt(card.dataset.time);
-                clearInterval(timerInterval);
-                document.getElementById('timer-label').innerText = "TASK RUNNING...";
-                
-                timerInterval = setInterval(() => {
-                    let m = Math.floor(time / 60), s = time % 60;
-                    document.getElementById('timer-display').innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
-                    if(time-- <= 0) {
-                        clearInterval(timerInterval);
-                        card.classList.replace('active-task', 'completed');
-                        completedTasks.add(index);
-                        let p = Math.round((completedTasks.size / cards.length) * 100);
-                        document.getElementById('cooking-progress').style.width = p + '%';
-                        document.getElementById('progress-text').innerText = p + '%';
-                        document.getElementById('timer-label').innerText = completedTasks.size === cards.length ? "ALL COOKING COMPLETE! 🥗" : "TASK FINISHED! ✅";
-                    }
-                }, 1000);
-            });
-        });
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
