@@ -18,9 +18,11 @@
             theme: {
                 extend: {
                     colors: {
-                        terracotta: '#A0522D',
-                        forest: '#2E7D32',
+                        'bright-orange': '#FF9800',
+                        'lime-green': '#68A306',
                         'warm-bg': '#FAF9F2',
+                        'text-dark': '#333333',
+                        'text-muted': '#555555',
                     },
                     fontFamily: {
                         sans: ['Outfit', 'sans-serif'],
@@ -31,15 +33,16 @@
         }
     </script>
     <style>
-        body { background-color: white; }
+        body { background-color: white; color: #333333; }
         .tabular-nums { font-variant-numeric: tabular-nums; }
+        
         .scroll-top { 
             position: fixed; 
             bottom: 25px; 
             right: 25px; 
             width: 45px; 
             height: 45px; 
-            background: #A0522D; /* Default Terracotta */
+            background: #68A306; 
             color: white; 
             border-radius: 50%; 
             display: flex; 
@@ -48,8 +51,7 @@
             text-decoration: none; 
             font-size: 20px; 
             z-index: 1000; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
-            cursor: pointer; 
+            box-shadow: 0 5px 15px rgba(104, 163, 6, 0.2); 
             border: none; 
             transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
@@ -63,7 +65,8 @@
         }
         .scroll-top:hover { 
             transform: scale(1.1) translateY(-5px); 
-            background: #2E7D32; /* Change to Green on click/hover */
+            background: #FF9800; 
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
         }
     </style>
 </head>
@@ -136,19 +139,10 @@
         };
 
         const Logo = ({ className = "" }) => (
-            <a href="#" className={`font-display text-[1.6rem] font-black text-terracotta tracking-tight flex items-baseline no-underline ${className}`}>
+            <a href="#" className={`font-display text-[1.6rem] font-black text-lime-green tracking-tight flex items-baseline no-underline ${className}`}>
                 cookwith
-                <span className="text-forest flex items-baseline ml-0.5">
-                    Munav
-                    <div className="relative inline-block leading-none">
-                        ı
-                        <svg 
-                            className="absolute -top-[16px] left-1/2 -translate-x-[50%] w-[22px] h-[22px] fill-forest" 
-                            viewBox="0 0 24 24"
-                        >
-                            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/>
-                        </svg>
-                    </div>
+                <span className="text-bright-orange flex items-baseline ml-0.5 italic">
+                    Munavi
                 </span>
             </a>
         );
@@ -200,8 +194,18 @@
                 setIsTimerRunning(true);
             };
 
+            // UPDATED: Controlled slow scroll to top
             const scrollToTop = () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                const scrollDuration = 800; // Duration in milliseconds
+                const scrollStep = -window.scrollY / (scrollDuration / 15);
+                
+                const scrollInterval = setInterval(() => {
+                    if (window.scrollY !== 0) {
+                        window.scrollBy(0, scrollStep);
+                    } else {
+                        clearInterval(scrollInterval);
+                    }
+                }, 15);
             };
 
             const toggleIngredient = (name) => {
@@ -223,7 +227,7 @@
                         <div className="flex items-center">
                             <Logo />
                         </div>
-                        <a href="../../index.html" className="bg-terracotta text-white px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 shadow-lg shadow-terracotta/20 transition-all no-underline">HOME</a>
+                        <a href="../../index.html" className="bg-bright-orange text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 shadow-lg shadow-bright-orange/20 transition-all no-underline">HOME</a>
                     </nav>
 
                     <div className="h-64 md:h-80 bg-cover bg-center flex items-center justify-center relative overflow-hidden" 
@@ -239,15 +243,15 @@
                     </div>
 
                     <div className="max-w-[1200px] mx-auto px-4 md:px-8 -mt-16 pb-20 relative z-10">
-                        {/* Ingredients Table */}
+                        
                         <section className="bg-white rounded-[2rem] border border-slate-100 shadow-2xl p-8 md:p-12 mb-10 overflow-hidden">
-                            <h2 className="text-base md:text-lg font-black text-forest uppercase tracking-[0.4em] mb-12 text-center py-4 bg-forest/5 rounded-2xl border border-forest/10 max-w-md mx-auto shadow-inner">
+                            <h2 className="text-base md:text-lg font-black text-lime-green uppercase tracking-[0.4em] mb-12 text-center py-4 bg-lime-green/5 rounded-2xl border border-lime-green/10 max-w-md mx-auto">
                                 Pantry Essentials
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                                 {RECIPE_DATA.ingredients.map((group, idx) => (
                                     <div key={idx}>
-                                        <h3 className="text-[10px] font-black text-terracotta uppercase tracking-[0.2em] mb-6 border-l-4 border-terracotta pl-4 leading-none">{group.category}</h3>
+                                        <h3 className="text-[10px] font-black text-bright-orange uppercase tracking-[0.2em] mb-6 border-l-4 border-bright-orange pl-4 leading-none">{group.category}</h3>
                                         <ul className="space-y-3">
                                             {group.items.map((item, i) => (
                                                 <li 
@@ -255,12 +259,12 @@
                                                     onClick={() => toggleIngredient(item.name)}
                                                     className="flex items-start gap-3 text-sm border-b border-slate-50 pb-2 cursor-pointer group"
                                                 >
-                                                    <div className={`mt-0.5 w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${checkedIngredients.has(item.name) ? 'bg-forest border-forest' : 'border-slate-200 group-hover:border-forest/50'}`}>
+                                                    <div className={`mt-0.5 w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${checkedIngredients.has(item.name) ? 'bg-lime-green border-lime-green' : 'border-slate-200 group-hover:border-lime-green/50'}`}>
                                                         {checkedIngredients.has(item.name) && <span className="text-white text-[10px] font-bold">✓</span>}
                                                     </div>
                                                     <div className="flex-1 flex justify-between items-center">
-                                                        <span className={`font-bold transition-all ${checkedIngredients.has(item.name) ? 'text-slate-300 line-through' : 'text-slate-500'}`}>{item.name}</span>
-                                                        <span className={`font-black transition-all ${checkedIngredients.has(item.name) ? 'text-slate-300 line-through' : 'text-forest'}`}>{item.qty}</span>
+                                                        <span className={`font-bold transition-all ${checkedIngredients.has(item.name) ? 'text-slate-300 line-through' : 'text-slate-700'}`}>{item.name}</span>
+                                                        <span className={`font-black transition-all ${checkedIngredients.has(item.name) ? 'text-slate-300 line-through' : 'text-lime-green'}`}>{item.qty}</span>
                                                     </div>
                                                 </li>
                                             ))}
@@ -270,140 +274,140 @@
                             </div>
                         </section>
 
-                        {/* Progress Bar */}
-                        <div className="mb-10 px-1">
-                            <div className="flex justify-between text-[11px] font-black text-forest uppercase tracking-widest mb-3">
-                                <span>Step Progress</span>
-                                <span className="text-terracotta">{progressPercent}%</span>
-                            </div>
-                            <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-                                <div style={{ width: `${progressPercent}%` }} className="h-full bg-forest transition-all duration-1000"></div>
-                            </div>
-                        </div>
+                        <section className="bg-white rounded-[2rem] border border-slate-100 shadow-2xl p-8 md:p-12 mb-10">
+                            <h2 className="text-base md:text-lg font-black text-bright-orange uppercase tracking-[0.4em] mb-8 text-center py-4 bg-bright-orange/5 rounded-2xl border border-bright-orange/10 max-w-md mx-auto">
+                                Cooking Process
+                            </h2>
 
-                        {/* Step Navigation Tabs */}
-                        <div className="flex flex-wrap gap-2 mb-8">
-                            {RECIPE_DATA.steps.map(step => {
-                                const isDone = step.tasks.every(t => completedTasks.has(t.id));
-                                const isActive = activeStep === step.id;
-                                return (
-                                    <button 
-                                        key={step.id} 
-                                        onClick={() => setActiveStep(step.id)}
-                                        className={`px-6 py-3 rounded-full text-[9px] font-black uppercase tracking-widest transition-all border-2 ${isActive ? 'bg-terracotta border-terracotta text-white shadow-lg' : isDone ? 'bg-forest border-forest text-white' : 'bg-white border-slate-100 text-slate-400'}`}
-                                    >
-                                        0{step.id}. {step.label}
-                                    </button>
-                                );
-                            })}
-                        </div>
-
-                        {/* Timer Box */}
-                        <div className="bg-white rounded-[1.5rem] py-4 md:py-6 px-6 border-2 border-forest text-center mb-6 shadow-sm">
-                            <span className="text-4xl md:text-5xl font-black text-forest tabular-nums tracking-tighter leading-none block">
-                                {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}
-                            </span>
-                            <p className="text-[8px] font-black text-terracotta uppercase tracking-[0.3em] mt-2">
-                                {activeTaskId ? `${activeTaskName} RUNNING...` : 'Tap a task card below to start'}
-                            </p>
-                            {activeTaskId && (
-                                <div className="flex justify-center gap-3 mt-4">
-                                    <button 
-                                        onClick={() => setIsTimerRunning(!isTimerRunning)}
-                                        className="bg-forest text-white px-5 py-2 rounded-lg font-black text-[8px] uppercase tracking-widest flex items-center gap-2 active:scale-95 transition-all outline-none"
-                                    >
-                                        {isTimerRunning ? "Pause" : "Resume"}
-                                    </button>
+                            <div className="mb-10 px-1">
+                                <div className="flex justify-between text-[11px] font-black text-lime-green uppercase tracking-widest mb-3">
+                                    <span>Recipe Completion</span>
+                                    <span className="text-bright-orange">{progressPercent}%</span>
                                 </div>
-                            )}
-                        </div>
+                                <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                    <div style={{ width: `${progressPercent}%` }} className="h-full bg-lime-green transition-all duration-1000"></div>
+                                </div>
+                            </div>
 
-                        {/* Tasks List */}
-                        <AnimatePresence mode="wait">
-                            <motion.div 
-                                key={activeStep}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.4, ease: "easeOut" }}
-                                className="space-y-4 mb-2"
-                            >
-                                {currentStepData.tasks.map(task => {
-                                    const isDone = completedTasks.has(task.id);
-                                    const isActive = activeTaskId === task.id;
+                            <div className="flex flex-wrap gap-2 mb-8 justify-center">
+                                {RECIPE_DATA.steps.map(step => {
+                                    const isDone = step.tasks.every(t => completedTasks.has(t.id));
+                                    const isActive = activeStep === step.id;
                                     return (
-                                        <div 
-                                            key={task.id} 
-                                            onClick={() => handleTaskClick(task)}
-                                            className={`p-6 md:p-8 rounded-[2rem] border-l-[8px] transition-all cursor-pointer shadow-sm ${isDone ? 'bg-[#F1F8E9] border-forest' : isActive ? 'bg-white border-forest scale-[1.01] shadow-xl' : 'bg-white border-terracotta hover:border-forest/20'}`}
+                                        <button 
+                                            key={step.id} 
+                                            onClick={() => setActiveStep(step.id)}
+                                            className={`px-6 py-3 rounded-full text-[9px] font-black uppercase tracking-widest transition-all border-2 ${isActive ? 'bg-bright-orange border-bright-orange text-white shadow-lg' : isDone ? 'bg-lime-green border-lime-green text-white' : 'bg-white border-slate-100 text-slate-400'}`}
                                         >
-                                            <div className="flex justify-between items-center mb-4">
-                                                <h4 className={`text-lg font-black tracking-tight ${isDone ? 'text-slate-400' : 'text-slate-800'}`}>{task.name}</h4>
-                                                <span className="text-[9px] font-black text-forest uppercase bg-forest/5 px-3 py-1 rounded-full">{isDone ? "Done" : task.timeLabel}</span>
-                                            </div>
-                                            <ul className="space-y-2">
-                                                {task.details.map((detail, idx) => (
-                                                    <li key={idx} className="text-[14px] text-slate-600 font-medium flex gap-3">
-                                                        <span className="text-terracotta">•</span>
-                                                        <span>{detail}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                            0{step.id}. {step.label}
+                                        </button>
                                     );
                                 })}
-                            </motion.div>
-                        </AnimatePresence>
-
-                        {/* Step Navigation Buttons */}
-                        <div className="flex justify-between items-center mt-4 pt-6 border-t border-slate-100 mb-8">
-                            <div>
-                                {activeStep > 1 && (
-                                    <button 
-                                        onClick={() => { setActiveStep(activeStep - 1); window.scrollTo({ top: 400, behavior: 'smooth' }); }}
-                                        className="min-w-[140px] bg-terracotta text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-terracotta/20 hover:scale-105 active:scale-95 transition-all outline-none"
-                                    >
-                                        ← BACK
-                                    </button>
-                                )}
                             </div>
-                            
-                            <div>
-                                {activeStep < RECIPE_DATA.steps.length ? (
-                                    <button 
-                                        onClick={() => { setActiveStep(activeStep + 1); window.scrollTo({ top: 400, behavior: 'smooth' }); }}
-                                        className="min-w-[140px] bg-terracotta text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-terracotta/20 hover:scale-105 active:scale-95 transition-all outline-none"
-                                    >
-                                        GO TO {RECIPE_DATA.steps.find(s => s.id === activeStep + 1).label} →
-                                    </button>
-                                ) : (
-                                    <div className="flex items-center gap-2 text-forest font-black text-[10px] uppercase tracking-widest bg-forest/10 px-6 py-3 rounded-xl border border-forest/20 animate-pulse">
-                                        ✨ RECIPE COMPLETE
+
+                            <div className="bg-white rounded-[1.5rem] py-6 px-6 border-2 border-lime-green text-center mb-10 shadow-sm max-w-md mx-auto">
+                                <span className="text-5xl font-black text-lime-green tabular-nums tracking-tighter leading-none block">
+                                    {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}
+                                </span>
+                                <p className="text-[8px] font-black text-bright-orange uppercase tracking-[0.3em] mt-2">
+                                    {activeTaskId ? `${activeTaskName} RUNNING...` : 'Tap a task to start timer'}
+                                </p>
+                                {activeTaskId && (
+                                    <div className="flex justify-center gap-3 mt-4">
+                                        <button 
+                                            onClick={() => setIsTimerRunning(!isTimerRunning)}
+                                            className="bg-lime-green text-white px-5 py-2 rounded-lg font-black text-[8px] uppercase tracking-widest flex items-center gap-2 active:scale-95 transition-all outline-none"
+                                        >
+                                            {isTimerRunning ? "Pause" : "Resume"}
+                                        </button>
                                     </div>
                                 )}
                             </div>
-                        </div>
 
-                        {/* Chef Secrets */}
-                        <div className="mt-10 bg-[#FAF9F2] p-8 rounded-[2rem] border-2 border-dashed border-forest/20 relative overflow-hidden shadow-inner">
+                            <AnimatePresence mode="wait">
+                                <motion.div 
+                                    key={activeStep}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.4, ease: "easeOut" }}
+                                    className="space-y-4 mb-8"
+                                >
+                                    {currentStepData.tasks.map(task => {
+                                        const isDone = completedTasks.has(task.id);
+                                        const isActive = activeTaskId === task.id;
+                                        return (
+                                            <div 
+                                                key={task.id} 
+                                                onClick={() => handleTaskClick(task)}
+                                                className={`p-6 md:p-8 rounded-[2rem] border-l-[8px] transition-all cursor-pointer shadow-sm ${isDone ? 'bg-[#F1F8E9] border-lime-green' : isActive ? 'bg-white border-lime-green scale-[1.01] shadow-xl' : 'bg-white border-bright-orange hover:border-lime-green/20'}`}
+                                            >
+                                                <div className="flex justify-between items-center mb-4">
+                                                    <h4 className={`text-lg font-black tracking-tight ${isDone ? 'text-slate-400' : 'text-slate-800'}`}>{task.name}</h4>
+                                                    <span className="text-[9px] font-black text-lime-green uppercase bg-lime-green/5 px-3 py-1 rounded-full">{isDone ? "Done" : task.timeLabel}</span>
+                                                </div>
+                                                <ul className="space-y-2">
+                                                    {task.details.map((detail, idx) => (
+                                                        <li key={idx} className={`text-[14px] flex gap-3 font-bold transition-all ${isDone ? 'text-slate-300' : 'text-slate-700'}`}>
+                                                            <span className="text-bright-orange">•</span>
+                                                            <span>{detail}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        );
+                                    })}
+                                </motion.div>
+                            </AnimatePresence>
+
+                            <div className="flex justify-between items-center pt-6 border-t border-slate-100">
+                                <div>
+                                    {activeStep > 1 && (
+                                        <button 
+                                            onClick={() => { setActiveStep(activeStep - 1); }}
+                                            className="min-w-[120px] bg-slate-100 border border-slate-300 text-slate-700 px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-slate-200 transition-all outline-none active:scale-95"
+                                        >
+                                            ← BACK
+                                        </button>
+                                    )}
+                                </div>
+                                
+                                <div>
+                                    {activeStep < RECIPE_DATA.steps.length ? (
+                                        <button 
+                                            onClick={() => { setActiveStep(activeStep + 1); }}
+                                            className="min-w-[140px] bg-bright-orange text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-bright-orange/20 hover:scale-105 active:scale-95 transition-all outline-none"
+                                        >
+                                            NEXT STEP →
+                                        </button>
+                                    ) : (
+                                        <div className="flex items-center gap-2 text-lime-green font-black text-[10px] uppercase tracking-widest bg-lime-green/10 px-6 py-3 rounded-xl border border-lime-green/20">
+                                            ✨ RECIPE READY
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </section>
+
+                        <div className="bg-[#FAF9F2] p-8 rounded-[2rem] border-2 border-dashed border-lime-green/20 relative overflow-hidden shadow-inner">
                             <div className="relative z-10">
-                                <h4 className="font-display text-xl font-black text-forest mb-6 flex items-center gap-3">
-                                    <svg className="w-6 h-6 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <h4 className="font-display text-xl font-black text-lime-green mb-6 flex items-center gap-3">
+                                    <svg className="w-6 h-6 text-bright-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
                                     </svg>
                                     CHEF'S SECRETS
                                 </h4>
                                 <ul className="space-y-4">
-                                    <li className="text-[13px] text-slate-500 font-bold flex gap-4">
-                                        <span className="text-terracotta">•</span>
+                                    <li className="text-[13px] text-slate-800 font-bold flex gap-4">
+                                        <span className="text-bright-orange">•</span>
                                         Salt prevents dal from softening—always add it at the very end after whistling.
                                     </li>
-                                    <li className="text-[13px] text-slate-500 font-bold flex gap-4">
-                                        <span className="text-terracotta">•</span>
-                                        Sautéing garlic until nutty golden (not burnt) is the key to that smoky aroma.
+                                    <li className="text-[13px] text-slate-800 font-bold flex gap-4">
+                                        <span className="text-bright-orange">•</span>
+                                        Sautéing garlic until nutty golden is the key to that smoky aroma.
                                     </li>
-                                    <li className="text-[13px] text-slate-500 font-bold flex gap-4">
-                                        <span className="text-terracotta">•</span>
+                                    <li className="text-[13px] text-slate-800 font-bold flex gap-4">
+                                        <span className="text-bright-orange">•</span>
                                         Covering the dal immediately after adding tadka locks in the deep flavor.
                                     </li>
                                 </ul>
@@ -414,7 +418,7 @@
                             <div className="flex items-center justify-center mb-6">
                                 <Logo />
                             </div>
-                            <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em]">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
+                            <p className="text-[11px] font-black text-slate-300 uppercase tracking-[0.5em] font-semibold">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
                         </footer>
 
                         <button 
