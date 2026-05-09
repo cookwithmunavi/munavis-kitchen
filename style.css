@@ -1,0 +1,297 @@
+/* GLOBAL THEME: CookWithMunavi */
+
+:root {
+    --bright-orange: #FF9800; 
+    --lime-green: #68A306;    
+    --pure-white: #ffffff;
+    --warm-bg: #FAF9F2;
+    --text-dark: #333333;
+    --text-muted: #555555;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background-color: var(--pure-white); 
+    color: var(--text-dark); 
+    overflow-x: hidden;
+    line-height: 1.3;
+}
+
+/* 🧼 LOGO SECTION */
+.navbar {
+    padding: 25px 6% 0;
+    width: 100%; 
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.logo { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.15rem; 
+    font-weight: 900; 
+    color: var(--lime-green); 
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo span { 
+    font-weight: 700; 
+    font-style: italic; 
+    color: var(--bright-orange); 
+    margin-left: 2px;
+}
+
+.logo-line {
+    width: 60px; 
+    height: 3px; 
+    border-radius: 50px;
+    background: linear-gradient(to right, var(--lime-green), var(--bright-orange));
+    margin-top: 4px;
+}
+
+/* 🥘 HERO SECTION */
+.hero { 
+    display: flex; 
+    flex-direction: row; 
+    height: 380px; 
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-text { 
+    flex: 1.1; 
+    padding-left: 6%; 
+    padding-right: 5px; 
+    margin-top: 40px;
+    z-index: 10;
+}
+
+.hero-title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.2rem; 
+    font-weight: 900;
+    color: var(--lime-green); 
+    margin-bottom: 8px; 
+    line-height: 1.1;
+}
+
+.hero-title span { 
+    font-style: italic; 
+    font-weight: 700; 
+    color: var(--bright-orange); 
+}
+
+.hero-subtitle { 
+    font-size: 0.65rem; 
+    color: var(--text-muted); 
+    margin-bottom: 15px; 
+    max-width: 130px;
+}
+
+.btn-main {
+    background: var(--bright-orange); 
+    color: white; 
+    padding: 8px 18px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: 800; 
+    display: inline-block; 
+    text-transform: uppercase; 
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
+    transition: 0.4s ease;
+}
+
+.btn-main:hover { 
+    transform: scale(1.05); 
+    background: #f57c00; 
+}
+
+.hero-visual { 
+    flex: 1.6; 
+    height: 100%; 
+    background: var(--lime-green); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+}
+
+.circle-frame {
+    width: 150px; 
+    height: 150px;
+    background: white;
+    border-radius: 50%; 
+    overflow: hidden; 
+    border: 4px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.circle-frame img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* 💻 DESKTOP RESTORE */
+@media (min-width: 992px) {
+    .navbar { padding: 40px 8%; }
+    .logo { font-size: 1.6rem; }
+    .logo-line { width: 100px; height: 5px; }
+    .hero { height: 100vh; }
+    .hero-text { flex: 1; padding-left: 8%; margin-top: 0; }
+    .hero-title { font-size: 4rem; margin-bottom: 20px; }
+    .hero-subtitle { font-size: 1.1rem; max-width: 450px; margin-bottom: 40px; }
+    .btn-main { padding: 18px 45px; font-size: 12px; }
+    .hero-visual { flex: 1.3; }
+    .circle-frame { width: 500px; height: 500px; border-width: 15px; }
+}
+
+/* 🥗 RECIPES SECTION */
+.recipes { 
+    padding: 80px 6%; 
+    background: var(--warm-bg); 
+    text-align: center; 
+}
+
+.section-title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.8rem; 
+    color: var(--lime-green); 
+    margin-bottom: 40px; 
+}
+
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* ✨ REFINED SLOW INTERACTIVE CARD */
+.card { 
+    background: white; 
+    border-radius: 24px; 
+    padding: 20px; 
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 2px solid transparent;
+}
+
+.card:hover { 
+    transform: translateY(-12px); 
+    box-shadow: 0 30px 60px rgba(255, 152, 0, 0.15); 
+    border-color: var(--bright-orange);
+}
+
+.card-img { 
+    width: 100%; 
+    height: 220px; 
+    border-radius: 14px; 
+    overflow: hidden; 
+    margin-bottom: 15px; 
+}
+
+.card-img img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 1.2s ease; 
+}
+
+.card:hover .card-img img { 
+    transform: scale(1.1); 
+}
+
+.card h3 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.5rem; 
+    color: var(--lime-green); 
+    transition: color 0.6s ease; 
+}
+
+.card:hover h3 { 
+    color: var(--bright-orange); 
+}
+
+.card-meta {
+    color: #888; 
+    font-size: 12px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    margin-top: 8px; 
+    letter-spacing: 1px;
+}
+
+/* 🔝 SCROLL TO TOP */
+.scroll-top { 
+    position: fixed; 
+    bottom: 25px; 
+    right: 25px; 
+    width: 45px; 
+    height: 45px; 
+    background: var(--lime-green); 
+    color: white; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-decoration: none; 
+    font-size: 20px; 
+    z-index: 1000; 
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
+    cursor: pointer; 
+    border: none; 
+    transition: 0.4s; 
+}
+
+.scroll-top:hover { 
+    transform: scale(1.1); 
+    background: var(--bright-orange); 
+}
+
+/* 🦶 READABLE FOOTER */
+footer { 
+    padding: 80px 8% 40px; 
+    text-align: center; 
+    border-top: 1px solid #eee; 
+    background: #fff; 
+}
+
+.footer-logo { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.5rem; 
+    font-weight: 900; 
+    color: var(--lime-green); 
+    text-decoration: none; 
+    display: inline-block; 
+    margin-bottom: 15px; 
+}
+
+.footer-logo span { 
+    color: var(--bright-orange); 
+    font-style: italic; 
+}
+
+.copyright { 
+    font-size: 11px; 
+    color: var(--text-muted); 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-weight: 600;
+}
