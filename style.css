@@ -295,3 +295,187 @@ footer {
     letter-spacing: 2px; 
     font-weight: 600;
 }
+
+/* ========================================== */
+/* 💬 CHEFBOT INTERACTION STYLES              */
+/* ========================================== */
+
+#chat-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 90px; /* Shifted left so it does not block your scroll-top button */
+    background-color: var(--bright-orange);
+    color: var(--pure-white);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+    z-index: 9999;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+#chat-toggle-btn:hover {
+    transform: scale(1.05);
+    background-color: #f57c00;
+}
+
+#chef-chat-window {
+    position: fixed;
+    bottom: 95px;
+    right: 30px;
+    width: 360px;
+    height: 500px;
+    background: var(--pure-white);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Outfit', sans-serif;
+    z-index: 9999;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.chat-hidden { 
+    display: none !important; 
+}
+
+.chat-header { 
+    background: var(--lime-green); 
+    color: var(--pure-white); 
+    padding: 18px 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.chat-header-title h3 { 
+    margin: 0; 
+    font-size: 16px; 
+    font-weight: 800; 
+    letter-spacing: 0.5px;
+}
+
+.chat-header-title span { 
+    font-size: 11px; 
+    opacity: 0.9; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-weight: 600;
+}
+
+.chat-close { 
+    background: none; 
+    border: none; 
+    color: var(--pure-white); 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: opacity 0.2s;
+}
+
+.chat-close:hover {
+    opacity: 0.7;
+}
+
+.chat-messages { 
+    flex: 1; 
+    padding: 20px; 
+    overflow-y: auto; 
+    background: var(--warm-bg); 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.message { 
+    margin-bottom: 14px; 
+    padding: 12px 16px; 
+    border-radius: 18px; 
+    max-width: 85%; 
+    font-size: 13px; 
+    line-height: 1.4; 
+}
+
+.bot-msg { 
+    background: #eef2e6; /* Soft green tint to match layout */
+    color: var(--text-dark); 
+    align-self: flex-start; 
+    border-top-left-radius: 4px; 
+}
+
+.user-msg { 
+    background: var(--bright-orange); 
+    color: var(--pure-white); 
+    align-self: flex-end; 
+    border-top-right-radius: 4px; 
+}
+
+.suggestion-chips { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    margin-top: 12px; 
+    width: 100%; 
+}
+
+.suggestion-chips button { 
+    background: var(--pure-white); 
+    border: 1px solid var(--bright-orange); 
+    color: var(--bright-orange); 
+    padding: 10px 14px; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px; 
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.suggestion-chips button:hover { 
+    background: #fff9f2; 
+    transform: translateX(4px);
+}
+
+.chat-footer { 
+    padding: 14px 20px; 
+    display: flex; 
+    background: var(--pure-white); 
+    border-top: 1px solid #eee; 
+}
+
+.chat-footer input { 
+    flex: 1; 
+    padding: 10px 16px; 
+    border: 1px solid #ddd; 
+    border-radius: 50px; 
+    outline: none; 
+    font-family: 'Outfit', sans-serif; 
+    font-size: 13px; 
+    background: #fafafa;
+}
+
+.chat-footer input:focus {
+    border-color: var(--lime-green);
+}
+
+.chat-send-btn { 
+    background: var(--lime-green); 
+    color: var(--pure-white); 
+    border: none; 
+    padding: 0 20px; 
+    margin-left: 8px; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-family: 'Outfit', sans-serif; 
+    font-weight: 600; 
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.chat-send-btn:hover {
+    background: #578a05;
+}
