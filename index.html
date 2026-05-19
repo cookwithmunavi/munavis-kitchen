@@ -58,6 +58,42 @@
         <p class="copyright">© 2026 The Modern Kitchen | Built for Bold Beginners</p>
     </footer>
 
+    <!-- ========================================== -->
+    <!-- CHEFBOT FRONTEND WORKSPACE -->
+    <!-- ========================================== -->
+
+    <!-- Floating Trigger Button -->
+    <button id="chat-toggle-btn" onclick="toggleChat()">💬 Ask ChefBot</button>
+
+    <!-- Chat Wrapper Component (Configured for Home Mode) -->
+    <div id="chef-chat-window" class="chat-hidden" data-mode="home" data-recipe="">
+        <div class="chat-header">
+            <div class="chat-header-title">
+                <h3>ChefBot</h3>
+                <span>Kitchen Planner</span>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">✖</button>
+        </div>
+        
+        <div id="chat-box" class="chat-messages">
+            <div class="message bot-msg">
+                Welcome to CookWithMunavi! 🍳 I am your personal kitchen mentor. Tell me what ingredients you have in your fridge, or pick a suggestion below to get started:
+            </div>
+            
+            <!-- Contextual Quick-Click Options -->
+            <div class="suggestion-chips">
+                <button onclick="sendSuggestion('What can I make with lentils and spinach?')">🍅 Lentils & Spinach</button>
+                <button onclick="sendSuggestion('Show me an easy 20-minute beginner recipe')">⏱️ Quick 20-Min Meal</button>
+                <button onclick="sendSuggestion('What kitchen tools do I need as a complete beginner?')">🔪 Essential Tools</button>
+            </div>
+        </div>
+        
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="Type ingredients or ask a question..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" class="chat-send-btn">Send</button>
+        </div>
+    </div>
+    
     <script>
         function slowScroll(targetId) {
             const target = document.getElementById(targetId);
