@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/chefbot",
+      "destination": "/api/chefbot.js"
+    }
+  ]
+}
